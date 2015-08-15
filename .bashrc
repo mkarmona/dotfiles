@@ -58,20 +58,13 @@ fi
 
 if [ "$color_prompt" = yes ]; then
 #    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[33m\]\u@\h\[\033[00m\]:\[\033[36m\]\w\[\033[00m\] > '
+    #PS1='${debian_chroot:+($debian_chroot)}\[\033[33m\]\u@\h\[\033[00m\]:\[\033[36m\]\w\[\033[00m\] > '
+    PS1=$'\[\033[01;38;5;4m\][ \[\033[01;38;5;5m\]\j\[\033[01;38;5;13m\] \w \[\033[01;38;5;4m\]]\[\033[00m\] \xe2\x86\x92 '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
 
 dircolors=$HOME/.dircolors-$(tput colors)
 # enable color support of ls and also add handy aliases
@@ -112,12 +105,14 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
+nim_path="${HOME}/src/github.com/Araq/Nim"
+nimble_path="${HOME}/.nimble"
 #alias vim='TERM=xterm-256color vim'
 alias 7up='svn up'
-export EDITOR='gvim -f'
-#export EDITOR='vim'
+#export EDITOR='gvim -f'
+export EDITOR='vim'
 export PAGER="less"
-export PATH=$PATH:~/bin
+export PATH=$PATH:~/bin:$nim_path/bin:$nimble_path/bin
 
 #source /usr/local/bin/virtualenvwrapper.sh
 
@@ -125,3 +120,5 @@ if [ -f ~/.pythonrc ]; then
     export PYTHONSTARTUP=~/.pythonrc
 fi
 
+export GOPATH=~/src/go
+export PATH=$PATH:$GOPATH/bin

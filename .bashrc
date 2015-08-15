@@ -2,6 +2,16 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# shorten a path in $1 to max of $2 characters, prepending a "..."
+function __shortpath {
+    if [[ ${#1} -gt $2 ]]; then
+        len=$2+3
+        echo "..."${1: -$len}
+    else
+        echo $1
+    fi
+}
+
 if [ -e /lib/terminfo/x/xterm-256color ]; then
 	export TERM="xterm-256color"
 else
@@ -59,7 +69,7 @@ fi
 if [ "$color_prompt" = yes ]; then
 #    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[33m\]\u@\h\[\033[00m\]:\[\033[36m\]\w\[\033[00m\] > '
-    PS1=$'\[\033[01;38;5;4m\][ \[\033[01;38;5;5m\]\j\[\033[01;38;5;13m\] \w \[\033[01;38;5;4m\]]\[\033[00m\] \xe2\x86\x92 '
+    PS1=$'\[\033[01;38;5;4m\][ \[\033[01;38;5;5m\]\j\[\033[01;38;5;13m\] $(__shortpath "\w" 40) \[\033[01;38;5;4m\]]\[\033[00m\] \xe2\x86\x92 '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi

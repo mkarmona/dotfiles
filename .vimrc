@@ -32,7 +32,7 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'rstacruz/sparkup'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'mileszs/ack.vim'
-NeoBundle 'bitbucket:mkarmona/fantom.vim'
+NeoBundle 'mkarmona/fantom.vim'
 NeoBundle 'justmao945/vim-clang'
 NeoBundle 'rhysd/vim-clang-format'
 NeoBundle 'SirVer/ultisnips'
@@ -112,6 +112,13 @@ set autoread "para que recargue el fichero en caso de cambiar
 set laststatus=2
 set noshowmode
 
+if &term =~ "xterm"
+  " blinking vertical bar
+  let &t_SI .= "\<Esc>[5 q"
+  " blinking block
+  let &t_EI .= "\<Esc>[1 q"
+endif
+
 set lcs=extends:$,tab:/.,eol:$
 function! HighlightSearch()
   if &hls
@@ -138,7 +145,7 @@ set list
 let g:gruvbox_bold = 1
 let g:gruvbox_italic = 0
 " soft medium hard
-let g:gruvbox_contrast_dark = "soft"
+let g:gruvbox_contrast_dark = "medium"
 let g:gruvbox_contrast_light = "medium"
 let g:gruvbox_italicize_comments = 0
 " airline 
@@ -402,27 +409,27 @@ inoremap <C-Up> <Esc>:m-2<CR>==gi
 vnoremap <C-Down> :m'>+<CR>gv=gv
 vnoremap <C-Up> :m-2<CR>gv=gv
 
-"" unite plugin
-"let g:unite_data_directory='~/.vim/.cache/unite'
-"let g:unite_source_history_yank_enable=1
-"let g:unite_source_rec_max_cache_files=0
-"let g:unite_source_file_rec_max_cache_files = 0
+" unite plugin
+let g:unite_data_directory='~/.vim/.cache/unite'
+let g:unite_source_history_yank_enable=1
+let g:unite_source_rec_max_cache_files=0
+let g:unite_source_file_rec_max_cache_files = 0
 
-"call unite#filters#matcher_default#use(['matcher_fuzzy'])
-"call unite#filters#sorter_default#use(['sorter_rank'])
-"call unite#custom#source('line,outline','matchers','matcher_fuzzy')
-"call unite#custom#source('file_mru,file_rec,file_rec/async,grepocate','max_candidates', 0)
-"call unite#custom#profile('default', 'context', {
-"\   'start_insert': 1,
-"\	'direction': 'botright',
-"\	'prompt_direction': 'top',
-"\	'auto_resize': 0,
-"\	'no_resize': 1,
-"\	'no_split': 1,
-"\	'toggle': 1,
-"\	'max_candidates': 500,
-"\	'prompt': '> ',
-"\ })
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+call unite#custom#source('line,outline','matchers','matcher_fuzzy')
+call unite#custom#source('file_mru,file_rec,file_rec/async,grepocate','max_candidates', 0)
+call unite#custom#profile('default', 'context', {
+\   'start_insert': 1,
+\	'direction': 'botright',
+\	'prompt_direction': 'top',
+\	'auto_resize': 0,
+\	'no_resize': 1,
+\	'no_split': 1,
+\	'toggle': 1,
+\	'max_candidates': 500,
+\	'prompt': '> ',
+\ })
 
 nmap <space> [unite]
 nnoremap [unite] <nop>
@@ -431,8 +438,8 @@ nnoremap [unite] <nop>
 "nnoremap <silent> <space>s :Unite -quick-match buffer<cr>
 
 " TODO MIRAR COMO LLAMAR AL VIMPROC PERO DESDE EL PATH ACTUAL
-nnoremap <silent> [unite]<space> :<C-u>Unite -buffer-name=mixed -start-insert buffer file_mru -input= -resume file_rec:! bookmark<cr><c-u>
-nnoremap <silent> [unite]f :<C-u>Unite -buffer-name=files -start-insert buffer -input= -resume file_rec:!<cr><c-u>
+nnoremap <silent> [unite]<space> :<C-u>Unite -buffer-name=mixed -start-insert buffer file_mru -input= -resume file_rec/async:! bookmark<cr><c-u>
+nnoremap <silent> [unite]f :<C-u>Unite -buffer-name=files -start-insert buffer -input= -resume file_rec/async:!<cr><c-u>
 nnoremap <silent> [unite]c :<C-u>Unite -buffer-name=files -start-insert buffer -input= -resume file:!<cr><c-u>
 nnoremap <silent> [unite]b :<C-u>Unite -buffer-name=buffers -start-insert buffer<cr><c-u>
 nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=recent -start-insert buffer file_mru<cr><c-u>

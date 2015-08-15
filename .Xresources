@@ -30,8 +30,8 @@ URxvt*antialias: true
 URxvt*rgba: rgb
 URxvt*hinting: true
 URxvt*hintstyle: hintfull
-URxvt*font: xft:DejaVu Sans Mono:pixelsize=13
-URxvt*boldfont: xft:DejaVu Sans Mono Bold:pixelsize=13
+URxvt*font: xft:DejaVu Sans Mono:pixelsize=13:spacing=mono
+URxvt*boldfont: xft:DejaVu Sans Mono Bold:pixelsize=13:spacing=mono
 
 ! Set window title string, the default title is the command-line specified
 ! URxvt*title: string

@@ -1,0 +1,14 @@
+#feat:
+#fix:
+#docs:
+#style (formatting, missing semi colons, etc; no code change):
+#refactor:
+#test (adding missing tests, refactoring tests; no production code change):
+#chore (updating grunt tasks etc; no production code change):
+#wip(wip on feature branch)
+
+#body description
+
+#References #1, #2.
+#Fix #1
+#Closes #1 and #2

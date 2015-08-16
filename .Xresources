@@ -41,10 +41,157 @@
 !*color7:      #eeeeee
 !*color15:     #eeeeee
 
+
+! solarized dark
+!#define S_base03        #002b36
+!#define S_base02        #073642
+!#define S_base01        #586e75
+!#define S_base00        #657b83
+!#define S_base0         #839496
+!#define S_base1         #93a1a1
+!#define S_base2         #eee8d5
+!#define S_base3         #fdf6e3
+!
+!*background:            S_base03
+!*foreground:            S_base0
+!*fadeColor:             S_base03
+!*cursorColor:           S_base1
+!*pointerColorBackground:S_base01
+!*pointerColorForeground:S_base1
+!
+!#define S_yellow        #b58900
+!#define S_orange        #cb4b16
+!#define S_red           #dc322f
+!#define S_magenta       #d33682
+!#define S_violet        #6c71c4
+!#define S_blue          #268bd2
+!#define S_cyan          #2aa198
+!#define S_green         #859900
+!
+!!! black dark/light
+!*color0:                S_base02
+!*color8:                S_base03
+!
+!!! red dark/light
+!*color1:                S_red
+!*color9:                S_orange
+!
+!!! green dark/light
+!*color2:                S_green
+!*color10:               S_base01
+!
+!!! yellow dark/light
+!*color3:                S_yellow
+!*color11:               S_base00
+!
+!!! blue dark/light
+!*color4:                S_blue
+!*color12:               S_base0
+!
+!!! magenta dark/light
+!*color5:                S_magenta
+!*color13:               S_violet
+!
+!!! cyan dark/light
+!*color6:                S_cyan
+!*color14:               S_base1
+!
+!!! white dark/light
+!*color7:                S_base2
+!*color15:               S_base3
+
+! solarized light
+!#define S_base03        #002b36
+!#define S_base02        #073642
+!#define S_base01        #586e75
+!#define S_base00        #657b83
+!#define S_base0         #839496
+!#define S_base1         #93a1a1
+!#define S_base2         #eee8d5
+!#define S_base3         #fdf6e3
+!
+!*background:            S_base3
+!*foreground:            S_base00
+!*fadeColor:             S_base3
+!*cursorColor:           S_base01
+!*pointerColorBackground:S_base1
+!*pointerColorForeground:S_base01
+!
+!#define S_yellow        #b58900
+!#define S_orange        #cb4b16
+!#define S_red           #dc322f
+!#define S_magenta       #d33682
+!#define S_violet        #6c71c4
+!#define S_blue          #268bd2
+!#define S_cyan          #2aa198
+!#define S_green         #859900
+!
+!!! black dark/light
+!*color0:                S_base02
+!*color8:                S_base03
+!
+!!! red dark/light
+!*color1:                S_red
+!*color9:                S_orange
+!
+!!! green dark/light
+!*color2:                S_green
+!*color10:               S_base01
+!
+!!! yellow dark/light
+!*color3:                S_yellow
+!*color11:               S_base00
+!
+!!! blue dark/light
+!*color4:                S_blue
+!*color12:               S_base0
+!
+!!! magenta dark/light
+!*color5:                S_magenta
+!*color13:               S_violet
+!
+!!! cyan dark/light
+!*color6:                S_cyan
+!*color14:               S_base1
+!
+!!! white dark/light
+!*color7:                S_base2
+!*color15:               S_base3
+
+*background: #111314
+*foreground: #B7BBB7
+! black
+*color0: #2C2F33
+*color8: #4B5056
+! red
+*color1: #B04C50
+*color9: #B04C50
+! green
+*color2: #919652
+*color10: #94985B
+! yellow
+*color3: #E2995C
+*color11: #E2995C
+! blue
+*color4: #66899D
+*color12: #66899D
+! magenta
+*color5: #8D6494
+*color13: #8D6494
+! cyan
+*color6: #527C77
+*color14: #527C77
+! white
+*color7: #606360
+*color15: #DDE3DC
 URxvt*depth: 32
 URxvt*buffered: true
 URxvt*geometry: 92x40
 URxvt*scrollBar: false
+URxvt*scrollstyle: plain
+URxvt*scrollBar_right: true
+!URxvt*borderColor: #000030
+!URxvt*internalBorder: 1
 URxvt*visualBell: false
 URxvt*loginShell: true
 URxvt*saveLines: 4096
@@ -54,8 +201,10 @@ URxvt*antialias: true
 URxvt*rgba: rgb
 URxvt*hinting: true
 URxvt*hintstyle: hintfull
-URxvt*font: xft:DejaVu Sans Mono:pixelsize=13:spacing=mono
-URxvt*boldfont: xft:DejaVu Sans Mono Bold:pixelsize=13:spacing=mono
+URxvt*font: xft:DejaVu Sans Mono:pixelsize=14:spacing=mono
+URxvt*boldfont: xft:DejaVu Sans Mono Bold:pixelsize=14:spacing=mono
+URxvt*hold: true
+URxvt*termName: rxvt-unicode-256color
 
 URxvt.keysym.Control-Up:    \033[1;5A
 URxvt.keysym.Control-Down:  \033[1;5B
@@ -131,8 +280,6 @@ URxvt.keysym.Control-Right: \033[1;5C
 ! Turn on/off secondary screen scroll (default enabled). If this option is
 ! URxvt*secondaryScroll: boolean
 
-! Turn on/off hold window after exit support. If enabled, urxvt will not
-! URxvt*hold: boolean
 
 ! Sets the working directory for the shell (or the command specified via -e).
 ! URxvt*chdir: path

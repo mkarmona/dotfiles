@@ -47,7 +47,7 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'tpope/vim-fugitive'
 "NeoBundle 'croaker/mustang-vim'
 NeoBundle 'NLKNguyen/papercolor-theme'
-"NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'hdima/python-syntax'
 NeoBundle 'NLKNguyen/papercolor-theme'
@@ -56,6 +56,7 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'rust-lang/rust.vim'
 NeoBundle 'morhetz/gruvbox'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'ajh17/Spacegray.vim'
 
 call neobundle#end()
 NeoBundleCheck
@@ -69,6 +70,7 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+let base16colorspace=256
 " para esto instalar ncurses-term, y poner lo siguiente en el .bashrc
 " alias vim="TERM=xterm+256color vim"
 " export EDITOR='gvim -f' esto en el caso de tener Xorg
@@ -76,9 +78,11 @@ endif
 "colorscheme PaperColor
 "colorscheme molokai
 "colorscheme jellybeans
-colorscheme lucius
-LuciusDark
+"colorscheme lucius
+"LuciusDark
 "colorscheme gruvbox
+"colorscheme spacegray
+colorscheme base16-default
 
 set completeopt=menuone
 let mapleader = ',' " esto es el comando para el map
@@ -173,7 +177,7 @@ let g:airline_inactive_collapse = 0
 let g:solarized_termcolors = 256
 let g:solarized_contast = "high"
 let g:solarized_visibility = "low"
-"call togglebg#map("F5")
+call togglebg#map("F5")
 
 " pyflakes no quickfix
 let g:pyflakes_use_quickfix = 0

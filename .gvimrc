@@ -20,3 +20,4 @@ set lines=60
 "colorscheme PaperColor
 "colorscheme lucius
 "LuciusDark
+colorscheme base16-default

@@ -22,7 +22,7 @@ URxvt*depth: 32
 URxvt*buffered: true
 URxvt*geometry: 92x40
 URxvt*scrollBar: false
-URxvt*visualBell: true
+URxvt*visualBell: false
 URxvt*loginShell: true
 URxvt*saveLines: 4096
 URxvt*dpi: 96
@@ -32,6 +32,11 @@ URxvt*hinting: true
 URxvt*hintstyle: hintfull
 URxvt*font: xft:DejaVu Sans Mono:pixelsize=13:spacing=mono
 URxvt*boldfont: xft:DejaVu Sans Mono Bold:pixelsize=13:spacing=mono
+
+URxvt.keysym.Control-Up:    \033[1;5A
+URxvt.keysym.Control-Down:  \033[1;5B
+URxvt.keysym.Control-Left:  \033[1;5D
+URxvt.keysym.Control-Right: \033[1;5C
 
 ! Set window title string, the default title is the command-line specified
 ! URxvt*title: string

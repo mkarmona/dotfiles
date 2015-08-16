@@ -112,7 +112,7 @@ set autoread "para que recargue el fichero en caso de cambiar
 set laststatus=2
 set noshowmode
 
-if &term =~ "xterm"
+if &term =~ "rxvt"
   " blinking vertical bar
   let &t_SI .= "\<Esc>[5 q"
   " blinking block

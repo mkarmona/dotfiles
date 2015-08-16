@@ -18,6 +18,7 @@ else
 	export TERM="xterm-color"
 fi
 
+TERM=rxvt-unicode-256color
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -69,7 +70,8 @@ fi
 if [ "$color_prompt" = yes ]; then
 #    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[33m\]\u@\h\[\033[00m\]:\[\033[36m\]\w\[\033[00m\] > '
-    PS1=$'\[\033[01;38;5;4m\][ \[\033[01;38;5;5m\]\j\[\033[01;38;5;13m\] $(__shortpath "\w" 40) \[\033[01;38;5;4m\]]\[\033[00m\] \xe2\x86\x92 '
+    #PS1=$'\[\033[01;38;5;4m\][ \[\033[01;38;5;5m\]\j\[\033[01;38;5;13m\] $(__shortpath "\w" 40) \[\033[01;38;5;4m\]]\[\033[00m\] \xe2\x86\x92 '
+    PS1=$'\[\033[01;38;5;4m\][ \[\033[01;38;5;5m\]\j\[\033[01;38;5;202m\] $(__shortpath "\w" 40) \[\033[01;38;5;4m\]]\[\033[00m\] \xe2\x86\x92 '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi

@@ -1,3 +1,4 @@
+! lucius dark
 *background:  #303030
 *foreground:  #d7d7d7
 *cursorColor: #87afd7
@@ -18,6 +19,28 @@
 *color7:      #d7d7d7
 *color15:     #d7d7d7
 
+
+! lucius light
+!*background:  #eeeeee
+!*foreground:  #444444
+!*cursorColor: #5f87af
+!*color0:      #444444
+!*color8:      #444444
+!*color1:      #af0000
+!*color9:      #af0000
+!*color2:      #008700
+!*color10:     #008700
+!*color3:      #af5f00
+!*color11:     #af5f00
+!*color4:      #005faf
+!*color12:     #005faf
+!*color5:      #870087
+!*color13:     #870087
+!*color6:      #008787
+!*color14:     #008787
+!*color7:      #eeeeee
+!*color15:     #eeeeee
+
 URxvt*depth: 32
 URxvt*buffered: true
 URxvt*geometry: 92x40
@@ -26,6 +49,7 @@ URxvt*visualBell: false
 URxvt*loginShell: true
 URxvt*saveLines: 4096
 URxvt*dpi: 96
+URxvt*letterSpace: -1
 URxvt*antialias: true
 URxvt*rgba: rgb
 URxvt*hinting: true

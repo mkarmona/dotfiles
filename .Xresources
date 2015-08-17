@@ -1,189 +1,46 @@
 ! lucius dark
-*background:  #303030
-*foreground:  #d7d7d7
-*cursorColor: #87afd7
-*color0:      #303030
-*color8:      #303030
-*color1:      #ff5f5f
-*color9:      #ff5f5f
-*color2:      #afd787
-*color10:     #afd787
-*color3:      #d7d7af
-*color11:     #d7d7af
-*color4:      #87d7ff
-*color12:     #87d7ff
-*color5:      #d7afd7
-*color13:     #d7afd7
-*color6:      #87d7af
-*color14:     #87d7af
-*color7:      #d7d7d7
-*color15:     #d7d7d7
+!*background:  #303030
+!*foreground:  #d7d7d7
+!*cursorColor: #87afd7
+!*color0:      #303030
+!*color8:      #303030
+!*color1:      #ff5f5f
+!*color9:      #ff5f5f
+!*color2:      #afd787
+!*color10:     #afd787
+!*color3:      #d7d7af
+!*color11:     #d7d7af
+!*color4:      #87d7ff
+!*color12:     #87d7ff
+!*color5:      #d7afd7
+!*color13:     #d7afd7
+!*color6:      #87d7af
+!*color14:     #87d7af
+!*color7:      #d7d7d7
+!*color15:     #d7d7d7
 
 
 ! lucius light
-!*background:  #eeeeee
-!*foreground:  #444444
-!*cursorColor: #5f87af
-!*color0:      #444444
-!*color8:      #444444
-!*color1:      #af0000
-!*color9:      #af0000
-!*color2:      #008700
-!*color10:     #008700
-!*color3:      #af5f00
-!*color11:     #af5f00
-!*color4:      #005faf
-!*color12:     #005faf
-!*color5:      #870087
-!*color13:     #870087
-!*color6:      #008787
-!*color14:     #008787
-!*color7:      #eeeeee
-!*color15:     #eeeeee
+*background:  #eeeeee
+*foreground:  #444444
+*cursorColor: #5f87af
+*color0:      #444444
+*color8:      #444444
+*color1:      #af0000
+*color9:      #af0000
+*color2:      #008700
+*color10:     #008700
+*color3:      #af5f00
+*color11:     #af5f00
+*color4:      #005faf
+*color12:     #005faf
+*color5:      #870087
+*color13:     #870087
+*color6:      #008787
+*color14:     #008787
+*color7:      #eeeeee
+*color15:     #eeeeee
 
-
-! solarized dark
-!#define S_base03        #002b36
-!#define S_base02        #073642
-!#define S_base01        #586e75
-!#define S_base00        #657b83
-!#define S_base0         #839496
-!#define S_base1         #93a1a1
-!#define S_base2         #eee8d5
-!#define S_base3         #fdf6e3
-!
-!*background:            S_base03
-!*foreground:            S_base0
-!*fadeColor:             S_base03
-!*cursorColor:           S_base1
-!*pointerColorBackground:S_base01
-!*pointerColorForeground:S_base1
-!
-!#define S_yellow        #b58900
-!#define S_orange        #cb4b16
-!#define S_red           #dc322f
-!#define S_magenta       #d33682
-!#define S_violet        #6c71c4
-!#define S_blue          #268bd2
-!#define S_cyan          #2aa198
-!#define S_green         #859900
-!
-!!! black dark/light
-!*color0:                S_base02
-!*color8:                S_base03
-!
-!!! red dark/light
-!*color1:                S_red
-!*color9:                S_orange
-!
-!!! green dark/light
-!*color2:                S_green
-!*color10:               S_base01
-!
-!!! yellow dark/light
-!*color3:                S_yellow
-!*color11:               S_base00
-!
-!!! blue dark/light
-!*color4:                S_blue
-!*color12:               S_base0
-!
-!!! magenta dark/light
-!*color5:                S_magenta
-!*color13:               S_violet
-!
-!!! cyan dark/light
-!*color6:                S_cyan
-!*color14:               S_base1
-!
-!!! white dark/light
-!*color7:                S_base2
-!*color15:               S_base3
-
-! solarized light
-!#define S_base03        #002b36
-!#define S_base02        #073642
-!#define S_base01        #586e75
-!#define S_base00        #657b83
-!#define S_base0         #839496
-!#define S_base1         #93a1a1
-!#define S_base2         #eee8d5
-!#define S_base3         #fdf6e3
-!
-!*background:            S_base3
-!*foreground:            S_base00
-!*fadeColor:             S_base3
-!*cursorColor:           S_base01
-!*pointerColorBackground:S_base1
-!*pointerColorForeground:S_base01
-!
-!#define S_yellow        #b58900
-!#define S_orange        #cb4b16
-!#define S_red           #dc322f
-!#define S_magenta       #d33682
-!#define S_violet        #6c71c4
-!#define S_blue          #268bd2
-!#define S_cyan          #2aa198
-!#define S_green         #859900
-!
-!!! black dark/light
-!*color0:                S_base02
-!*color8:                S_base03
-!
-!!! red dark/light
-!*color1:                S_red
-!*color9:                S_orange
-!
-!!! green dark/light
-!*color2:                S_green
-!*color10:               S_base01
-!
-!!! yellow dark/light
-!*color3:                S_yellow
-!*color11:               S_base00
-!
-!!! blue dark/light
-!*color4:                S_blue
-!*color12:               S_base0
-!
-!!! magenta dark/light
-!*color5:                S_magenta
-!*color13:               S_violet
-!
-!!! cyan dark/light
-!*color6:                S_cyan
-!*color14:               S_base1
-!
-!!! white dark/light
-!*color7:                S_base2
-!*color15:               S_base3
-
-*background: #111314
-*foreground: #B7BBB7
-! black
-*color0: #2C2F33
-*color8: #4B5056
-! red
-*color1: #B04C50
-*color9: #B04C50
-! green
-*color2: #919652
-*color10: #94985B
-! yellow
-*color3: #E2995C
-*color11: #E2995C
-! blue
-*color4: #66899D
-*color12: #66899D
-! magenta
-*color5: #8D6494
-*color13: #8D6494
-! cyan
-*color6: #527C77
-*color14: #527C77
-! white
-*color7: #606360
-*color15: #DDE3DC
 URxvt*depth: 32
 URxvt*buffered: true
 URxvt*geometry: 92x40
@@ -195,14 +52,16 @@ URxvt*scrollBar_right: true
 URxvt*visualBell: false
 URxvt*loginShell: true
 URxvt*saveLines: 4096
-URxvt*dpi: 96
+URxvt*dpi: 91
 URxvt*letterSpace: -1
 URxvt*antialias: true
-URxvt*rgba: rgb
+URxvt*rgba: bgr
 URxvt*hinting: true
 URxvt*hintstyle: hintfull
-URxvt*font: xft:DejaVu Sans Mono:pixelsize=14:spacing=mono
-URxvt*boldfont: xft:DejaVu Sans Mono Bold:pixelsize=14:spacing=mono
+URxvt*font: xft:DejaVu Sans Mono:style=book:size=11:spacing=mono:height=100
+URxvt*boldfont: xft:DejaVu Sans Mono:style=bold:size=11:spacing=mono:height=100
+!URxvt*font: xft:Menlo:size=11:spacing=mono:height=100
+!URxvt*boldfont: xft:Menlo:style=bold:size=11:spacing=mono:height=100
 URxvt*hold: true
 URxvt*termName: rxvt-unicode-256color
 
@@ -215,7 +74,7 @@ URxvt.keysym.Control-Right: \033[1;5C
 ! URxvt*title: string
 
 ! Internal border of number pixels. This resource is limited to 100; option
-! URxvt*internalBorder: number
+URxvt*internalBorder: 0
 
 ! External border of number pixels. This resource is limited to 100; option
 ! URxvt*externalBorder: number
@@ -247,79 +106,44 @@ URxvt.keysym.Control-Right: \033[1;5C
 ! The characters used as delimiters for double-click word selection
 ! URxvt*cutchars: string
 
-! 
-! URxvt*{|}
+! Base16 Tomorrow
+! Scheme: Chris Kempson (http://chriskempson.com)
 
-! OverTheSpot, OffTheSpot, Root; option -pt.
-! URxvt*preeditType: style
+#define base00 #1d1f21
+#define base01 #282a2e
+#define base02 #373b41
+#define base03 #969896
+#define base04 #b4b7b4
+#define base05 #c5c8c6
+#define base06 #e0e0e0
+#define base07 #ffffff
+#define base08 #cc6666
+#define base09 #de935f
+#define base0A #f0c674
+#define base0B #b5bd68
+#define base0C #8abeb7
+#define base0D #81a2be
+#define base0E #b294bb
+#define base0F #a3685a
 
-! name of inputMethod to use; option -im.
-! URxvt*inputMethod: name
+*.foreground:   base05
+*.background:   base00
+*.cursorColor:  base05
 
-! The locale to use for opening the IM. You can use an "LC_CTYPE" of e.g.
-! URxvt*imLocale: name
+*.color0:       base00
+*.color1:       base08
+*.color2:       base0B
+*.color3:       base0A
+*.color4:       base0D
+*.color5:       base0E
+*.color6:       base0C
+*.color7:       base05
 
-! Specify the font-set used for XIM styles "OverTheSpot" or "OffTheSpot". It
-! URxvt*imFont: fontset
-
-! Change the meaning of triple-click selection with the left mouse button.
-! URxvt*tripleclickwords: boolean
-
-! Enables "insecure" mode. Rxvt-unicode offers some escape sequences that echo
-! URxvt*insecure: boolean
-
-! Set the key to be interpreted as the Meta key to: alt, meta, hyper, super,
-! URxvt*modifier: modifier
-
-! Specify the reply rxvt-unicode sends to the shell when an ENQ (control-E)
-! URxvt*answerbackString: string
-
-! Turn on/off secondary screen (default enabled).
-! URxvt*secondaryScreen: boolean
-
-! Turn on/off secondary screen scroll (default enabled). If this option is
-! URxvt*secondaryScroll: boolean
-
-
-! Sets the working directory for the shell (or the command specified via -e).
-! URxvt*chdir: path
-
-! Compile frills: Associate action with keysym sym. The intervening resource
-! URxvt*keysym.sym: action
-
-! URxvt*perl-ext-common: string
-
-! Comma-separated list(s) of perl extension scripts (default: "default") to
-! URxvt*perl-ext: string
-
-! Perl code to be evaluated when all extensions have been registered. See the
-! URxvt*perl-eval: string
-
-! Colon-separated list of additional directories that hold extension scripts.
-! URxvt*perl-lib: path
-
-! Additional selection patterns, see the urxvtperl(3) manpage for details.
-! URxvt*selection.pattern-idx: perl-regex
-
-! Selection auto-transform patterns, see the urxvtperl(3) manpage for details.
-! URxvt*selection-autotransform.idx: perl-transform
-
-! This resource is deprecated and will be removed. Use a keysym resource
-! URxvt*searchable-scrollback: keysym *DEPRECATED*
-
-! Specifies the program to be started with a URL argument. Used by the
-! URxvt*url-launcher: string
-
-! Compile frills: Sets the WM_TRANSIENT_FOR property to the given window id.
-! URxvt*transient-for: windowid
-
-! Compile frills: Sets override-redirect for the terminal window, making it
-! URxvt*override-redirect: boolean
-
-! Turn on/off ISO 14755 (default enabled).
-! URxvt*iso14755: boolean
-
-! Turn on/off ISO 14755 5.2 mode (default enabled).
-! URxvt*iso14755_52: boolean
-
-
+*.color8:       base03
+*.color9:       base09
+*.color10:      base01
+*.color11:      base02
+*.color12:      base04
+*.color13:      base06
+*.color14:      base0F
+*.color15:      base07

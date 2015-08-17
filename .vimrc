@@ -19,7 +19,8 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 
-NeoBundle 'chriskempson/base16-vim'
+"NeoBundle 'chriskempson/base16-vim'
+NeoBundle 'mkarmona/base16-vim'
 NeoBundle 'nanotech/jellybeans.vim'
 "NeoBundle 'w0ng/vim-hybrid'
 "NeoBundle 'vim-scripts/xoria256.vim'
@@ -56,7 +57,6 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'rust-lang/rust.vim'
 NeoBundle 'morhetz/gruvbox'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'ajh17/Spacegray.vim'
 
 call neobundle#end()
 NeoBundleCheck
@@ -71,6 +71,7 @@ if has("autocmd")
 endif
 
 let base16colorspace=256
+let g:base16_shell_path = expand("~/.config/base16-shell")
 " para esto instalar ncurses-term, y poner lo siguiente en el .bashrc
 " alias vim="TERM=xterm+256color vim"
 " export EDITOR='gvim -f' esto en el caso de tener Xorg
@@ -79,10 +80,11 @@ let base16colorspace=256
 "colorscheme molokai
 "colorscheme jellybeans
 "colorscheme lucius
-"LuciusDark
+"LuciusDarkHighContrast
+"LuciusLight
 "colorscheme gruvbox
 "colorscheme spacegray
-colorscheme base16-default
+colorscheme base16-tomorrow
 
 set completeopt=menuone
 let mapleader = ',' " esto es el comando para el map
@@ -115,14 +117,15 @@ set autowrite "automatic writing
 set autoread "para que recargue el fichero en caso de cambiar
 set laststatus=2
 set noshowmode
+set timeoutlen=500
 
-if &term =~ "rxvt"
-  " blinking vertical bar
-  let &t_SI .= "\<Esc>[5 q"
-  " blinking block
-  let &t_EI .= "\<Esc>[1 q"
-endif
-
+"if &term =~ "rxvt-unicode-256color"
+"  " blinking vertical bar
+"  let &t_SI .= "\<Esc>[5 q"
+"  " blinking block
+"  let &t_EI .= "\<Esc>[1 q"
+"endif
+"
 set lcs=extends:$,tab:/.,eol:$
 function! HighlightSearch()
   if &hls
@@ -432,7 +435,7 @@ call unite#custom#profile('default', 'context', {
 \	'no_split': 1,
 \	'toggle': 1,
 \	'max_candidates': 500,
-\	'prompt': '> ',
+\	'prompt': '→ ',
 \ })
 
 nmap <space> [unite]

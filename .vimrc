@@ -19,11 +19,8 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 
-"NeoBundle 'chriskempson/base16-vim'
 NeoBundle 'mkarmona/base16-vim'
 NeoBundle 'nanotech/jellybeans.vim'
-"NeoBundle 'w0ng/vim-hybrid'
-"NeoBundle 'vim-scripts/xoria256.vim'
 NeoBundle 'mkarmona/gsl.vim'
 NeoBundle 'jlanzarotta/bufexplorer'
 NeoBundle 'fatih/vim-go'
@@ -37,16 +34,15 @@ NeoBundle 'mkarmona/fantom.vim'
 NeoBundle 'justmao945/vim-clang'
 NeoBundle 'rhysd/vim-clang-format'
 NeoBundle 'SirVer/ultisnips'
-NeoBundle 'honza/vim-snippets'              " Several snippets to speedup writting: definitions
-NeoBundle 'bonsaiben/bootstrap-snippets'    " Bootstrap snippets
-NeoBundle 'davidhalter/jedi-vim'            " Jedi
+NeoBundle 'honza/vim-snippets'
+NeoBundle 'bonsaiben/bootstrap-snippets'
+NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'mkarmona/vim-lucius'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'tpope/vim-fugitive'
-"NeoBundle 'croaker/mustang-vim'
 NeoBundle 'NLKNguyen/papercolor-theme'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'kshenoy/vim-signature'
@@ -106,7 +102,7 @@ set shiftwidth=4
 
 set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
-"set ignorecase		" Do case insensitive matching
+set ignorecase		" Do case insensitive matching
 set incsearch		" Incremental search
 set shiftwidth=4
 set nu " numero de lineas
@@ -119,13 +115,6 @@ set laststatus=2
 set noshowmode
 set timeoutlen=500
 
-"if &term =~ "rxvt-unicode-256color"
-"  " blinking vertical bar
-"  let &t_SI .= "\<Esc>[5 q"
-"  " blinking block
-"  let &t_EI .= "\<Esc>[1 q"
-"endif
-"
 set lcs=extends:$,tab:/.,eol:$
 function! HighlightSearch()
   if &hls
@@ -170,7 +159,7 @@ let g:airline_right_sep = ''
 "let g:airline_theme = 'solarized'
 "let g:airline_theme = 'papercolordark'
 let g:airline_inactive_collapse = 0
-"let g:airline_theme = 'hybrid'
+let g:airline_theme = 'base16'
 
 " pyflakes on demand
 " let g:pyflakes_autostart = 0

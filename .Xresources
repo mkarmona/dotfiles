@@ -52,14 +52,15 @@ URxvt*scrollBar_right: true
 URxvt*visualBell: false
 URxvt*loginShell: true
 URxvt*saveLines: 4096
-URxvt*dpi: 91
+URxvt*dpi: 96
 URxvt*letterSpace: -1
 URxvt*antialias: true
 URxvt*rgba: bgr
+URxvt*autohint: true
 URxvt*hinting: true
 URxvt*hintstyle: hintfull
-URxvt*font: xft:DejaVu Sans Mono:style=book:size=11:spacing=mono:height=100
-URxvt*boldfont: xft:DejaVu Sans Mono:style=bold:size=11:spacing=mono:height=100
+URxvt*font: xft:DejaVu Sans Mono:style=light:size=10:spacing=mono:minspacing=true
+URxvt*boldfont: xft:DejaVu Sans Mono:style=demibold:size=10:spacing=mono:minspacing=true
 !URxvt*font: xft:Menlo:size=11:spacing=mono:height=100
 !URxvt*boldfont: xft:Menlo:style=bold:size=11:spacing=mono:height=100
 URxvt*hold: true

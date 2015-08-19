@@ -20,22 +20,16 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 
 NeoBundle 'mkarmona/base16-vim'
-NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'mkarmona/gsl.vim'
 NeoBundle 'jlanzarotta/bufexplorer'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'kevinw/pyflakes-vim'
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'rstacruz/sparkup'
-NeoBundle 'tpope/vim-surround'
 NeoBundle 'mileszs/ack.vim'
-NeoBundle 'mkarmona/fantom.vim'
 NeoBundle 'justmao945/vim-clang'
 NeoBundle 'rhysd/vim-clang-format'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
-NeoBundle 'bonsaiben/bootstrap-snippets'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
@@ -44,14 +38,11 @@ NeoBundle 'mkarmona/vim-lucius'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'NLKNguyen/papercolor-theme'
-NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'hdima/python-syntax'
-NeoBundle 'NLKNguyen/papercolor-theme'
 "NeoBundle 'jalcine/cmake.vim'
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'rust-lang/rust.vim'
-NeoBundle 'morhetz/gruvbox'
+"NeoBundle 'rust-lang/rust.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'oplatek/Conque-Shell'
 
@@ -69,19 +60,8 @@ endif
 
 let base16colorspace=256
 let g:base16_shell_path = expand("~/.config/base16-shell")
-" para esto instalar ncurses-term, y poner lo siguiente en el .bashrc
-" alias vim="TERM=xterm+256color vim"
-" export EDITOR='gvim -f' esto en el caso de tener Xorg
-"colorscheme xoria256
-"colorscheme PaperColor
-"colorscheme molokai
-"colorscheme jellybeans
-"colorscheme lucius
-"LuciusDarkHighContrast
-"LuciusLight
-"colorscheme gruvbox
-"colorscheme spacegray
-colorscheme base16-tomorrow
+
+colorscheme PaperColor
 
 set completeopt=menuone
 let mapleader = ',' " esto es el comando para el map
@@ -100,7 +80,6 @@ set expandtab
 set smarttab
 set softtabstop=4
 set shiftwidth=4
-
 set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
@@ -116,8 +95,16 @@ set laststatus=2
 set noshowmode
 set timeoutlen=500
 "set t_ut= " disable BCE
-
 set lcs=extends:$,tab:/.,eol:$
+set fillchars+=vert:│
+set listchars=extends:$,tab:/.,eol:¬
+set list
+" default folding settings
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=1
+
 function! HighlightSearch()
   if &hls
     return 'hls'
@@ -126,26 +113,6 @@ function! HighlightSearch()
   endif
 endfunction
 
-set listchars=extends:$,tab:/.,eol:¬
-set list
-
-"set statusline=
-"set statusline+=%1*\ %M%n\ %*\ %<%-.40f								"File+path
-""set statusline+=%{HGRev()?'\ [r'.HGRev().']':''}
-"set statusline+=\ %(%{''.(&fenc!=''?&fenc:&enc).''},%)	"Encoding
-"set statusline+=%(%{(&bomb?\",BOM\":\"\")}%)			"Encoding2
-"set statusline+=%{&ff}									"FileFormat (dos/unix..) 
-"set statusline+=%(,%{HighlightSearch()}%)\ \ 			"Spellanguage & Highlight on?
-"set statusline+=%=\ \ %(%r%)\ %(%w%)					"Modified? Readonly? Top/bot.
-"set statusline+=\ %y\ %l/%L,%03c,%P						"Colnr
-
-" gruvbox
-let g:gruvbox_bold = 1
-let g:gruvbox_italic = 0
-" soft medium hard
-let g:gruvbox_contrast_dark = "medium"
-let g:gruvbox_contrast_light = "medium"
-let g:gruvbox_italicize_comments = 0
 " airline 
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#left_sep = ' '
@@ -153,30 +120,21 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#right_sep = ' '
 let g:airline#extensions#tabline#right_alt_sep = '|'
 let g:airline#extensions#whitespace#enabled = 0
-
 let g:airline_powerline_fonts = 0
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-"let g:airline_theme = 'jellybeans'
-"let g:airline_theme = 'solarized'
-"let g:airline_theme = 'papercolordark'
 let g:airline_inactive_collapse = 0
 if has("gui_running")
     " let gvim select its airline theme
 else
-    let g:airline_theme = 'base16'
+    "let g:airline_theme = 'base16'
+    let g:airline_theme = 'papercolor'
 endif
 
 
 " pyflakes on demand
-" let g:pyflakes_autostart = 0
-" map <F11> :PyflakesToggle<cr>
-
-"solarized options
-let g:solarized_termcolors = 256
-let g:solarized_contast = "high"
-let g:solarized_visibility = "low"
-call togglebg#map("F5")
+let g:pyflakes_autostart = 0
+map <F11> :PyflakesToggle<cr>
 
 " pyflakes no quickfix
 let g:pyflakes_use_quickfix = 0
@@ -332,12 +290,6 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
-" default folding settings
-set foldmethod=indent
-set foldnestmax=10
-set nofoldenable
-set foldlevel=1
-
 " omni complet mapping
 inoremap <silent> <c-space> <c-x><c-o>
 
@@ -437,9 +389,6 @@ call unite#custom#profile('default', 'context', {
 nmap <space> [unite]
 nnoremap [unite] <nop>
 
-"nnoremap <silent> <c-p> :Unite -auto-resize file file_mru file_rec/async<cr>
-"nnoremap <silent> <space>s :Unite -quick-match buffer<cr>
-
 " TODO MIRAR COMO LLAMAR AL VIMPROC PERO DESDE EL PATH ACTUAL
 nnoremap <silent> [unite]<space> :<C-u>Unite -buffer-name=mixed -start-insert buffer file_mru -input= -resume file_rec/async:! bookmark<cr><c-u>
 nnoremap <silent> [unite]f :<C-u>Unite -buffer-name=files -start-insert buffer -input= -resume file_rec/async:!<cr><c-u>
@@ -452,13 +401,5 @@ nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -start-insert -buffer-name=searc
 nnoremap <silent> [unite]m :<C-u>Unite -buffer-name=mappings -start-insert mapping<cr><c-u>
 nnoremap <silent> [unite]s :<C-u>Unite -quick-match -start-insert buffer<cr><c-u>
 
-
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" netrw es el modulo para Ex Se Te
-"let g:netrw_liststyle = 3
-
-
-"cmap mt !ctags --languages=c++,c -R *
-"cmap md !doxygen
-"

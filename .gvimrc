@@ -12,12 +12,16 @@ set guioptions=aegit "sin menus
 set co=120
 set lines=60
 
-set background=dark
+let g:PaperColor_Light_Override = { 'background' : '#eeeeee', 'cursorline' : '#e8e8e8' }
+
+set background=light
 "colorscheme xoria256
 "colorscheme base16-tomorrow
 "colorscheme jellybeans
 "colorscheme solarized
-"colorscheme PaperColor
+colorscheme PaperColor
 "colorscheme lucius
 "LuciusLight
-colorscheme base16-tomorrow
+"colorscheme base16-tomorrow
+"
+let g:airline_theme = 'papercolor'

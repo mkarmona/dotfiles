@@ -53,6 +53,7 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'rust-lang/rust.vim'
 NeoBundle 'morhetz/gruvbox'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'oplatek/Conque-Shell'
 
 call neobundle#end()
 NeoBundleCheck
@@ -114,6 +115,7 @@ set autoread "para que recargue el fichero en caso de cambiar
 set laststatus=2
 set noshowmode
 set timeoutlen=500
+"set t_ut= " disable BCE
 
 set lcs=extends:$,tab:/.,eol:$
 function! HighlightSearch()
@@ -159,7 +161,12 @@ let g:airline_right_sep = ''
 "let g:airline_theme = 'solarized'
 "let g:airline_theme = 'papercolordark'
 let g:airline_inactive_collapse = 0
-let g:airline_theme = 'base16'
+if has("gui_running")
+    " let gvim select its airline theme
+else
+    let g:airline_theme = 'base16'
+endif
+
 
 " pyflakes on demand
 " let g:pyflakes_autostart = 0

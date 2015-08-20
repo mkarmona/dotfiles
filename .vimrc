@@ -24,16 +24,11 @@ NeoBundle 'mkarmona/gsl.vim'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'kevinw/pyflakes-vim'
-"NeoBundle 'godlygeek/tabular'
-"NeoBundle 'rstacruz/sparkup'
-"NeoBundle 'tpope/vim-surround'
 NeoBundle 'mileszs/ack.vim'
-"NeoBundle 'mkarmona/fantom.vim'
 NeoBundle 'justmao945/vim-clang'
 NeoBundle 'rhysd/vim-clang-format'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
-"NeoBundle 'bonsaiben/bootstrap-snippets'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
@@ -42,7 +37,6 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'NLKNguyen/papercolor-theme'
-"NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'hdima/python-syntax'
 "NeoBundle 'jalcine/cmake.vim'
@@ -98,13 +92,15 @@ set autoread "para que recargue el fichero en caso de cambiar
 set laststatus=2
 set noshowmode
 set timeoutlen=500
+set lcs=extends:$,tab:/.,eol:$
+set fillchars+=vert:│
 set listchars=extends:$,tab:/.,eol:¬
 set list
+" default folding settings
 set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
-"set t_ut= " disable BCE
 
 colorscheme base16-tomorrow
 
@@ -130,7 +126,8 @@ let g:airline_inactive_collapse = 0
 if has("gui_running")
     " let gvim select its airline theme
 else
-    let g:airline_theme = 'base16'
+    "let g:airline_theme = 'base16'
+    let g:airline_theme = 'papercolor'
 endif
 
 " pyflakes on demand
@@ -287,7 +284,6 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
-
 " omni complet mapping
 inoremap <silent> <c-space> <c-x><c-o>
 
@@ -397,5 +393,5 @@ nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -start-insert -buffer-name=searc
 nnoremap <silent> [unite]m :<C-u>Unite -buffer-name=mappings -start-insert mapping<cr><c-u>
 nnoremap <silent> [unite]s :<C-u>Unite -quick-match -start-insert buffer<cr><c-u>
 
-
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+

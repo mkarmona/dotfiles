@@ -56,7 +56,11 @@ syn on " syntax on
 
 NeoBundleCheck
 
-set background=dark
+if strftime("%H") < 12
+  set background=light
+else
+  set background=dark
+endif
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif

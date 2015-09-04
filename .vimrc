@@ -21,12 +21,12 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 
-NeoBundle 'mkarmona/base16-vim'
+"NeoBundle 'mkarmona/base16-vim'
 NeoBundle 'mkarmona/gsl.vim'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'kevinw/pyflakes-vim'
-NeoBundle 'mileszs/ack.vim'
+"NeoBundle 'mileszs/ack.vim'
 NeoBundle 'justmao945/vim-clang'
 NeoBundle 'rhysd/vim-clang-format'
 NeoBundle 'SirVer/ultisnips'
@@ -38,14 +38,15 @@ NeoBundle 'bling/vim-airline'
 "NeoBundle 'mkarmona/vim-lucius'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'NLKNguyen/papercolor-theme'
+"NeoBundle 'NLKNguyen/papercolor-theme'
+NeoBundle 'morhetz/gruvbox'
+NeoBundle 'NLKNguyen/c-syntax.vim'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'hdima/python-syntax'
 "NeoBundle 'jalcine/cmake.vim'
 NeoBundle 'airblade/vim-gitgutter'
 "NeoBundle 'rust-lang/rust.vim'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'NLKNguyen/c-syntax.vim'
+"NeoBundle 'scrooloose/syntastic'
 
 call neobundle#end()
 
@@ -60,8 +61,9 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-let base16colorspace=256
-let g:base16_shell_path = expand("~/.config/base16-shell")
+"let base16colorspace=256
+"let g:base16_shell_path = expand("~/.config/base16-shell")
+
 let mapleader = ',' " esto es el comando para el map
 
 set completeopt=menuone
@@ -105,10 +107,10 @@ set nofoldenable
 set foldlevel=1
 
 
-let g:PaperColor_Light_Override = { 'background' : '#eeeeee', 'cursorline' : '#e8e8e8' }
-let g:PaperColor_Dark_Override = { 'background' : '#1a1a1a', 'cursorline' : '#303030' }
+"let g:PaperColor_Light_Override = { 'background' : '#eeeeee', 'cursorline' : '#e8e8e8' }
+"let g:PaperColor_Dark_Override = { 'background' : '#1a1a1a', 'cursorline' : '#303030' }
 
-colorscheme PaperColor
+colorscheme gruvbox
 
 function! HighlightSearch()
   if &hls
@@ -117,6 +119,14 @@ function! HighlightSearch()
     return ''
   endif
 endfunction
+
+" gruvbox
+let g:gruvbox_bold = 1
+let g:gruvbox_italic = 0
+" soft medium hard
+let g:gruvbox_contrast_dark = "dark"
+let g:gruvbox_contrast_light = "medium"
+let g:gruvbox_italicize_comments = 0
 
 " airline 
 let g:airline#extensions#tabline#enabled = 0
@@ -133,7 +143,7 @@ if has("gui_running")
     " let gvim select its airline theme
 else
     "let g:airline_theme = 'base16'
-    let g:airline_theme = 'papercolor'
+    "let g:airline_theme = 'papercolor'
 endif
 
 " pyflakes on demand
@@ -207,7 +217,8 @@ let g:go_bin_path = expand("~/.config/gotools")
 
 " tagbar
 let g:tagbar_compat = 1
-let g:tagbar_width = 50
+"let g:tagbar_width = 50
+
 " HTML language for HTML
 let g:tagbar_type_html = {
 	\ 'ctagstype'	: 'HTML',

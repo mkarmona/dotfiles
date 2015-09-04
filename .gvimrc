@@ -11,5 +11,5 @@ set background=dark
 let g:PaperColor_Light_Override = { 'background' : '#eeeeee', 'cursorline' : '#e8e8e8' }
 let g:PaperColor_Dark_Override = { 'background' : '#1a1a1a', 'cursorline' : '#303030' }
 
-colorscheme PaperColor
-let g:airline_theme = 'papercolor'
+colorscheme gruvbox
+"let g:airline_theme = 'papercolor'

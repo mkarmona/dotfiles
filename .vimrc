@@ -41,7 +41,7 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'tpope/vim-fugitive'
 "NeoBundle 'NLKNguyen/papercolor-theme'
 NeoBundle 'morhetz/gruvbox'
-NeoBundle 'NLKNguyen/c-syntax.vim'
+"NeoBundle 'NLKNguyen/c-syntax.vim'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'hdima/python-syntax'
 "NeoBundle 'jalcine/cmake.vim'
@@ -56,11 +56,13 @@ syn on " syntax on
 
 NeoBundleCheck
 
-if strftime("%H") < 12
-  set background=light
-else
-  set background=dark
-endif
+"if strftime("%H") < 12
+  "set background=light
+"else
+  "set background=dark
+"endif
+
+set background=light
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -129,8 +131,8 @@ endfunction
 let g:gruvbox_bold = 1
 let g:gruvbox_italic = 0
 " soft medium hard
-let g:gruvbox_contrast_dark = "hard"
-let g:gruvbox_contrast_light = "hard"
+let g:gruvbox_contrast_dark = "medium"
+let g:gruvbox_contrast_light = "medium"
 let g:gruvbox_italicize_comments = 0
 let g:gruvbox_invert_selection = 0
 

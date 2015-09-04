@@ -124,21 +124,23 @@ endfunction
 let g:gruvbox_bold = 1
 let g:gruvbox_italic = 0
 " soft medium hard
-let g:gruvbox_contrast_dark = "dark"
-let g:gruvbox_contrast_light = "medium"
+let g:gruvbox_contrast_dark = "hard"
+let g:gruvbox_contrast_light = "hard"
 let g:gruvbox_italicize_comments = 0
+let g:gruvbox_invert_selection = 0
 
 " airline 
 let g:airline#extensions#tabline#enabled = 0
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#right_sep = ' '
-let g:airline#extensions#tabline#right_alt_sep = '|'
+"let g:airline#extensions#tabline#left_sep = ' '
+"let g:airline#extensions#tabline#left_alt_sep = '|'
+"let g:airline#extensions#tabline#right_sep = ' '
+"let g:airline#extensions#tabline#right_alt_sep = '|'
 let g:airline#extensions#whitespace#enabled = 0
-let g:airline_powerline_fonts = 0
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
+let g:airline_powerline_fonts = 1
+"let g:airline_left_sep = ''
+"let g:airline_right_sep = ''
 let g:airline_inactive_collapse = 0
+
 if has("gui_running")
     " let gvim select its airline theme
 else
@@ -412,3 +414,4 @@ nnoremap <silent> [unite]s :<C-u>Unite -quick-match -start-insert buffer<cr><c-u
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+map <F12> :let &background = ( &background == "dark"? "light" : "dark" )<CR>

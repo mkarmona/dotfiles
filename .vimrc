@@ -10,6 +10,8 @@ endif
 
 call neobundle#begin(expand('~/.vim/bundle'))
 
+NeoBundleFetch 'Shougo/neobundle.vim'
+
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build': {
 \	'linux': 'make',
@@ -43,14 +45,14 @@ NeoBundle 'hdima/python-syntax'
 NeoBundle 'airblade/vim-gitgutter'
 "NeoBundle 'rust-lang/rust.vim'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'oplatek/Conque-Shell'
 NeoBundle 'NLKNguyen/c-syntax.vim'
 
 call neobundle#end()
-NeoBundleCheck
 
 filetype plugin indent on
 syn on " syntax on
+
+NeoBundleCheck
 
 set background=dark
 
@@ -102,7 +104,11 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 
-colorscheme base16-tomorrow
+
+let g:PaperColor_Light_Override = { 'background' : '#eeeeee', 'cursorline' : '#e8e8e8' }
+let g:PaperColor_Dark_Override = { 'background' : '#1a1a1a', 'cursorline' : '#303030' }
+
+colorscheme PaperColor
 
 function! HighlightSearch()
   if &hls

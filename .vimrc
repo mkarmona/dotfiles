@@ -23,6 +23,7 @@ NeoBundle 'Shougo/neomru.vim'
 
 "NeoBundle 'mkarmona/base16-vim'
 NeoBundle 'mkarmona/gsl.vim'
+NeoBundle 'mkarmona/togglebg.vim'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'kevinw/pyflakes-vim'
@@ -414,4 +415,5 @@ nnoremap <silent> [unite]s :<C-u>Unite -quick-match -start-insert buffer<cr><c-u
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-map <F12> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+"map <F12> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+call togglebg#map("<F12>")

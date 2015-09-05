@@ -71,7 +71,7 @@ if [ "$color_prompt" = yes ]; then
 #    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[33m\]\u@\h\[\033[00m\]:\[\033[36m\]\w\[\033[00m\] > '
     #PS1=$'\[\033[01;38;5;4m\][ \[\033[01;38;5;5m\]\j\[\033[01;38;5;13m\] $(__shortpath "\w" 40) \[\033[01;38;5;4m\]]\[\033[00m\] \xe2\x86\x92 '
-    PS1=$'\[\033[01;38;5;4m\][ \[\033[01;38;5;5m\]\j\[\033[01;38;5;202m\] $(__shortpath "\w" 40) \[\033[01;38;5;4m\]]\[\033[00m\] \xe2\x86\x92 '
+    PS1=$'\[\033[01;38;5;4m\][ \[\033[00;38;5;5m\]\j\[\033[00;38;5;202m\] $(__shortpath "\w" 40) \[\033[01;38;5;4m\]]\[\033[00m\] \xe2\x86\x92 '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -121,8 +121,7 @@ nim_path="${HOME}/src/github.com/Araq/Nim"
 nimble_path="${HOME}/.nimble"
 #alias vim='TERM=xterm-256color vim'
 alias 7up='svn up'
-#export EDITOR='gvim -f'
-export EDITOR='vim'
+export EDITOR='gvim -f'
 export PAGER="less"
 export PATH=$PATH:~/bin:$nim_path/bin:$nimble_path/bin
 
@@ -135,6 +134,8 @@ fi
 export GOPATH=~/src/go
 export PATH=$PATH:$GOPATH/bin
 
+NEOVIM=/opt/neovim
+export PATH=$PATH:$NEOVIM/bin
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-tomorrow.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+GRUVBOX_SHELL="$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
+[[ -s $GRUVBOX_SHELL ]] && source $GRUVBOX_SHELL

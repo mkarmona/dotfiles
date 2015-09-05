@@ -62,7 +62,7 @@ NeoBundleCheck
   "set background=dark
 "endif
 
-set background=light
+set background=dark
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -131,8 +131,8 @@ endfunction
 let g:gruvbox_bold = 1
 let g:gruvbox_italic = 0
 " soft medium hard
-let g:gruvbox_contrast_dark = "medium"
-let g:gruvbox_contrast_light = "medium"
+let g:gruvbox_contrast_dark = "hard"
+let g:gruvbox_contrast_light = "hard"
 let g:gruvbox_italicize_comments = 0
 let g:gruvbox_invert_selection = 0
 
@@ -147,6 +147,19 @@ let g:airline_powerline_fonts = 1
 "let g:airline_left_sep = ''
 "let g:airline_right_sep = ''
 let g:airline_inactive_collapse = 0
+let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'c'  : 'C',
+      \ 'v'  : 'V',
+      \ 'V'  : 'VL',
+      \ '' : 'VB',
+      \ 's'  : 'S',
+      \ 'S'  : 'S',
+      \ '' : 'S',
+      \ }
 
 if has("gui_running")
     " let gvim select its airline theme

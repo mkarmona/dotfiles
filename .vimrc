@@ -10,7 +10,10 @@ if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-for f in split(glob('~/.vim/vim.d/*.vim'), '\n')
-    exe 'source' f
-endfor
+" load intial files
+exe 'runtime!' 'vim.d/01bundle.vim'
+exe 'runtime!' 'vim.d/02settings.vim'
 
+exe 'runtime!' 'vim.d/20*.vim'
+
+exe 'runtime' 'vim.d/99user.vim'

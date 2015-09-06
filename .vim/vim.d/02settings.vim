@@ -6,9 +6,6 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-"let base16colorspace=256
-"let g:base16_shell_path = expand("~/.config/base16-shell")
-
 let mapleader = ',' " esto es el comando para el map
 
 set completeopt=menuone

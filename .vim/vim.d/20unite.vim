@@ -1,4 +1,6 @@
 " unite plugin
+let g:unite_enable_ignore_case=1
+let g:unite_enable_smart_case=1
 let g:unite_data_directory='~/.vim/.cache/unite'
 let g:unite_source_history_yank_enable=1
 let g:unite_source_rec_max_cache_files=20000
@@ -6,11 +8,11 @@ let g:unite_source_file_rec_max_cache_files=20000
 " Using ag as recursive command.
 let g:unite_source_rec_async_command =
             \ ['ag', '--follow', '--nocolor', '--nogroup',
-            \ '--hidden', '--ignore', '".svn"', '--ignore',
+            \ '--ignore', '".svn"', '--ignore',
             \ '".hg"', '--ignore', '".git"', '--ignore','".bzr"',
             \ '--hidden', '-g', '']
 let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts = '-i --vimgrep --hidden --ignore ''.svn'' --ignore ''.hg'' --ignore ''.git'' --ignore ''.bzr'' --line-numbers --nocolor --nogroup --smart-case'
+let g:unite_source_grep_default_opts = '-i --ignore ''.svn'' --ignore ''.hg'' --ignore ''.git'' --ignore ''.bzr'' --nocolor --nogroup --smart-case'
 let g:unite_source_grep_recursive_opt = ''
 let g:unite_source_grep_max_candidates = 200
 
@@ -35,7 +37,6 @@ call unite#custom#profile('default', 'context', {
 nmap <space> [unite]
 nnoremap [unite] <nop>
 
-" TODO MIRAR COMO LLAMAR AL VIMPROC PERO DESDE EL PATH ACTUAL
 nnoremap <silent> [unite]<space> :<C-u>Unite -buffer-name=mixed buffer file_mru -input= -resume file_rec/async:! bookmark<cr><c-u>
 nnoremap <silent> [unite]f :<C-u>Unite -buffer-name=files buffer -input= -resume file_rec/async:!<cr><c-u>
 nnoremap <silent> [unite]c :<C-u>Unite -buffer-name=files buffer -input= -resume file:!<cr><c-u>

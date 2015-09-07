@@ -40,6 +40,7 @@ NeoBundle 'hdima/python-syntax'
 NeoBundle 'airblade/vim-gitgutter'
 "NeoBundle 'rust-lang/rust.vim'
 "NeoBundle 'scrooloose/syntastic'
+"NeoBundle 'junegunn/fzf'
 
 call neobundle#end()
 

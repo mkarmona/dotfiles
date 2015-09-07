@@ -47,4 +47,7 @@ set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
-
+if has('conceal')
+    set conceallevel=2
+    set concealcursor=i
+endif

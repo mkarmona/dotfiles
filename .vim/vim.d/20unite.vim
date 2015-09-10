@@ -39,7 +39,7 @@ nnoremap [unite] <nop>
 
 nnoremap <silent> [unite]<space> :<C-u>Unite -buffer-name=mixed buffer file_mru -input= -resume file_rec/async:! bookmark<cr><c-u>
 nnoremap <silent> [unite]f :<C-u>Unite -buffer-name=files buffer -input= -resume file_rec/async:!<cr><c-u>
-nnoremap <silent> [unite]c :<C-u>Unite -buffer-name=files buffer -input= -resume file:!<cr><c-u>
+nnoremap <silent> [unite]c :<C-u>UniteWithProjectDir -buffer-name=files buffer -input= -resume file_rec/async:!<cr><c-u>
 nnoremap <silent> [unite]b :<C-u>Unite -buffer-name=buffers buffer<cr><c-u>
 nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=recent buffer file_mru<cr><c-u>
 nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yanks history/yank<cr><c-u>

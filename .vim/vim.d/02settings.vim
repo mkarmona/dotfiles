@@ -53,6 +53,6 @@ set foldlevel=1
 
 if has('conceal')
     set conceallevel=1
-    set concealcursor=cnv
+    set concealcursor=cn
 endif
 

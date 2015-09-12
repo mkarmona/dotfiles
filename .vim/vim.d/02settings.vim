@@ -1,6 +1,6 @@
 "settings
 
-set background=dark
+set background=light
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -40,14 +40,19 @@ set noshowmode
 set timeoutlen=500
 set lcs=extends:$,tab:/.,eol:$
 set fillchars+=vert:│
-set listchars=extends:$,tab:/.,eol:¬
+"set listchars=extends:$,tab:/.,eol:¬
+"set listchars=extends:$,tab:/.,eol:⤶
+"set listchars=extends:$,tab:/.,eol:␤
+set listchars=extends:$,tab:/.,eol:↵
 set list
 " default folding settings
 set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
+
 if has('conceal')
-    set conceallevel=2
-    set concealcursor=i
+    set conceallevel=1
+    set concealcursor=cnv
 endif
+

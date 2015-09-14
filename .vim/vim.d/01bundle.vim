@@ -38,7 +38,9 @@ NeoBundle 'hdima/python-syntax'
 NeoBundle 'airblade/vim-gitgutter'
 "NeoBundle 'rust-lang/rust.vim'
 NeoBundle 'JuliaLang/julia-vim'
+
 NeoBundle 'sirver/ultisnips'
+NeoBundle 'honza/vim-snippets'
 
 call neobundle#end()
 

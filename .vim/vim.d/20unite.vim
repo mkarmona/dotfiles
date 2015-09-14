@@ -48,5 +48,5 @@ nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yanks history/yank<cr><c-u>
 nnoremap <silent> [unite]l :<C-u>Unite -buffer-name=line line<cr><c-u>
 nnoremap <silent> [unite]/ :<C-u>Unite -buffer-name=ag grep<cr><c-u>
 nnoremap <silent> [unite]m :<C-u>Unite -buffer-name=mappings mapping<cr><c-u>
-"nnoremap <silent> [unite]s :<C-u>Unite -buffer-name=snippets neosnippet<cr><c-u>
+nnoremap <silent> [unite]s :<C-u>Unite -buffer-name=snippets ultisnips<cr><c-u>
 

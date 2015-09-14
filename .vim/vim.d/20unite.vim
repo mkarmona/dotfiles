@@ -41,11 +41,12 @@ nnoremap [unite] <nop>
 nnoremap <silent> [unite]<space> :<C-u>Unite -buffer-name=mixed buffer file_mru -input= -resume file_rec/async:! bookmark<cr><c-u>
 nnoremap <silent> [unite]f :<C-u>Unite -buffer-name=files buffer -input= -resume file_rec/async<cr><c-u>
 nnoremap <silent> [unite]c :<C-u>UniteWithCurrentDir -buffer-name=files file_rec/async<cr><c-u>
+"nnoremap <silent> [unite]v :<C-u>Unite -buffer-name=conf directory:~/.vim/vim.d/<cr><c-u>
 nnoremap <silent> [unite]b :<C-u>Unite -buffer-name=buffers buffer<cr><c-u>
 nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=recent buffer file_mru<cr><c-u>
 nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yanks history/yank<cr><c-u>
 nnoremap <silent> [unite]l :<C-u>Unite -buffer-name=line line<cr><c-u>
 nnoremap <silent> [unite]/ :<C-u>Unite -buffer-name=ag grep<cr><c-u>
 nnoremap <silent> [unite]m :<C-u>Unite -buffer-name=mappings mapping<cr><c-u>
-nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr><c-u>
+"nnoremap <silent> [unite]s :<C-u>Unite -buffer-name=snippets neosnippet<cr><c-u>
 

@@ -8,8 +8,6 @@ NeoBundle 'Shougo/vimproc.vim', {
 \	},
 \ }
 
-NeoBundle 'Valloric/YouCompleteMe'
-
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimshell.vim'
@@ -24,7 +22,7 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'kevinw/pyflakes-vim'
 NeoBundle 'justmao945/vim-clang'
 NeoBundle 'rhysd/vim-clang-format'
-"NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'bling/vim-airline'
@@ -36,8 +34,8 @@ NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'hdima/python-syntax'
 "NeoBundle 'jalcine/cmake.vim'
 NeoBundle 'airblade/vim-gitgutter'
-"NeoBundle 'rust-lang/rust.vim'
-NeoBundle 'JuliaLang/julia-vim'
+NeoBundle 'rust-lang/rust.vim'
+"NeoBundle 'JuliaLang/julia-vim'
 
 NeoBundle 'sirver/ultisnips'
 NeoBundle 'honza/vim-snippets'

@@ -21,7 +21,13 @@ let g:airline_theme = 'gruvboxal'
 let g:airline_section_b = "%<%f%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#"
 let g:airline_section_c=""
 let g:airline_section_x = "%{airline#util#wrap(airline#extensions#branch#get_head(),0)}"
-"let g:airline_section_y="%Y"
+let g:airline_section_y="%y"
+let g:airline_section_z="%l:%c %p"
+ let g:airline#extensions#default#layout = [
+      \ [ 'a', 'b' ],
+      \ [ 'x', 'y', 'z', 'warning' ]
+      \ ]
+let g:airline#extensions#default#section_truncate_width = {}
 
 let g:airline_mode_map = {
       \ '__' : '-',

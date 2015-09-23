@@ -9,7 +9,7 @@ function! HighlightSearch()
 endfunction
 
 " omni complet mapping
-"inoremap <silent> <c-space> <c-x><c-o>
+inoremap <silent> <c-space> <c-x><c-o>
 
 " mappings
 noremap <Leader>s :set hlsearch! hlsearch?<CR>

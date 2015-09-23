@@ -8,7 +8,7 @@ endif
 
 let mapleader = ',' " esto es el comando para el map
 
-set completeopt=menuone
+set completeopt=menuone,noinsert
 set cul
 set wildmenu
 set wildmode=list:longest,full

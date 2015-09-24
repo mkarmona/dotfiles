@@ -25,11 +25,12 @@ let g:airline_symbols.branch = 'λ'
 
 let g:airline_theme = 'gruvboxal'
 
-let g:airline_section_b = "%<%f%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#"
+let g:airline_section_a = "%{airline#util#wrap(airline#parts#mode(),0)}%M"
+let g:airline_section_b = "%<%f"
 let g:airline_section_c=""
 let g:airline_section_x = "%{airline#util#wrap(airline#extensions#branch#get_head(),0)}"
-let g:airline_section_y="%y"
-let g:airline_section_z="%l:%c %p"
+let g:airline_section_y="[%{&ff}%(,%{&fenc}%)%Y%R]"
+let g:airline_section_z="%l,%c-%p"
  let g:airline#extensions#default#layout = [
       \ [ 'a', 'b' ],
       \ [ 'x', 'y', 'z', 'warning' ]
@@ -38,16 +39,16 @@ let g:airline#extensions#default#section_truncate_width = {}
 
 let g:airline_mode_map = {
       \ '__' : '-',
-      \ 'n'  : 'N',
-      \ 'i'  : 'I',
-      \ 'R'  : 'R',
-      \ 'c'  : 'C',
-      \ 'v'  : 'V',
-      \ 'V'  : 'VL',
-      \ '' : 'VB',
-      \ 's'  : 'S',
-      \ 'S'  : 'S',
-      \ '' : 'S',
+      \ 'n'  : 'n',
+      \ 'i'  : 'i',
+      \ 'R'  : 'r',
+      \ 'c'  : 'c',
+      \ 'v'  : 'v',
+      \ 'V'  : 'vl',
+      \ '' : 'vb',
+      \ 's'  : 's',
+      \ 'S'  : 's',
+      \ '' : 's',
       \ }
 
 if has("gui_running")

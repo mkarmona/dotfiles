@@ -1,6 +1,6 @@
 "settings
 
-set background=dark
+set background=light
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -8,7 +8,7 @@ endif
 
 let mapleader = ',' " esto es el comando para el map
 
-set completeopt=menuone,noinsert
+set completeopt=menuone
 set cul
 set wildmenu
 set wildmode=list:longest,full
@@ -50,6 +50,7 @@ set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
+set linespace=2
 
 if has('conceal')
     set conceallevel=1

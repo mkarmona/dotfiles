@@ -16,6 +16,8 @@ let g:airline_right_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_alt_sep = ''
 let g:airline_inactive_collapse = 0
+let g:airline_symbols.branch = 'λ'
+
 let g:airline_theme = 'gruvboxal'
 
 let g:airline_section_b = "%<%f%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#"

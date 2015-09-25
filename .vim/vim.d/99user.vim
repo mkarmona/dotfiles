@@ -59,4 +59,7 @@ inoremap <C-Up> <Esc>:m-2<CR>==gi
 vnoremap <C-Down> :m'>+<CR>gv=gv
 vnoremap <C-Up> :m-2<CR>gv=gv
 
+" mapping begin/end of line in insert mode
+inoremap <C-e> <Esc>A
+inoremap <C-a> <Esc>I
 colorscheme gruvbox

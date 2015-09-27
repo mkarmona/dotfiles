@@ -1,49 +1,6 @@
-! lucius dark
-!*background:  #303030
-!*foreground:  #d7d7d7
-!*cursorColor: #87afd7
-!*color0:      #303030
-!*color8:      #303030
-!*color1:      #ff5f5f
-!*color9:      #ff5f5f
-!*color2:      #afd787
-!*color10:     #afd787
-!*color3:      #d7d7af
-!*color11:     #d7d7af
-!*color4:      #87d7ff
-!*color12:     #87d7ff
-!*color5:      #d7afd7
-!*color13:     #d7afd7
-!*color6:      #87d7af
-!*color14:     #87d7af
-!*color7:      #d7d7d7
-!*color15:     #d7d7d7
-
-
-! lucius light
-*background:  #eeeeee
-*foreground:  #444444
-*cursorColor: #5f87af
-*color0:      #444444
-*color8:      #444444
-*color1:      #af0000
-*color9:      #af0000
-*color2:      #008700
-*color10:     #008700
-*color3:      #af5f00
-*color11:     #af5f00
-*color4:      #005faf
-*color12:     #005faf
-*color5:      #870087
-*color13:     #870087
-*color6:      #008787
-*color14:     #008787
-*color7:      #eeeeee
-*color15:     #eeeeee
-
 URxvt*depth: 32
 URxvt*buffered: true
-URxvt*geometry: 92x40
+URxvt*geometry: 90x30
 URxvt*scrollBar: false
 URxvt*scrollstyle: plain
 URxvt*scrollBar_right: true
@@ -54,15 +11,16 @@ URxvt*loginShell: true
 URxvt*saveLines: 4096
 URxvt*dpi: 96
 URxvt*letterSpace: -1
+URxvt*lineSpace: 3
 URxvt*antialias: true
-URxvt*rgba: bgr
-URxvt*autohint: true
+URxvt*rgba: rgb
+!URxvt*autohint: true
 URxvt*hinting: true
 URxvt*hintstyle: hintfull
-URxvt*font: xft:DejaVu Sans Mono:style=light:size=10:spacing=mono:minspacing=true
-URxvt*boldfont: xft:DejaVu Sans Mono:style=demibold:size=10:spacing=mono:minspacing=true
-!URxvt*font: xft:Menlo:size=11:spacing=mono:height=100
-!URxvt*boldfont: xft:Menlo:style=bold:size=11:spacing=mono:height=100
+
+URxvt*font: xft:DejaVu Sans Mono:size=11:spacing=mono:minspace=true
+URxvt*boldfont: xft:DejaVu Sans Mono:size=11:spacing=mono:minspace=true
+
 URxvt*hold: true
 URxvt*termName: rxvt-unicode-256color
 
@@ -109,42 +67,39 @@ URxvt*internalBorder: 0
 
 ! Base16 Tomorrow
 ! Scheme: Chris Kempson (http://chriskempson.com)
+! -----------------------------------------------------------------------------
+! File: gruvbox-dark.xresources
+! Description: Retro groove colorscheme generalized
+! Author: morhetz <morhetz@gmail.com>
+! Source: https://github.com/morhetz/gruvbox-generalized
+! Last Modified: 6 Sep 2014
+! -----------------------------------------------------------------------------
 
-#define base00 #1d1f21
-#define base01 #282a2e
-#define base02 #373b41
-#define base03 #969896
-#define base04 #b4b7b4
-#define base05 #c5c8c6
-#define base06 #e0e0e0
-#define base07 #ffffff
-#define base08 #cc6666
-#define base09 #de935f
-#define base0A #f0c674
-#define base0B #b5bd68
-#define base0C #8abeb7
-#define base0D #81a2be
-#define base0E #b294bb
-#define base0F #a3685a
-
-*.foreground:   base05
-*.background:   base00
-*.cursorColor:  base05
-
-*.color0:       base00
-*.color1:       base08
-*.color2:       base0B
-*.color3:       base0A
-*.color4:       base0D
-*.color5:       base0E
-*.color6:       base0C
-*.color7:       base05
-
-*.color8:       base03
-*.color9:       base09
-*.color10:      base01
-*.color11:      base02
-*.color12:      base04
-*.color13:      base06
-*.color14:      base0F
-*.color15:      base07
+! hard contrast: *background: #1d2021
+!*background: #282828
+*background: #32302f
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2

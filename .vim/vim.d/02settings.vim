@@ -8,7 +8,7 @@ endif
 
 let mapleader = ',' " esto es el comando para el map
 
-set completeopt=menuone
+set completeopt=menuone,noinsert
 set cul
 set wildmenu
 set wildmode=list:longest,full
@@ -50,7 +50,6 @@ set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
-set linespace=2
 
 if has('conceal')
     set conceallevel=1

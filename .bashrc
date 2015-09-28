@@ -4,18 +4,18 @@
 
 # shorten a path in $1 to max of $2 characters, prepending a "..."
 function __shortpath {
-    if [[ ${#1} -gt $2 ]]; then
-        len=$2+3
-        echo "..."${1: -$len}
-    else
-        echo $1
-    fi
+if [[ ${#1} -gt $2 ]]; then
+    len=$2+3
+    echo "..."${1: -$len}
+else
+    echo $1
+fi
 }
 
 if [ -e /lib/terminfo/x/xterm-256color ]; then
-	export TERM="xterm-256color"
+    export TERM="xterm-256color"
 else
-	export TERM="xterm-color"
+    export TERM="xterm-color"
 fi
 
 TERM=rxvt-unicode-256color
@@ -58,20 +58,17 @@ force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
 if [ "$color_prompt" = yes ]; then
-#    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    #PS1='${debian_chroot:+($debian_chroot)}\[\033[33m\]\u@\h\[\033[00m\]:\[\033[36m\]\w\[\033[00m\] > '
-    #PS1=$'\[\033[01;38;5;4m\][ \[\033[01;38;5;5m\]\j\[\033[01;38;5;13m\] $(__shortpath "\w" 40) \[\033[01;38;5;4m\]]\[\033[00m\] \xe2\x86\x92 '
-    PS1=$'\[\033[01;38;5;4m\][ \[\033[00;38;5;5m\]\j\[\033[00;38;5;202m\] $(__shortpath "\w" 40) \[\033[01;38;5;4m\]]\[\033[00m\] \xe2\x86\x92 '
+    PS1=$' \[\033[00;38;5;5m\]\j\[\033[00;38;5;202m\] $(__shortpath "\w" 40)\[\033[00m\] \xe2\x86\x92 '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -81,12 +78,12 @@ unset color_prompt force_color_prompt
 dircolors=$HOME/.dircolors-$(tput colors)
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-	if [[ -f $dircolors ]]; then
-		eval $(dircolors -b $dircolors)
-	else
-		eval $(dircolors)
-	fi
-	alias ls='ls --color=auto -F'
+    if [[ -f $dircolors ]]; then
+        eval $(dircolors -b $dircolors)
+    else
+        eval $(dircolors)
+    fi
+    alias ls='ls --color=auto -F'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
@@ -123,7 +120,9 @@ nimble_path="${HOME}/.nimble"
 alias 7up='svn up'
 export EDITOR='gvim -f'
 export PAGER="less"
-export PATH=$PATH:~/bin:$nim_path/bin:$nimble_path/bin
+
+export GOPATH=~/src/go
+export PATH=$PATH:$GOPATH/bin:~/bin:$nim_path/bin:$nimble_path/bin
 
 #source /usr/local/bin/virtualenvwrapper.sh
 
@@ -131,11 +130,7 @@ if [ -f ~/.pythonrc ]; then
     export PYTHONSTARTUP=~/.pythonrc
 fi
 
-export GOPATH=~/src/go
-export PATH=$PATH:$GOPATH/bin
-
-NEOVIM=/opt/neovim
-export PATH=$PATH:$NEOVIM/bin
-# Base16 Shell
 GRUVBOX_SHELL="$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 [[ -s $GRUVBOX_SHELL ]] && source $GRUVBOX_SHELL
+
+[[ -s "/home/el1mc/.gvm/scripts/gvm" ]] && source "/home/el1mc/.gvm/scripts/gvm"

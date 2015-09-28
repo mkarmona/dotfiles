@@ -14,7 +14,7 @@ URxvt*letterSpace: -1
 URxvt*lineSpace: 3
 URxvt*antialias: true
 URxvt*rgba: rgb
-!URxvt*autohint: true
+URxvt*autohint: true
 URxvt*hinting: true
 URxvt*hintstyle: hintfull
 

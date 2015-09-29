@@ -5,21 +5,21 @@ URxvt*scrollBar: false
 URxvt*scrollstyle: plain
 URxvt*scrollBar_right: true
 !URxvt*borderColor: #000030
-!URxvt*internalBorder: 1
+URxvt*internalBorder: 0
 URxvt*visualBell: false
 URxvt*loginShell: true
 URxvt*saveLines: 4096
 URxvt*dpi: 96
-URxvt*letterSpace: -1
+URxvt*letterSpace: -2
 URxvt*lineSpace: 3
 URxvt*antialias: true
 URxvt*rgba: rgb
-!URxvt*autohint: true
-URxvt*hinting: true
+URxvt*autohint: true
+URxvt*hinting: false
 URxvt*hintstyle: hintfull
 
-URxvt*font: xft:DejaVu Sans Mono:size=11:spacing=mono:minspace=true
-URxvt*boldfont: xft:DejaVu Sans Mono:size=11:spacing=mono:minspace=true
+URxvt*font: xft:PragmataPro:size=12:spacing=mono:minspace=true
+!URxvt*boldfont: xft:DejaVu Sans Mono:size=11:spacing=mono:minspace=true
 
 URxvt*hold: true
 URxvt*termName: rxvt-unicode-256color
@@ -33,7 +33,6 @@ URxvt.keysym.Control-Right: \033[1;5C
 ! URxvt*title: string
 
 ! Internal border of number pixels. This resource is limited to 100; option
-URxvt*internalBorder: 0
 
 ! External border of number pixels. This resource is limited to 100; option
 ! URxvt*externalBorder: number
@@ -75,9 +74,10 @@ URxvt*internalBorder: 0
 ! Last Modified: 6 Sep 2014
 ! -----------------------------------------------------------------------------
 
-! hard contrast: *background: #1d2021
+! hard contrast: 
+*background: #1d2021
 !*background: #282828
-*background: #32302f
+! soft *background: #32302f
 *foreground: #ebdbb2
 ! Black + DarkGrey
 *color0:  #282828

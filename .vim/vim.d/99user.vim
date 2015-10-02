@@ -30,10 +30,15 @@ map <Leader><BS> <C-T> " salimos del tag
 "map <C-B> \be 
 
 "mappings para los tabs
-nmap <Leader>tn :tabnew<CR>
-map! <Leader>tn <Esc>:tabnew<CR>
-nmap <Leader>tc :tabclose<CR>
-map! <Leader>tc <Esc>:tabclose<CR>
+" Tab navigation like Firefox.
+nnoremap <C-S-tab> :tabprevious<CR>
+nnoremap <C-tab>   :tabnext<CR>
+nnoremap <C-Enter>     :tabnew<CR>
+nnoremap <C-Backspace>     :tabclose<CR>
+inoremap <C-S-tab> <Esc>:tabprevious<CR>i
+inoremap <C-tab>   <Esc>:tabnext<CR>i
+inoremap <C-Enter>     <Esc>:tabnew<CR>
+inoremap <C-Backspace>     <Esc>:tabclose<CR>
 
 
 map <Leader>bn :bnext<CR>
@@ -62,5 +67,6 @@ vnoremap <C-Up> :m-2<CR>gv=gv
 " mapping begin/end of line in insert mode
 inoremap <C-e> <Esc>A
 inoremap <C-a> <Esc>I
-"colorscheme gruvbox
-colorscheme lucius
+colorscheme gruvbox
+"colorscheme PaperColor
+"colorscheme lucius

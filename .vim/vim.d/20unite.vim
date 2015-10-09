@@ -21,7 +21,7 @@ call unite#custom#profile('default', 'context', {
 \   'prompt_direction': 'top',
 \   'auto_resize': 0,
 \   'no_resize': 1,
-\   'split': 1,
+\   'split': 0,
 \   'toggle': 1,
 \   'silent': 1,
 \   'max_candidates': 1000,

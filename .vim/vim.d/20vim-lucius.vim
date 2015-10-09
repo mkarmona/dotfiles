@@ -1,6 +1,6 @@
 " contrast
 " low normal high
-let g:lucius_contrast = 'normal'
+let g:lucius_contrast = 'high'
 
 " normal high
 let g:lucius_contrast_bg = 'normal'

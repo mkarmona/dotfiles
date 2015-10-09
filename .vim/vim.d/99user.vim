@@ -67,6 +67,9 @@ vnoremap <C-Up> :m-2<CR>gv=gv
 " mapping begin/end of line in insert mode
 inoremap <C-e> <Esc>A
 inoremap <C-a> <Esc>I
-colorscheme gruvbox
-"colorscheme PaperColor
-"colorscheme lucius
+
+if has("gui_running")
+    colorscheme seoul256
+else
+    colorscheme gruvbox
+endif

@@ -34,12 +34,9 @@ NeoBundle 'morhetz/gruvbox'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'hdima/python-syntax'
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'rust-lang/rust.vim'
-
 NeoBundle 'sirver/ultisnips'
 NeoBundle 'honza/vim-snippets'
-
-NeoBundle 'junegunn/seoul256.vim'
+NeoBundle 'Raimondi/delimitMate'
 
 call neobundle#end()
 

@@ -37,6 +37,7 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'sirver/ultisnips'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'airblade/vim-rooter'
 
 call neobundle#end()
 

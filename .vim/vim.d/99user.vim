@@ -69,7 +69,10 @@ inoremap <C-e> <Esc>A
 inoremap <C-a> <Esc>I
 
 if has("gui_running")
-    colorscheme seoul256
+    colorscheme gruvbox
 else
     colorscheme gruvbox
 endif
+
+let delimitMate_expand_cr = 1
+let g:rooter_disable_map = 1

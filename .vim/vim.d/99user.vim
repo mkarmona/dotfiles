@@ -1,4 +1,6 @@
-" this is the last file to load
+nnoremap <C-c> <nop>
+inoremap <C-c> <nop>
+nnoremap Q <nop>
 
 function! HighlightSearch()
   if &hls
@@ -12,7 +14,7 @@ endfunction
 inoremap <silent> <c-space> <c-x><c-o>
 
 " mappings
-noremap <Leader>s :set hlsearch! hlsearch?<CR>
+noremap <C-c><C-s> :set hlsearch! hlsearch?<CR>
 
 noremap <Leader>1 :1b<CR>
 noremap <Leader>2 :2b<CR>
@@ -68,11 +70,14 @@ vnoremap <C-Up> :m-2<CR>gv=gv
 inoremap <C-e> <Esc>A
 inoremap <C-a> <Esc>I
 
+noremap <C-c><C-c> "+y
+noremap <C-c><C-p> "+p
+noremap <C-c><C-x> "+d
+inoremap <C-c><C-p> <Esc>"+p
+
 if has("gui_running")
     colorscheme gruvbox
 else
     colorscheme gruvbox
 endif
 
-let delimitMate_expand_cr = 1
-let g:rooter_disable_map = 1

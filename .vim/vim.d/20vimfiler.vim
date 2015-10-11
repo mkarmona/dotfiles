@@ -17,4 +17,5 @@ nnoremap <Leader>fo :<C-u>VimFiler<CR><C-u>
 nnoremap <Leader>fe :<C-u>VimFilerExplorer<CR><C-u>
 nnoremap <Leader>fc :<C-u>VimFilerCurrentDir<CR><C-u>
 nnoremap <Leader>fb :<C-u>VimFilerBufferDir<CR><C-u>
+nnoremap <Leader>ff :<C-u>VimFiler -project -force-quit -status<CR><C-u>
 

@@ -51,6 +51,11 @@ set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
+set nobackup
+set shortmess+=I
+set splitbelow
+set splitright
+"set backupdir=~/.vim/backup.d/
 
 if has('conceal')
     set conceallevel=1

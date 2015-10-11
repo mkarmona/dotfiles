@@ -31,7 +31,7 @@ call unite#custom#profile('default', 'context', {
 nmap <space> [unite]
 nnoremap [unite] <nop>
 
-nnoremap <silent> [unite]<space> :<C-u>Unite -buffer-name=mixed buffer file_mru -input= -resume file_rec/async:! bookmark<cr><c-u>
+nnoremap <silent> [unite]<space> :<C-u>UniteWithProjectDir -buffer-name=project buffer file_mru -input= file_rec/async bookmark<cr><c-u>
 nnoremap <silent> [unite]f :<C-u>Unite -buffer-name=files buffer -input= file_rec/async<cr><c-u>
 nnoremap <silent> [unite]c :<C-u>UniteWithCurrentDir -buffer-name=files file_rec/async<cr><c-u>
 "nnoremap <silent> [unite]v :<C-u>Unite -buffer-name=conf directory:~/.vim/vim.d/<cr><c-u>

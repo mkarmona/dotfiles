@@ -68,7 +68,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1=$' \[\033[00;38;5;5m\]\j\[\033[00;38;5;202m\] $(__shortpath "\w" 40)\[\033[00m\] \xe2\x86\x92 '
+    PS1=$' \[\033[00;38;5;5m\]\j\[\033[00;38;5;202m\] $(__shortpath "\w" 40)\[\033[00m\] % '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -123,7 +123,7 @@ export PAGER="less"
 
 export GOPATH=~/src/go
 export PATH=$PATH:$GOPATH/bin:~/bin:$nim_path/bin:$nimble_path/bin
-
+#export NVIM_TUI_ENABLE_TRUE_COLOR=1
 #source /usr/local/bin/virtualenvwrapper.sh
 
 if [ -f ~/.pythonrc ]; then
@@ -134,3 +134,8 @@ GRUVBOX_SHELL="$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 [[ -s $GRUVBOX_SHELL ]] && source $GRUVBOX_SHELL
 
 [[ -s "/home/el1mc/.gvm/scripts/gvm" ]] && source "/home/el1mc/.gvm/scripts/gvm"
+
+export PATH="$HOME/.linuxbrew/bin:$PATH"
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+xset r rate 250 40

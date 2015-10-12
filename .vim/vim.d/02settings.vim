@@ -43,7 +43,9 @@ set fillchars+=vert:│
 "set listchars=extends:$,tab:/.,eol:¬
 "set listchars=extends:$,tab:/.,eol:⤶
 "set listchars=extends:$,tab:/.,eol:␤
-set listchars=extends:$,tab:/.,eol:↵
+"set listchars=extends:$,tab:/.,eol:↵,nbsp:⎵
+set listchars=extends:$,tab:».,eol:↵,nbsp:⎵
+"set listchars=extends:$,tab:/.,eol:⁋
 set list
 set colorcolumn=85
 " default folding settings

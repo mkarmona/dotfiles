@@ -76,4 +76,4 @@ let g:tagbar_type_go = {
     \]
     \}
 
-noremap <Leader>tb :TagbarToggle<CR>
+nnoremap <C-c><C-b> :<C-u>TagbarToggle<CR><C-u>

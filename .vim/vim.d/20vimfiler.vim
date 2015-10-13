@@ -19,3 +19,4 @@ nnoremap <Leader>fc :<C-u>VimFilerCurrentDir<CR><C-u>
 nnoremap <Leader>fb :<C-u>VimFilerBufferDir<CR><C-u>
 nnoremap <Leader>ff :<C-u>VimFiler -project -force-quit -status<CR><C-u>
 
+nnoremap <C-c><C-e> :<C-u>VimFilerExplorer<CR><C-u>

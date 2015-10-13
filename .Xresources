@@ -1,7 +1,7 @@
 URxvt*depth: 32
 URxvt*buffered: true
-URxvt*geometry: 90x30
-URxvt*scrollBar: false
+URxvt*geometry: 100x35
+URxvt*scrollBar: true
 URxvt*scrollstyle: plain
 URxvt*scrollBar_right: true
 !URxvt*borderColor: #000030
@@ -11,14 +11,18 @@ URxvt*loginShell: true
 URxvt*saveLines: 4096
 URxvt*dpi: 96
 URxvt*letterSpace: -2
-URxvt*lineSpace: 3
+URxvt*lineSpace: 2
+!URxvt*lineSpace: 0
 URxvt*antialias: true
 URxvt*rgba: rgb
-URxvt*autohint: true
-URxvt*hinting: false
+URxvt*autohint: false
+URxvt*hinting: true
 URxvt*hintstyle: hintfull
+URxvt*lcdfilter: lcdlight
 
-URxvt*font: xft:PragmataPro:size=12:spacing=mono:minspace=true
+!URxvt*font: xft:Input:size=11:spacing=mono:minspace=true
+URxvt*font: xft:PragmataPro For Powerline:size=12.5:spacing=mono:minspace=true
+!URxvt*font: xft:Share Tech Mono:size=13:spacing=mono:minspace=true
 !URxvt*boldfont: xft:DejaVu Sans Mono:size=11:spacing=mono:minspace=true
 
 URxvt*hold: true
@@ -47,10 +51,10 @@ URxvt.keysym.Control-Right: \033[1;5C
 ! URxvt*pastableTabs: boolean
 
 ! True: blink the cursor. False: do not blink the cursor [default]; option
-! URxvt*cursorBlink: boolean
+URxvt*cursorBlink: true
 
 ! True: Make the cursor underlined. False: Make the cursor a box [default];
-! URxvt*cursorUnderline: boolean
+URxvt*cursorUnderline: false
 
 ! True: blank the pointer when a key is pressed or after a set number of
 ! URxvt*pointerBlank: boolean
@@ -75,6 +79,8 @@ URxvt.keysym.Control-Right: \033[1;5C
 ! -----------------------------------------------------------------------------
 
 ! hard contrast: 
+*CursorColor: #83a598
+*CursorColor2: reverse
 *background: #1d2021
 !*background: #282828
 ! soft *background: #32302f

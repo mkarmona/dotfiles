@@ -1,10 +1,11 @@
 "set guioptions=aegimrLt
 set guioptions=aegit "sin menus
 "set gfn=Input\ 13.5
-set gfn=Input\ 11
-"set gfn=PragmataPro\ For\ Powerline\ 12
+"set gfn=Input\ 11
+"set gfn=PragmataPro\ For\ Powerline\ 12.5
+set gfn=Share\ Tech\ Mono\ 13.5
 "set gfn=DejaVu\ Sans\ Mono\ 11
 "set linespace=2
-set linespace=0
-set co=95
+set linespace=1
+set co=100
 set lines=999

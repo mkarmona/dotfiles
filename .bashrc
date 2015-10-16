@@ -68,7 +68,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1=$' \[\033[00;38;5;5m\]\j\[\033[00;38;5;202m\] $(__shortpath "\w" 40)\[\033[00m\] % '
+    PS1=$' \[\033[00;38;5;5m\]\j\[\033[00;38;5;202m\] $(__shortpath "\w" 40)\[\033[00m\] $ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -121,8 +121,9 @@ alias 7up='svn up'
 export EDITOR='gvim -f'
 export PAGER="less"
 
+export GOROOT=~/opt/go
 export GOPATH=~/src/go
-export PATH=$PATH:$GOPATH/bin:~/bin:$nim_path/bin:$nimble_path/bin
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:~/bin:$nim_path/bin:$nimble_path/bin
 #export NVIM_TUI_ENABLE_TRUE_COLOR=1
 #source /usr/local/bin/virtualenvwrapper.sh
 

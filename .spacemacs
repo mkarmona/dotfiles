@@ -33,7 +33,7 @@ values."
             shell-default-height 30
             shell-default-position 'bottom)
      ;; spell-checking
-     ;; syntax-checking
+     syntax-checking
      ;; version-control
      )
    ;; List of additional packages that will be installed without being
@@ -41,11 +41,12 @@ values."
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '(llvm-mode
-                                           dts-mode
-                                           darktooth-theme
-                                           material-theme
-                                           go-mode
-                                           go-autocomplete)
+                                      dts-mode
+                                      darktooth-theme
+                                      material-theme
+                                      go-mode
+                                      go-autocomplete
+                                      anaconda-mode)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -86,10 +87,6 @@ values."
    dotspacemacs-themes '(material
                          zenburn
                          darktooth
-                         spacemacs-dark
-                         spacemacs-light
-                         solarized-light
-                         solarized-dark
                          leuven
                          monokai)
    ;; If non nil the cursor color matches the state color.
@@ -97,7 +94,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("PragmataPro For Powerline"
-                               :size 12.5
+                               :height 120
                                :weight normal
                                :width normal
                                :powerline-scale 1.0)
@@ -208,25 +205,39 @@ layers configuration. You are free to put any user code."
 
   (setq-default line-spacing 2)
   (setq powerline-default-separator 'nil)
+  ;;disable backup
+  (setq backup-inhibited t)
+  ;;disable auto save
+  (setq auto-save-default nil)
+
+  ;;(setq-default dotspacemacs-configuration-layers '(python))
+
   (spacemacs/toggle-line-numbers-on )
   (spacemacs/toggle-golden-ratio-on )
-
-  (set-face-attribute 'info-title-1 nil :font "PragmataPro For Powerline-18")
-  (set-face-attribute 'info-title-2 nil :font "PragmataPro For Powerline-17")
-  (set-face-attribute 'info-title-3 nil :font "PragmataPro For Powerline-16")
-  (set-face-attribute 'info-title-4 nil :font "PragmataPro For Powerline-14")
+  (set-face-attribute 'info-title-1 nil :font "PragmataPro For Powerline-17")
+  (set-face-attribute 'info-title-2 nil :font "PragmataPro For Powerline-16")
+  (set-face-attribute 'info-title-3 nil :font "PragmataPro For Powerline-15")
+  (set-face-attribute 'info-title-4 nil :font "PragmataPro For Powerline-13")
 
   (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+  ;; (add-hook 'after-init-hook 'global-company-mode)
 
 )
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ ;; '(cua-mode t nil (cua-base))
+ '(show-paren-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "PragmataPro for Powerline" :foundry "unknown" :slant normal :weight normal :height 126 :width normal))))
-
+ ;; '(default ((t (:family "PragmataPro For Powerline" :foundry "unknown" :slant normal :weight normal :height 120 :width normal))))
+ '(default ((t (:family "PragmataPro For Powerline" :foundry "unknown" :slant normal :weight normal :height 120 :width normal))))
  )

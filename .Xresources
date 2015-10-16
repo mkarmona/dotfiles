@@ -1,3 +1,6 @@
+Emacs*geometry: 110x47
+Emacs*lineSpace: -2
+Emacs*letterSpace: -2
 URxvt*depth: 32
 URxvt*buffered: true
 URxvt*geometry: 100x35

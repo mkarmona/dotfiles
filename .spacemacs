@@ -28,10 +28,15 @@ values."
      emacs-lisp
      git
      markdown
+     python
+     go
+     (c-c++ :variables
+            c-c++-default-mode-for-headers 'c++-mode)
+     ;;       c-c++-enable-clang-support t)
      ;; org
-     (shell :variables
-            shell-default-height 30
-            shell-default-position 'bottom)
+     ;; (shell :variables
+     ;;       shell-default-height 30
+     ;;       shell-default-position 'bottom)
      ;; spell-checking
      syntax-checking
      ;; version-control
@@ -42,11 +47,7 @@ values."
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '(llvm-mode
                                       dts-mode
-                                      darktooth-theme
-                                      material-theme
-                                      go-mode
-                                      go-autocomplete
-                                      anaconda-mode)
+                                      material-theme)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -85,9 +86,6 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(material
-                         zenburn
-                         darktooth
-                         leuven
                          monokai)
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -196,7 +194,7 @@ values."
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init'.  You are free to put any
 user code."
-  )
+)
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -210,10 +208,9 @@ layers configuration. You are free to put any user code."
   ;;disable auto save
   (setq auto-save-default nil)
 
-  ;;(setq-default dotspacemacs-configuration-layers '(python))
-
   (spacemacs/toggle-line-numbers-on )
   (spacemacs/toggle-golden-ratio-on )
+
   (set-face-attribute 'info-title-1 nil :font "PragmataPro For Powerline-17")
   (set-face-attribute 'info-title-2 nil :font "PragmataPro For Powerline-16")
   (set-face-attribute 'info-title-3 nil :font "PragmataPro For Powerline-15")
@@ -222,7 +219,6 @@ layers configuration. You are free to put any user code."
   (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-  ;; (add-hook 'after-init-hook 'global-company-mode)
 
 )
 
@@ -231,8 +227,10 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- ;; '(cua-mode t nil (cua-base))
- '(show-paren-mode t))
+ '(cua-mode t nil (cua-base))
+ '(show-paren-mode t)
+)
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -240,4 +238,4 @@ layers configuration. You are free to put any user code."
  ;; If there is more than one, they won't work right.
  ;; '(default ((t (:family "PragmataPro For Powerline" :foundry "unknown" :slant normal :weight normal :height 120 :width normal))))
  '(default ((t (:family "PragmataPro For Powerline" :foundry "unknown" :slant normal :weight normal :height 120 :width normal))))
- )
+)

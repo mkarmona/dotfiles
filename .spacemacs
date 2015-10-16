@@ -215,21 +215,11 @@ layers configuration. You are free to put any user code."
   (set-face-attribute 'info-title-3 nil :font "PragmataPro For Powerline-16")
   (set-face-attribute 'info-title-4 nil :font "PragmataPro For Powerline-14")
 
-  ;; (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
-  ;; (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-  ;; (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+  (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 )
 
-;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("97f9438943105a17eeca9f1a1c4c946765e364957749e83047d6ee337b5c0a73" "9960cc55931596d259ec3673ea7139c0090f21be4bd64728eefac0c949c843af" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

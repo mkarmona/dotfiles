@@ -30,16 +30,21 @@ values."
      markdown
      python
      go
+     shell-scripts
+     html
+     javascript
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode)
      ;;       c-c++-enable-clang-support t)
      ;; org
-     ;; (shell :variables
-     ;;       shell-default-height 30
-     ;;       shell-default-position 'bottom)
+     (shell :variables
+            shell-default-height 30
+            shell-default-shell 'multi-term
+            shell-default-term-shell "/bin/ash"
+            shell-default-position 'bottom)
      ;; spell-checking
      syntax-checking
-     ;; version-control
+     version-control
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -47,7 +52,8 @@ values."
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '(llvm-mode
                                       dts-mode
-                                      material-theme)
+                                      material-theme
+                                      monokai-theme)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -86,7 +92,8 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(material
-                         monokai)
+                         monokai
+                         ujelly)
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -187,8 +194,8 @@ values."
    ;; The default package repository used if no explicit repository has been
    ;; specified with an installed package.
    ;; Not used for now. (default nil)
-   dotspacemacs-default-package-repository nil
-   ))
+   dotspacemacs-default-package-repository nil)
+)
 
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
@@ -222,20 +229,21 @@ layers configuration. You are free to put any user code."
 
 )
 
+;; custom things using emacs Custom
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cua-mode t nil (cua-base))
- '(show-paren-mode t)
-)
+ '(show-paren-mode t))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- ;; '(default ((t (:family "PragmataPro For Powerline" :foundry "unknown" :slant normal :weight normal :height 120 :width normal))))
  '(default ((t (:family "PragmataPro For Powerline" :foundry "unknown" :slant normal :weight normal :height 120 :width normal))))
-)
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))

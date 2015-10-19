@@ -75,6 +75,14 @@ noremap <C-c><C-p> "+p
 noremap <C-c><C-x> "+d
 inoremap <C-c><C-p> <Esc>"+p
 
+" split map
+noremap <C-c><C-s> :<C-u>split<CR><C-u>
+inoremap <C-c><C-s> <Esc>:<C-u>split<CR><C-u>
+
+" vsplit map
+noremap <C-c><C-v> :<C-u>vsplit<CR><C-u>
+inoremap <C-c><C-v> <Esc>:<C-u>vsplit<CR><C-u>
+
 if has("gui_running")
     colorscheme gruvbox
 else

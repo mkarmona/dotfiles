@@ -6,6 +6,6 @@ let g:clang_auto = 1
 let g:clang_c_completeopt = 'menuone,noinsert'
 let g:clang_cpp_completeopt = 'menuone,noinsert'
 let g:clang_diagsopt = ''
-map <silent> <Leader>c <Esc>:ClangClosePreviewDiagWindow<CR>
+map <silent> <C-c>cp <Esc>:<C-u>ClangClosePreviewDiagWindow<CR><C-u>
 autocmd FileType c,cpp set cindent|set expandtab|set smarttab|set softtabstop=2|set shiftwidth=2
 

@@ -6,6 +6,10 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+nnoremap <C-c> <nop>
+inoremap <C-c> <nop>
+nnoremap Q <nop>
+
 let mapleader = ',' " esto es el comando para el map
 
 "set completeopt=menuone,noinsert
@@ -38,13 +42,13 @@ set autoread "para que recargue el fichero en caso de cambiar
 set laststatus=2
 set noshowmode
 set timeoutlen=500
-set lcs=extends:$,tab:/.,eol:$
 set fillchars+=vert:│
 "set listchars=extends:$,tab:/.,eol:¬
 "set listchars=extends:$,tab:/.,eol:⤶
 "set listchars=extends:$,tab:/.,eol:␤
 "set listchars=extends:$,tab:/.,eol:↵,nbsp:⎵
-set listchars=extends:$,tab:».,eol:↵,nbsp:⎵
+"set listchars=extends:$,tab:».,eol:↵,nbsp:⎵
+set listchars=extends:$,tab:».,eol:¬,nbsp:⎵
 "set listchars=extends:$,tab:/.,eol:⁋
 set list
 set colorcolumn=85

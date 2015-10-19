@@ -1,1 +1,1 @@
-noremap <Leader>gt :GitGutterSignsToggle<CR>
+noremap <C-c>tg :GitGutterSignsToggle<CR>

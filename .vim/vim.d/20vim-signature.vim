@@ -1,2 +1,2 @@
-noremap <Leader>mt :SignatureToggle<CR>
-noremap <Leader>mr :SignatureRefresh<CR>
+noremap <C-c>ts :SignatureToggle<CR>
+noremap <C-c>sr :SignatureRefresh<CR>

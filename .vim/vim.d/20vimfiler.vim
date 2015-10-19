@@ -13,10 +13,8 @@ let g:vimfiler_tree_closed_icon = '▸'
 let g:vimfiler_file_icon = '-'
 let g:vimfiler_marked_file_icon = '*'
 
-nnoremap <Leader>fo :<C-u>VimFiler<CR><C-u>
-nnoremap <Leader>fe :<C-u>VimFilerExplorer<CR><C-u>
-nnoremap <Leader>fc :<C-u>VimFilerCurrentDir<CR><C-u>
-nnoremap <Leader>fb :<C-u>VimFilerBufferDir<CR><C-u>
-nnoremap <Leader>ff :<C-u>VimFiler -project -force-quit -status<CR><C-u>
-
-nnoremap <C-c><C-e> :<C-u>VimFilerExplorer<CR><C-u>
+map <C-c>fo :<C-u>VimFiler<CR><C-u>
+map <C-c>fe :<C-u>VimFilerExplorer<CR><C-u>
+map <C-c>fc :<C-u>VimFilerCurrentDir<CR><C-u>
+map <C-c>fb :<C-u>VimFilerBufferDir<CR><C-u>
+map <C-c>ff :<C-u>VimFiler -project -force-quit -status<CR><C-u>

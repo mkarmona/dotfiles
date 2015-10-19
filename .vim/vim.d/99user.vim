@@ -1,34 +1,27 @@
-nnoremap <C-c> <nop>
-inoremap <C-c> <nop>
-nnoremap Q <nop>
-
 function! HighlightSearch()
-  if &hls
-    return 'hls'
-  else
-    return ''
-  endif
+    execute 'set hlsearch! hlsearch?'
 endfunction
 
 " omni complet mapping
 inoremap <silent> <c-space> <c-x><c-o>
 
 " mappings
-noremap <C-c><C-s> :set hlsearch! hlsearch?<CR>
+"map! <C-c>ts :set hlsearch! hlsearch?<CR>
+map <silent><C-c>ts call HighlightSearch()
 
-noremap <Leader>1 :1b<CR>
-noremap <Leader>2 :2b<CR>
-noremap <Leader>3 :3b<CR>
-noremap <Leader>4 :4b<CR>
-noremap <Leader>5 :5b<CR>
-noremap <Leader>6 :6b<CR>
-noremap <Leader>7 :7b<CR>
-noremap <Leader>8 :8b<CR>
-noremap <Leader>9 :9b<CR>
-noremap <Leader>0 :10b<CR>
+map <C-c>1 :1b<CR>
+map <C-c>2 :2b<CR>
+map <C-c>3 :3b<CR>
+map <C-c>4 :4b<CR>
+map <C-c>5 :5b<CR>
+map <C-c>6 :6b<CR>
+map <C-c>7 :7b<CR>
+map <C-c>8 :8b<CR>
+map <C-c>9 :9b<CR>
+map <C-c>0 :10b<CR>
 
-map <Leader><Return> <C-]> " entramos en el tag
-map <Leader><BS> <C-T> " salimos del tag
+map <C-c><Return> <C-]> " entramos en el tag
+map <C-c><BS> <C-T> " salimos del tag
 "map <C-B> \be 
 
 "mappings para los tabs
@@ -43,17 +36,17 @@ inoremap <C-Enter>     <Esc>:tabnew<CR>
 inoremap <C-Backspace>     <Esc>:tabclose<CR>
 
 
-map <Leader>bn :bnext<CR>
-map! <Leader>bn <ESC>:bnext<CR>
+"map <Leader>bn :bnext<CR>
+"map! <Leader>bn <ESC>:bnext<CR>
 
-map <Leader>bp :bprevious<CR>
-map! <Leader>bp <ESC>:previous<CR>
+"map <Leader>bp :bprevious<CR>
+"map! <Leader>bp <ESC>:previous<CR>
 
-map <Leader>bf :bfirst<CR>
-map! <Leader>bf <ESC>:bfirst<CR>
+"map <Leader>bf :bfirst<CR>
+"map! <Leader>bf <ESC>:bfirst<CR>
 
-map <Leader>bl :blast<CR>
-map! <Leader>bl <ESC>:blast<CR>
+"map <Leader>bl :blast<CR>
+"map! <Leader>bl <ESC>:blast<CR>
 
 " salva la session
 nmap <Leader><F2> :mks! .session.vim<CR>

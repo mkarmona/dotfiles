@@ -38,6 +38,8 @@ NeoBundle 'sirver/ultisnips'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'airblade/vim-rooter'
+NeoBundle 'sjl/badwolf'
+NeoBundle 'roman/golden-ratio'
 
 call neobundle#end()
 

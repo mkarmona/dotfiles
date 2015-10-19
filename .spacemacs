@@ -39,8 +39,8 @@ values."
      ;; org
      (shell :variables
             shell-default-height 30
-            shell-default-shell 'multi-term
-            shell-default-term-shell "/bin/ash"
+            ;; shell-default-shell 'multi-term
+            shell-default-term-shell "/bin/bash"
             shell-default-position 'bottom)
      ;; spell-checking
      syntax-checking
@@ -98,8 +98,8 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("PragmataPro For Powerline"
-                               :height 120
+   dotspacemacs-default-font '("Consolas"
+                               :height 130
                                :weight normal
                                :width normal
                                :powerline-scale 1.0)
@@ -218,10 +218,10 @@ layers configuration. You are free to put any user code."
   (spacemacs/toggle-line-numbers-on )
   (spacemacs/toggle-golden-ratio-on )
 
-  (set-face-attribute 'info-title-1 nil :font "PragmataPro For Powerline-17")
-  (set-face-attribute 'info-title-2 nil :font "PragmataPro For Powerline-16")
-  (set-face-attribute 'info-title-3 nil :font "PragmataPro For Powerline-15")
-  (set-face-attribute 'info-title-4 nil :font "PragmataPro For Powerline-13")
+  (set-face-attribute 'info-title-1 nil :font "Consolas-17")
+  (set-face-attribute 'info-title-2 nil :font "Consolas-16")
+  (set-face-attribute 'info-title-3 nil :font "Consolas-15")
+  (set-face-attribute 'info-title-4 nil :font "Consolas-14")
 
   (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
@@ -244,6 +244,6 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "PragmataPro For Powerline" :foundry "unknown" :slant normal :weight normal :height 120 :width normal))))
+ '(default ((t (:family "Consolas" :foundry "unknown" :slant normal :weight normal :height 130 :width normal))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))

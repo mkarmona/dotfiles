@@ -38,8 +38,15 @@ NeoBundle 'sirver/ultisnips'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'airblade/vim-rooter'
-NeoBundle 'sjl/badwolf'
 NeoBundle 'roman/golden-ratio'
+
+NeoBundle 'luochen1990/rainbow'
+NeoBundle 'kovisoft/paredit'
+NeoBundle 'guns/vim-sexp'
+NeoBundle 'tpope/vim-fireplace'
+NeoBundle 'tpope/vim-salve.git'
+NeoBundle 'tpope/vim-projectionist.git'
+NeoBundle 'tpope/vim-dispatch.git'
 
 call neobundle#end()
 

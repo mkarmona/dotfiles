@@ -7,8 +7,7 @@ inoremap <silent> <c-space> <c-x><c-o>
 
 " mappings
 "map! <C-c>ts :set hlsearch! hlsearch?<CR>
-map <silent><C-c>ts call HighlightSearch()
-
+map <C-c>ts :<C-u>set hlsearch! hlsearch?<cr><C-u>
 map <C-c>1 :1b<CR>
 map <C-c>2 :2b<CR>
 map <C-c>3 :3b<CR>
@@ -77,6 +76,7 @@ noremap <C-c><C-v> :<C-u>vsplit<CR><C-u>
 inoremap <C-c><C-v> <Esc>:<C-u>vsplit<CR><C-u>
 
 if has("gui_running")
+    set background=dark
     colorscheme gruvbox
 else
     colorscheme gruvbox

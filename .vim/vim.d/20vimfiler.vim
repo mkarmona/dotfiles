@@ -4,8 +4,8 @@ let g:vimfiler_as_default_explorer = 1
 call vimfiler#custom#profile('default', 'context', {
       \ '-force-quit' : 1,
       \ '-status' : 1,
-      \ '-winwidth' : 0,
-      \ '-winminwidth' : 35
+      \ '-winwidth' : 45,
+      \ '-winminwidth' : 45
       \ })
 
 " Like Textmate icons.

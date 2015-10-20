@@ -47,11 +47,11 @@ set fillchars+=vert:│
 "set listchars=extends:$,tab:/.,eol:⤶
 "set listchars=extends:$,tab:/.,eol:␤
 "set listchars=extends:$,tab:/.,eol:↵,nbsp:⎵
-"set listchars=extends:$,tab:».,eol:↵,nbsp:⎵
-set listchars=extends:$,tab:».,eol:¬,nbsp:⎵
+set listchars=extends:$,tab:».,eol:↵,nbsp:⎵
+"set listchars=extends:$,tab:».,eol:¬,nbsp:⎵
 "set listchars=extends:$,tab:/.,eol:⁋
 set list
-set colorcolumn=85
+set colorcolumn=85,95
 " default folding settings
 set foldmethod=indent
 set foldnestmax=10
@@ -61,6 +61,7 @@ set nobackup
 set shortmess+=I
 set splitbelow
 set splitright
+set timeoutlen=1000
 "set backupdir=~/.vim/backup.d/
 
 if has('conceal')

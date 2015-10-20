@@ -1,56 +1,52 @@
-call neobundle#begin(expand('~/.vim/bundle'))
+call plug#begin('~/.vim/plugged')
 
-NeoBundleFetch 'Shougo/neobundle.vim'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build': {
-\	'linux': 'make',
-\	},
-\ }
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'Shougo/vimshell.vim'
+Plug 'Shougo/vimfiler.vim'
 
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/vimshell.vim'
-NeoBundle 'Shougo/vimfiler.vim'
+Plug 'mkarmona/gsl.vim'
+Plug 'mkarmona/togglebg.vim'
+Plug 'mkarmona/gruvboxal.vim'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 
-NeoBundle 'mkarmona/gsl.vim'
-NeoBundle 'mkarmona/togglebg.vim'
-NeoBundle 'mkarmona/gruvboxal.vim'
-NeoBundle 'vim-pandoc/vim-pandoc'
-NeoBundle 'vim-pandoc/vim-pandoc-syntax'
+Plug 'fatih/vim-go'
+Plug 'majutsushi/tagbar'
+Plug 'kevinw/pyflakes-vim'
+Plug 'justmao945/vim-clang'
+Plug 'rhysd/vim-clang-format'
+Plug 'davidhalter/jedi-vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'bling/vim-airline'
+Plug 'rking/ag.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'gregsexton/gitv'
+Plug 'morhetz/gruvbox'
+Plug 'kshenoy/vim-signature'
+Plug 'hdima/python-syntax'
+Plug 'airblade/vim-gitgutter'
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'Raimondi/delimitMate'
+Plug 'airblade/vim-rooter'
+Plug 'roman/golden-ratio'
 
-NeoBundle 'fatih/vim-go'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'kevinw/pyflakes-vim'
-NeoBundle 'justmao945/vim-clang'
-NeoBundle 'rhysd/vim-clang-format'
-NeoBundle 'davidhalter/jedi-vim'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'gregsexton/gitv'
-NeoBundle 'morhetz/gruvbox'
-NeoBundle 'kshenoy/vim-signature'
-NeoBundle 'hdima/python-syntax'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'sirver/ultisnips'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'airblade/vim-rooter'
-NeoBundle 'roman/golden-ratio'
+Plug 'luochen1990/rainbow'
+Plug 'kovisoft/paredit'
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-fireplace'
 
-NeoBundle 'luochen1990/rainbow'
-NeoBundle 'kovisoft/paredit'
-NeoBundle 'guns/vim-sexp'
-NeoBundle 'tpope/vim-fireplace'
-NeoBundle 'tpope/vim-salve.git'
-NeoBundle 'tpope/vim-projectionist.git'
-NeoBundle 'tpope/vim-dispatch.git'
+let g:plug_url_format = 'git@github.com:%s.git'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-salve'
+Plug 'tpope/vim-dispatch'
 
-call neobundle#end()
+" Add plugins to &runtimepath
+call plug#end()
 
 filetype plugin indent on
 syn on " syntax on
 
-NeoBundleCheck

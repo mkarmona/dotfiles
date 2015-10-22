@@ -47,11 +47,11 @@ set fillchars+=vert:│
 "set listchars=extends:$,tab:/.,eol:⤶
 "set listchars=extends:$,tab:/.,eol:␤
 "set listchars=extends:$,tab:/.,eol:↵,nbsp:⎵
-set listchars=extends:$,tab:».,eol:↵,nbsp:⎵
-"set listchars=extends:$,tab:».,eol:¬,nbsp:⎵
+"set listchars=extends:$,tab:».,eol:↵,nbsp:⎵
+set listchars=extends:$,tab:».,eol:¬,nbsp:⎵
 "set listchars=extends:$,tab:/.,eol:⁋
 set list
-set colorcolumn=85,95
+"set colorcolumn=85,95
 " default folding settings
 set foldmethod=indent
 set foldnestmax=10

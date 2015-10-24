@@ -23,7 +23,7 @@ endif
 
 let g:airline_symbols.branch = 'λ'
 
-let g:airline_theme = 'gruvboxal'
+let g:airline_theme = 'materialbox'
 
 let g:airline_section_a = "%{airline#util#wrap(airline#parts#mode(),0)}%M"
 let g:airline_section_b = "%<%f"

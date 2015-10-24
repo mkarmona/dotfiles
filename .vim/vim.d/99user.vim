@@ -8,6 +8,7 @@ inoremap <silent> <c-space> <c-x><c-o>
 " mappings
 "map! <C-c>ts :set hlsearch! hlsearch?<CR>
 map <C-c>th :<C-u>set hlsearch! hlsearch?<cr><C-u>
+map <C-c>tl :<C-u>set number! number?<cr><C-u>
 map <C-c>1 :1b<CR>
 map <C-c>2 :2b<CR>
 map <C-c>3 :3b<CR>

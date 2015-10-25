@@ -1,6 +1,15 @@
+!http://pxcalc.com/
+*dpi: 101.76
+*antialias: false
+*rgba: rgb
+*autohint: false
+*hinting: true
+*hintstyle: hintslight
+*lcdfilter: lcddefault
+
 Emacs*geometry: 100x35
 Emacs*lineSpace: 2
-Emacs*letterSpace: -2
+Emacs*letterSpace: 0
 URxvt*depth: 32
 URxvt*buffered: true
 URxvt*geometry: 100x30
@@ -9,24 +18,19 @@ URxvt*scrollstyle: plain
 URxvt*scrollBar_right: true
 !URxvt*borderColor: #000030
 URxvt*internalBorder: 0
+URxvt*externalBorder: 0
 URxvt*visualBell: false
 URxvt*loginShell: true
 URxvt*saveLines: 4096
-URxvt*dpi: 96
-!URxvt*letterSpace: -2
 URxvt*letterSpace: -2
+!URxvt*letterSpace: -1
 URxvt*lineSpace: 2
-URxvt*antialias: true
-URxvt*rgba: rgb
-URxvt*autohint: false
-URxvt*hinting: true
-URxvt*hintstyle: hintfull
-URxvt*lcdfilter: lcdlight
 
-!URxvt*font: xft:Input:size=11:spacing=mono:minspace=true
-URxvt*font: xft:Consolas:size=13:spacing=mono:minspace=true
+!URxvt*font: xft:Input:size=12:spacing=mono:minspace=true
+!URxvt*font: xft:Consolas:size=12:spacing=mono:minspace=true
+!URxvt*font: xft:Terminus:size=13:spacing=mono:minspace=true
 !URxvt*font: xft:M+ 2m Medium:size=12:spacing=mono:minspace=true
-!URxvt*font: xft:PragmataPro For Powerline:size=12:spacing=mono:minspace=true
+URxvt*font: xft:PragmataPro For Powerline:size=11.6:spacing=mono:minspace=true
 !URxvt*font: xft:Share Tech Mono:size=13:spacing=mono:minspace=true
 !URxvt*boldfont: xft:DejaVu Sans Mono:size=11:spacing=mono:minspace=true
 

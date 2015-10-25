@@ -1,11 +1,11 @@
 !http://pxcalc.com/
 *dpi: 101.76
-*antialias: false
+*antialias: true
 *rgba: rgb
 *autohint: false
-*hinting: true
+*hinting: false
 *hintstyle: hintslight
-*lcdfilter: lcddefault
+*lcdfilter: lcdlight
 
 Emacs*geometry: 100x35
 Emacs*lineSpace: 2
@@ -30,7 +30,7 @@ URxvt*lineSpace: 2
 !URxvt*font: xft:Consolas:size=12:spacing=mono:minspace=true
 !URxvt*font: xft:Terminus:size=13:spacing=mono:minspace=true
 !URxvt*font: xft:M+ 2m Medium:size=12:spacing=mono:minspace=true
-URxvt*font: xft:PragmataPro For Powerline:size=11.6:spacing=mono:minspace=true
+URxvt*font: xft:PragmataPro For Powerline:size=12:spacing=mono:minspace=true
 !URxvt*font: xft:Share Tech Mono:size=13:spacing=mono:minspace=true
 !URxvt*boldfont: xft:DejaVu Sans Mono:size=11:spacing=mono:minspace=true
 

@@ -1,15 +1,12 @@
 !http://pxcalc.com/
-*dpi: 101.76
+*dpi: 102
 *antialias: true
 *rgba: rgb
-*autohint: false
-*hinting: false
-*hintstyle: hintslight
-*lcdfilter: lcdlight
+*autohint: true
+*hinting: true
+*hintstyle: hintfull
+*lcdfilter: lcddefault
 
-Emacs*geometry: 100x35
-Emacs*lineSpace: 2
-Emacs*letterSpace: 0
 URxvt*depth: 32
 URxvt*buffered: true
 URxvt*geometry: 100x30
@@ -22,17 +19,13 @@ URxvt*externalBorder: 0
 URxvt*visualBell: false
 URxvt*loginShell: true
 URxvt*saveLines: 4096
-URxvt*letterSpace: -2
+URxvt*letterSpace: -1
 !URxvt*letterSpace: -1
 URxvt*lineSpace: 2
+!URxvt*lineSpace: 0
 
-!URxvt*font: xft:Input:size=12:spacing=mono:minspace=true
-!URxvt*font: xft:Consolas:size=12:spacing=mono:minspace=true
-!URxvt*font: xft:Terminus:size=13:spacing=mono:minspace=true
-!URxvt*font: xft:M+ 2m Medium:size=12:spacing=mono:minspace=true
-URxvt*font: xft:PragmataPro For Powerline:size=12:spacing=mono:minspace=true
-!URxvt*font: xft:Share Tech Mono:size=13:spacing=mono:minspace=true
-!URxvt*boldfont: xft:DejaVu Sans Mono:size=11:spacing=mono:minspace=true
+URxvt*font: xft:Iosevka:size=13:spacing=mono:minspace=true
+URxvt*boldfont: xft:Iosevka:size=13:spacing=mono:minspace=true
 
 URxvt*hold: true
 URxvt*termName: rxvt-unicode-256color
@@ -87,34 +80,69 @@ URxvt*cursorUnderline: false
 ! Last Modified: 6 Sep 2014
 ! -----------------------------------------------------------------------------
 
+!! hard contrast: 
+!*CursorColor: #83a598
+!*CursorColor2: reverse
+!*background: #1d2021
+!!*background: #282828
+!! soft *background: #32302f
+!*foreground: #ebdbb2
+!! Black + DarkGrey
+!*color0:  #282828
+!*color8:  #928374
+!! DarkRed + Red
+!*color1:  #cc241d
+!*color9:  #fb4934
+!! DarkGreen + Green
+!*color2:  #98971a
+!*color10: #b8bb26
+!! DarkYellow + Yellow
+!*color3:  #d79921
+!*color11: #fabd2f
+!! DarkBlue + Blue
+!*color4:  #458588
+!*color12: #83a598
+!! DarkMagenta + Magenta
+!*color5:  #b16286
+!*color13: #d3869b
+!! DarkCyan + Cyan
+!*color6:  #689d6a
+!*color14: #8ec07c
+!! LightGrey + White
+!*color7:  #a89984
+!*color15: #ebdbb2
+
+
 ! hard contrast: 
 *CursorColor: #83a598
 *CursorColor2: reverse
-*background: #1d2021
+*background: #1d272b
 !*background: #282828
 ! soft *background: #32302f
-*foreground: #ebdbb2
+*foreground: #eceff1
 ! Black + DarkGrey
-*color0:  #282828
-*color8:  #928374
+*color0:  #1d272b
+!*color8:  #90a4ae
+*color8:  #546e7a
 ! DarkRed + Red
-*color1:  #cc241d
-*color9:  #fb4934
+*color1:  #c62828
+*color9:  #e57373
 ! DarkGreen + Green
-*color2:  #98971a
-*color10: #b8bb26
+*color2:  #2e7d32
+*color10: #81c784
 ! DarkYellow + Yellow
-*color3:  #d79921
-*color11: #fabd2f
+*color3:  #f57f17
+*color11: #fff176
 ! DarkBlue + Blue
-*color4:  #458588
-*color12: #83a598
+*color4:  #1565c0
+*color12: #64b5f6
 ! DarkMagenta + Magenta
-*color5:  #b16286
-*color13: #d3869b
+*color5:  #6a1b9a
+*color13: #ce93d8
 ! DarkCyan + Cyan
-*color6:  #689d6a
-*color14: #8ec07c
+*color6:  #303f9f
+*color14: #c5cae9
 ! LightGrey + White
-*color7:  #a89984
-*color15: #ebdbb2
+!*color7:  #546E7a
+*color7:  #90a4ae
+*color15: #eceff1

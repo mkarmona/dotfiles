@@ -78,7 +78,7 @@ inoremap <C-c><C-v> <Esc>:<C-u>vsplit<CR><C-u>
 
 if has("gui_running")
     set background=dark
-    colorscheme materialbox
+    colorscheme colorsbox-stnight
 else
     colorscheme gruvbox
 endif

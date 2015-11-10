@@ -2,8 +2,7 @@
 set guioptions=aegit "sin menus
 "set gfn=Consolas\ 12
 "set gfn=M+\ 2m\ Medium\ 12
-"set gfn=Input\ 12
-set gfn=PragmataPro\ For\ Powerline\ 11.6
+set gfn=Iosevka\ 13
 set linespace=2
 set co=100
 set lines=36

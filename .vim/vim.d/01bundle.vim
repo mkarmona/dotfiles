@@ -34,6 +34,8 @@ Plug 'Raimondi/delimitMate'
 Plug 'airblade/vim-rooter'
 Plug 'roman/golden-ratio'
 Plug 'mkarmona/materialbox'
+Plug 'mkarmona/colorsbox'
+Plug 'sjl/gundo.vim'
 
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'junegunn/rainbow_parentheses.vim'

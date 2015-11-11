@@ -21,9 +21,10 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-let g:airline_symbols.branch = 'λ'
+"let g:airline_symbols.branch = 'λ'
+let g:airline_symbols.branch = '⌥'
 
-let g:airline_theme = 'materialbox'
+let g:airline_theme = 'colorsbox'
 
 let g:airline_section_a = "%{airline#util#wrap(airline#parts#mode(),0)}%M"
 let g:airline_section_b = "%<%f"

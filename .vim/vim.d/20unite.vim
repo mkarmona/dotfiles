@@ -25,9 +25,8 @@ call unite#custom#profile('default', 'context', {
 \   'toggle': 1,
 \   'silent': 1,
 \   'max_candidates': 1000,
-\   'prompt': '→ '
+\   'prompt': '❱ '
 \ })
-
 nmap <space> [unite]
 nnoremap [unite] <nop>
 

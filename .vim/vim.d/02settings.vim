@@ -26,7 +26,7 @@ set history=100     " keep 100 lines of command line history
 set ruler       " show the cursor position all the time
 set tabstop=4
 set expandtab
-"set smarttab
+set smarttab
 set softtabstop=4
 set shiftwidth=4
 set shiftround
@@ -40,7 +40,7 @@ set hidden
 set mouse=a     " Enable mouse usage (all modes)
 set autowrite "automatic writing
 set autoread "para que recargue el fichero en caso de cambiar
-set laststatus=1
+set laststatus=2
 set noshowmode
 set timeoutlen=500
 set fillchars+=vert:│
@@ -48,9 +48,11 @@ set fillchars+=vert:│
 "set listchars=extends:$,tab:/.,eol:⤶
 "set listchars=extends:$,tab:/.,eol:␤
 "set listchars=extends:$,tab:/.,eol:↵,nbsp:⎵
+"set listchars=extends:$,tab:».,eol:␤,nbsp:⎵
 "set listchars=extends:$,tab:».,eol:↵,nbsp:⎵
-set listchars=extends:$,tab:».,eol:¬,nbsp:⎵
-"set listchars=extends:$,tab:/.,eol:⁋
+"set listchars=extends:$,tab:».,eol:¬,nbsp:⎵
+set listchars=extends:$,tab:».,eol:¶,nbsp:⎵
+"set listchars=extends:$,tab:».,eol:⁋,nbsp:⎵
 set list
 "set colorcolumn=85,95
 " default folding settings

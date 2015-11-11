@@ -68,7 +68,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1=$' \[\033[00;38;5;172m\]\j\[\033[00;38;5;202m\] $(__shortpath "\w" 40)\[\033[00m\] \[\033[01;38;5;108m\]⟩\[\033[00m\] '
+    PS1=$' \[\033[00;38;5;172m\]\j\[\033[00;38;5;202m\] $(__shortpath "\w" 40)\[\033[00m\] \[\033[00;38;5;108m\]❱\[\033[00m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi

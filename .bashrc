@@ -68,7 +68,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1=$' \[\033[00;38;5;5m\]\j\[\033[00;38;5;202m\] $(__shortpath "\w" 40)\[\033[00m\] $ '
+    PS1=$' \[\033[00;38;5;172m\]\j\[\033[00;38;5;202m\] $(__shortpath "\w" 40)\[\033[00m\] \[\033[01;38;5;108m\]⟩\[\033[00m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -125,13 +125,13 @@ export GOROOT=~/opt/go
 export GOPATH=~/src/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:~/bin:$nim_path/bin:$nimble_path/bin
 #export NVIM_TUI_ENABLE_TRUE_COLOR=1
-#source /usr/local/bin/virtualenvwrapper.sh
+## /usr/local/bin/virtualenvwrapper.sh
 
 if [ -f ~/.pythonrc ]; then
     export PYTHONSTARTUP=~/.pythonrc
 fi
 
-GRUVBOX_SHELL="$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
+GRUVBOX_SHELL="$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
 [[ -s $GRUVBOX_SHELL ]] && source $GRUVBOX_SHELL
 
 [[ -s "/home/el1mc/.gvm/scripts/gvm" ]] && source "/home/el1mc/.gvm/scripts/gvm"

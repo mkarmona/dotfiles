@@ -26,7 +26,9 @@ values."
      auto-completion
      ;; better-defaults
      emacs-lisp
+     latex
      git
+     django
      markdown
      python
      go
@@ -92,14 +94,14 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(material
-                         monokai
+   dotspacemacs-themes '(monokai
+                         material
                          ujelly)
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("PragmataPro"
+   dotspacemacs-default-font '("Input"
                                :height 130
                                :weight normal
                                :width normal
@@ -209,20 +211,24 @@ user code."
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
 
-  (setq-default line-spacing 2)
+  (setq-default line-spacing 0)
   (setq powerline-default-separator 'nil)
   ;;disable backup
   (setq backup-inhibited t)
   ;;disable auto save
   (setq auto-save-default nil)
+  ;; nil in linux but you can invalidate de cache
+  (setq projectile-enable-caching t)
+  ;; fix python autocomplete
+  (setq python-shell-interpreter 'python)
 
-  (spacemacs/toggle-line-numbers-on )
-  (spacemacs/toggle-golden-ratio-on )
+  (spacemacs/toggle-line-numbers-off)
+  (spacemacs/toggle-golden-ratio-off)
 
-  (set-face-attribute 'info-title-1 nil :font "PragmataPro-17")
-  (set-face-attribute 'info-title-2 nil :font "PragmataPro-16")
-  (set-face-attribute 'info-title-3 nil :font "PragmataPro-15")
-  (set-face-attribute 'info-title-4 nil :font "PragmataPro-14")
+  (set-face-attribute 'info-title-1 nil :family "Input" :height 170)
+  (set-face-attribute 'info-title-2 nil :family "Input" :height 160)
+  (set-face-attribute 'info-title-3 nil :family "Input" :height 150)
+  (set-face-attribute 'info-title-4 nil :family "Input" :height 140)
 
   (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
@@ -240,7 +246,8 @@ layers configuration. You are free to put any user code."
  '(cua-mode t nil (cua-base))
  '(package-selected-packages
    (quote
-    (window-numbering web-mode web-beautify volatile-highlights vi-tilde-fringe tagedit spray spacemacs-theme smooth-scrolling smeargle slim-mode shell-pop scss-mode sass-mode rainbow-delimiters pyvenv pytest pyenv-mode powerline popwin pip-requirements pcre2el paradox page-break-lines open-junk-file neotree multi-term move-text monokai-theme mmm-mode markdown-toc markdown-mode magit-gitflow magit macrostep llvm-mode linum-relative leuven-theme less-css-mode json-mode js2-refactor js2-mode js-doc jade-mode info+ indent-guide ido-vertical-mode hy-mode hungry-delete highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-descbinds helm-css-scss helm-c-yasnippet helm-ag helm haml-mode google-translate golden-ratio go-eldoc gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-commit gh-md flycheck-pos-tip flycheck flx-ido fish-mode fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-matchit evil-lisp-state evil-jumper evil-indent-textobject evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dts-mode disaster diff-hl define-word cython-mode company-web company-tern company-statistics company-quickhelp company-go company-c-headers company-anaconda company coffee-mode cmake-mode clj-refactor clean-aindent-mode clang-format cider-eval-sexp-fu cider buffer-move auto-yasnippet auto-highlight-symbol auto-dictionary anaconda-mode align-cljlet aggressive-indent adaptive-wrap ace-window ace-link ac-ispell evil-leader evil which-key quelpa package-build use-package bind-key s dash material-theme)))
+    (shell-pop linum-relative indent-guide evil-matchit cider magit async which-key window-numbering web-mode web-beautify volatile-highlights vi-tilde-fringe use-package tagedit spray spacemacs-theme smooth-scrolling smeargle slim-mode scss-mode sass-mode rainbow-delimiters queue quelpa pyvenv pytest pyenv-mode powerline popwin pony-mode pip-requirements pcre2el paradox page-break-lines open-junk-file neotree multi-term move-text monokai-theme mmm-mode material-theme markdown-toc magit-gitflow macrostep llvm-mode leuven-theme less-css-mode json-mode js2-refactor js-doc jade-mode info+ ido-vertical-mode hy-mode hungry-delete highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-descbinds helm-css-scss helm-c-yasnippet helm-ag google-translate golden-ratio go-eldoc gitconfig-mode gitattributes-mode git-timemachine git-messenger git-commit gh-md flycheck-pos-tip flx-ido fish-mode fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-lisp-state evil-jumper evil-indent-textobject evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dts-mode disaster diff-hl define-word cython-mode company-web company-tern company-statistics company-quickhelp company-go company-c-headers company-auctex company-anaconda coffee-mode cmake-mode clj-refactor clean-aindent-mode clang-format cider-eval-sexp-fu buffer-move auto-yasnippet auto-highlight-symbol auto-dictionary align-cljlet aggressive-indent adaptive-wrap ace-window ace-link ac-ispell)))
+ '(paradox-github-token t)
  '(show-paren-mode t))
 
 (custom-set-faces
@@ -248,6 +255,6 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "PragmataPro" :foundry "unknown" :slant normal :weight normal :height 130 :width normal))))
+ '(default ((t (:family "Input" :foundry "unknown" :slant normal :weight normal :height 130 :width normal))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))

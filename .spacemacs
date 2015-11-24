@@ -34,6 +34,8 @@ values."
      go
      shell-scripts
      html
+     java
+     yaml
      javascript
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode)
@@ -56,7 +58,9 @@ values."
    dotspacemacs-additional-packages '(llvm-mode
                                       dts-mode
                                       material-theme
-                                      monokai-theme)
+                                      monokai-theme
+                                      gruvbox-theme
+                                      anti-zenburn-theme)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -94,14 +98,16 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(monokai
+   dotspacemacs-themes '(anti-zenburn
+                         gruvbox
+                         monokai
                          material)
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Menlo"
-                               :height 110
+   dotspacemacs-default-font '("Consolas"
+                               :height 130
                                :weight normal
                                :width normal
                                :powerline-scale 1.0)
@@ -224,10 +230,10 @@ layers configuration. You are free to put any user code."
   (spacemacs/toggle-line-numbers-off)
   (spacemacs/toggle-golden-ratio-off)
 
-  (set-face-attribute 'info-title-1 nil :family "Menlo" :height 170)
-  (set-face-attribute 'info-title-2 nil :family "Menlo" :height 160)
-  (set-face-attribute 'info-title-3 nil :family "Menlo" :height 150)
-  (set-face-attribute 'info-title-4 nil :family "Menlo" :height 140)
+  (set-face-attribute 'info-title-1 nil :family "Consolas" :height 170)
+  (set-face-attribute 'info-title-2 nil :family "Consolas" :height 160)
+  (set-face-attribute 'info-title-3 nil :family "Consolas" :height 150)
+  (set-face-attribute 'info-title-4 nil :family "Consolas" :height 140)
 
   (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
@@ -244,6 +250,12 @@ layers configuration. You are free to put any user code."
  ;; If there is more than one, they won't work right.
  '(compilation-message-face (quote default))
  '(cua-mode t nil (cua-base))
+ '(custom-safe-themes
+   (quote
+    ("76659fd7fc5ce57d14dfb22b30aac6cf0d4eb0a279f4131be3945d3cfff10bc6" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "98a619757483dc6614c266107ab6b19d315f93267e535ec89b7af3d62fb83cad" "5d1434865473463d79ee0523c1ae60ecb731ab8d134a2e6f25c17a2b497dd459" "4f5bb895d88b6fe6a983e63429f154b8d939b4a8c581956493783b2515e22d6d" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "0ec59d997a305e938d9ec8f63263a8fc12e17990aafc36ff3aff9bc5c5a202f0" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "d3df47c843c22d8f0177fe3385ae95583dc8811bd6968240f7da42fd9aa51b0b" default)))
+ '(package-selected-packages
+   (quote
+    (anti-zenburn-theme flycheck darktooth-theme gruvbox-theme ample-theme smartparens cider tern helm helm-core magit async color-theme-sanityinc-tomorrow yaml-mode emacs-eclim window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe use-package tagedit spray spacemacs-theme smooth-scrolling smeargle slim-mode shell-pop scss-mode sass-mode rainbow-delimiters quelpa pyvenv pytest pyenv-mode powerline popwin pony-mode pip-requirements pcre2el paradox page-break-lines open-junk-file neotree multi-term move-text monokai-theme mmm-mode material-theme markdown-toc magit-gitflow macrostep llvm-mode linum-relative leuven-theme less-css-mode json-mode js2-refactor js-doc jade-mode info+ indent-guide ido-vertical-mode hy-mode hungry-delete highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-descbinds helm-css-scss helm-c-yasnippet helm-ag google-translate golden-ratio go-eldoc gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md flycheck-pos-tip flx-ido fish-mode fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-matchit evil-lisp-state evil-jumper evil-indent-textobject evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dts-mode disaster diff-hl define-word cython-mode company-web company-tern company-statistics company-quickhelp company-go company-c-headers company-auctex company-anaconda coffee-mode cmake-mode clj-refactor clean-aindent-mode clang-format cider-eval-sexp-fu buffer-move auto-yasnippet auto-highlight-symbol auto-dictionary align-cljlet aggressive-indent adaptive-wrap ace-window ace-link ac-ispell)))
  '(show-paren-mode t))
 
 (custom-set-faces
@@ -251,6 +263,6 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Menlo" :foundry "unknown" :slant normal :weight normal :height 110 :width normal))))
+ '(default ((t (:family "Consolas" :foundry "unknown" :slant normal :weight normal :height 130 :width normal))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))

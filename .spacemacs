@@ -60,7 +60,8 @@ values."
                                       material-theme
                                       monokai-theme
                                       gruvbox-theme
-                                      anti-zenburn-theme)
+                                      anti-zenburn-theme
+                                      mvn)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(powerline)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -266,7 +267,7 @@ layers configuration. You are free to put any user code."
     ("196cc00960232cfc7e74f4e95a94a5977cb16fd28ba7282195338f68c84058ec" "d3df47c843c22d8f0177fe3385ae95583dc8811bd6968240f7da42fd9aa51b0b" "54159ea82516378faa7c4d25fb549b843effb1eb932f0925dce1348de7a659ba" "5d1434865473463d79ee0523c1ae60ecb731ab8d134a2e6f25c17a2b497dd459" default)))
  '(package-selected-packages
    (quote
-    (popup jdee anti-zenburn-theme flycheck darktooth-theme gruvbox-theme ample-theme smartparens cider tern helm helm-core magit async color-theme-sanityinc-tomorrow yaml-mode emacs-eclim window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe use-package tagedit spray spacemacs-theme smooth-scrolling smeargle slim-mode shell-pop scss-mode sass-mode rainbow-delimiters quelpa pyvenv pytest pyenv-mode powerline popwin pony-mode pip-requirements pcre2el paradox page-break-lines open-junk-file neotree multi-term move-text monokai-theme mmm-mode material-theme markdown-toc magit-gitflow macrostep llvm-mode linum-relative leuven-theme less-css-mode json-mode js2-refactor js-doc jade-mode info+ indent-guide ido-vertical-mode hy-mode hungry-delete highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-descbinds helm-css-scss helm-c-yasnippet helm-ag google-translate golden-ratio go-eldoc gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md flycheck-pos-tip flx-ido fish-mode fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-matchit evil-lisp-state evil-jumper evil-indent-textobject evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dts-mode disaster diff-hl define-word cython-mode company-web company-tern company-statistics company-quickhelp company-go company-c-headers company-auctex company-anaconda coffee-mode cmake-mode clj-refactor clean-aindent-mode clang-format cider-eval-sexp-fu buffer-move auto-yasnippet auto-highlight-symbol auto-dictionary align-cljlet aggressive-indent adaptive-wrap ace-window ace-link ac-ispell)))
+    (mvn popup jdee anti-zenburn-theme flycheck darktooth-theme gruvbox-theme ample-theme smartparens cider tern helm helm-core magit async color-theme-sanityinc-tomorrow yaml-mode emacs-eclim window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe use-package tagedit spray spacemacs-theme smooth-scrolling smeargle slim-mode shell-pop scss-mode sass-mode rainbow-delimiters quelpa pyvenv pytest pyenv-mode powerline popwin pony-mode pip-requirements pcre2el paradox page-break-lines open-junk-file neotree multi-term move-text monokai-theme mmm-mode material-theme markdown-toc magit-gitflow macrostep llvm-mode linum-relative leuven-theme less-css-mode json-mode js2-refactor js-doc jade-mode info+ indent-guide ido-vertical-mode hy-mode hungry-delete highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-descbinds helm-css-scss helm-c-yasnippet helm-ag google-translate golden-ratio go-eldoc gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md flycheck-pos-tip flx-ido fish-mode fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-matchit evil-lisp-state evil-jumper evil-indent-textobject evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dts-mode disaster diff-hl define-word cython-mode company-web company-tern company-statistics company-quickhelp company-go company-c-headers company-auctex company-anaconda coffee-mode cmake-mode clj-refactor clean-aindent-mode clang-format cider-eval-sexp-fu buffer-move auto-yasnippet auto-highlight-symbol auto-dictionary align-cljlet aggressive-indent adaptive-wrap ace-window ace-link ac-ispell)))
  '(show-paren-mode t))
 
 (custom-set-faces
@@ -275,12 +276,12 @@ layers configuration. You are free to put any user code."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Consolas" :foundry "unknown" :slant normal :weight normal :height 120 :width normal))))
- '(helm-source-header ((t (:height 140 :weight bold))))
- '(dired-header ((t (:height 140))))
- '(mode-line-buffer-id ((t (:height 140))))
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
+ '(dired-header ((t (:height 130))))
+ '(helm-source-header ((t (:height 130 :weight bold))))
  '(info-title-1 ((t (:height 170))))
  '(info-title-2 ((t (:height 160))))
  '(info-title-3 ((t (:height 150))))
  '(info-title-4 ((t (:height 140))))
- '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+ '(mode-line-buffer-id ((t (:height 130)))))

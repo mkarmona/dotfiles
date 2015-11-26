@@ -275,7 +275,7 @@ layers configuration. You are free to put any user code."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Consolas" :foundry "unknown" :slant normal :weight normal :height 120 :width normal))))
- '(helm-source-header ((t (:height 140))))
+ '(helm-source-header ((t (:height 140 :weight bold))))
  '(dired-header ((t (:height 140))))
  '(mode-line-buffer-id ((t (:height 140))))
  '(info-title-1 ((t (:height 170))))

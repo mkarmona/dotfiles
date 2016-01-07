@@ -1,4 +1,6 @@
 " para des/activar jedi mode para python
+autocmd FileType python setlocal omnifunc=jedi#completions
+
 let g:jedi#auto_vim_initialization = 1
 let g:jedi#auto_vim_configuration = 1
 let g:jedi#goto_assignments_command = "<C-c>ja"
@@ -12,6 +14,11 @@ let g:jedi#usages_command = "<C-c>ju"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#use_splits_not_buffers = "bottom"
 let g:jedi#show_call_signatures = 0
-let g:jedi#completions_enabled = 1
+"let g:jedi#completions_enabled = 1
+
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#smart_auto_mappings = 0
+let g:jedi#show_call_signatures = 0 
 "autocmd FileType python setlocal completeopt-=preview
 

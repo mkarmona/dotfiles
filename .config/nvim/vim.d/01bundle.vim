@@ -45,6 +45,7 @@ Plug 'kovisoft/paredit'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-fireplace'
 Plug 'mhinz/vim-startify'
+Plug 'critiqjo/lldb.nvim'
 
 let g:plug_url_format = 'git@github.com:%s.git'
 Plug 'tpope/vim-projectionist'

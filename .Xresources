@@ -24,8 +24,8 @@ URxvt*letterSpace: -1
 URxvt*lineSpace: 2
 !URxvt*lineSpace: 0
 
-URxvt*font: xft:Iosevka:size=13:spacing=mono:minspace=true
-URxvt*boldfont: xft:Iosevka:size=13:spacing=mono:minspace=true
+URxvt*font: xft:IosevkaProCoder:size=13:spacing=mono:minspace=true
+URxvt*boldfont: xft:IosevkaProCoder:size=13:spacing=mono:minspace=true
 
 URxvt*hold: true
 URxvt*termName: rxvt-unicode-256color

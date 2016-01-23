@@ -26,7 +26,6 @@ values."
      auto-completion
      ;; better-defaults
      emacs-lisp
-     latex
      git
      django
      markdown
@@ -34,22 +33,27 @@ values."
      go
      shell-scripts
      html
-     java
      yaml
+     gtags
+     racket
      javascript
      (c-c++ :variables
-            c-c++-default-mode-for-headers 'c++-mode)
-     ;;       c-c++-enable-clang-support t)
+            c-c++-default-mode-for-headers 'c++-mode
+            c-c++-enable-clang-support t)
      ;; org
-     (shell :variables
-            shell-default-height 30
-            ;; shell-default-shell 'multi-term
-            shell-default-term-shell "/bin/bash"
-            shell-default-position 'bottom)
+     ;;(shell :variables
+            ;;shell-default-height 30
+            ;;;; shell-default-shell 'multi-term
+            ;;shell-default-term-shell "/bin/bash"
+            ;;shell-default-position 'bottom)
      ;; spell-checking
-     clojure
-     syntax-checking
-     version-control
+     ;;clojure
+     (syntax-checking :variables
+                      syntax-checking-enable-tooltips nil)
+
+     (version-control :variables
+                      version-control-diff-tool 'diff-hl
+                      version-control-global-margin t)
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -57,13 +61,18 @@ values."
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '(llvm-mode
                                       dts-mode
-                                      material-theme
                                       monokai-theme
-                                      gruvbox-theme
-                                      anti-zenburn-theme
-                                      mvn)
+                                      mvn
+                                      ac-octave
+                                      ag
+                                      toml-mode
+                                      groovy-mode
+                                      solarized-theme
+                                      )
    ;; A list of packages and/or extensions that will not be install and loaded.
+
    dotspacemacs-excluded-packages '(powerline)
+
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'. (default t)
@@ -99,16 +108,16 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(monokai
-                         material
-                         gruvbox
+   dotspacemacs-themes '(solarized-dark
+                         monokai
                          anti-zenburn)
+
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Consolas"
-                               :height 120
+   dotspacemacs-default-font '("IosevkaProCoder"
+                               :height 130
                                :weight normal
                                :width normal
                                :powerline-scale 1.0)
@@ -203,46 +212,53 @@ values."
    ;; The default package repository used if no explicit repository has been
    ;; specified with an installed package.
    ;; Not used for now. (default nil)
-   dotspacemacs-default-package-repository nil)
+   dotspacemacs-default-package-repository nil
+
+  )
 )
 
 (defun dotspacemacs/config ()
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init'.  You are free to put any
 user code."
+
+  ;; powerline separator to nil so non fancy
 )
 
 (defun dotspacemacs/user-init ()
-  "Initialization function for user code.
-It is called immediately after `dotspacemacs/init'.  You are free to put any
-user code."
-)
+ "Initialization function for user code.
+ It is called immediately after `dotspacemacs/init'.  You are free to put any
+ user code."
+ (setq tramp-ssh-controlmaster-options
+  "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+ (setq powerline-default-separator 'nil)
+ )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
 
-  ;; eclim java configuration
-  ;;(setq eclim-eclipse-dirs '("~/bin/eclipse"))
-  ;;(setq eclim-executable '("~/bin/eclipse/eclim"))
-
-  ;;(load-theme 'monokai t)
   ;; helm header font size
   (setq helm-display-header-line t)
   ;;(setq-default helm-source-header-default-height 1.3)
 
+  ;; javascript beautify
+  ;; you need to install
+  ;; npm install -g tern
+  ;; npm install -g js-beautify
+  ;; (setq-default js2-basic-offset 2)
+  ;; (setq-default js-indent-level 2)
+
   ;; linespace
   (setq-default line-spacing 0)
-  (setq powerline-default-separator 'nil)
   ;;disable backup
   (setq backup-inhibited t)
   ;;disable auto save
   (setq auto-save-default nil)
   ;; nil in linux but you can invalidate de cache
   (setq projectile-enable-caching t)
-  ;; fix python autocomplete
-  (setq python-shell-interpreter 'python)
+  ;;(setq eval-expression-debug-on-error t)
 
   (spacemacs/toggle-line-numbers-off)
   (spacemacs/toggle-golden-ratio-off)
@@ -260,22 +276,21 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(compilation-message-face (quote default))
  '(cua-mode t nil (cua-base))
  '(custom-safe-themes
    (quote
-    ("196cc00960232cfc7e74f4e95a94a5977cb16fd28ba7282195338f68c84058ec" "d3df47c843c22d8f0177fe3385ae95583dc8811bd6968240f7da42fd9aa51b0b" "54159ea82516378faa7c4d25fb549b843effb1eb932f0925dce1348de7a659ba" "5d1434865473463d79ee0523c1ae60ecb731ab8d134a2e6f25c17a2b497dd459" default)))
- '(package-selected-packages
-   (quote
-    (mvn popup jdee anti-zenburn-theme flycheck darktooth-theme gruvbox-theme ample-theme smartparens cider tern helm helm-core magit async color-theme-sanityinc-tomorrow yaml-mode emacs-eclim window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe use-package tagedit spray spacemacs-theme smooth-scrolling smeargle slim-mode shell-pop scss-mode sass-mode rainbow-delimiters quelpa pyvenv pytest pyenv-mode powerline popwin pony-mode pip-requirements pcre2el paradox page-break-lines open-junk-file neotree multi-term move-text monokai-theme mmm-mode material-theme markdown-toc magit-gitflow macrostep llvm-mode linum-relative leuven-theme less-css-mode json-mode js2-refactor js-doc jade-mode info+ indent-guide ido-vertical-mode hy-mode hungry-delete highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-descbinds helm-css-scss helm-c-yasnippet helm-ag google-translate golden-ratio go-eldoc gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md flycheck-pos-tip flx-ido fish-mode fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-matchit evil-lisp-state evil-jumper evil-indent-textobject evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dts-mode disaster diff-hl define-word cython-mode company-web company-tern company-statistics company-quickhelp company-go company-c-headers company-auctex company-anaconda coffee-mode cmake-mode clj-refactor clean-aindent-mode clang-format cider-eval-sexp-fu buffer-move auto-yasnippet auto-highlight-symbol auto-dictionary align-cljlet aggressive-indent adaptive-wrap ace-window ace-link ac-ispell)))
- '(show-paren-mode t))
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
+ '(golden-ratio-mode t)
+ '(magit-diff-use-overlays nil)
+ '(show-paren-mode t)
+ '(solarized-high-contrast-mode-line t))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Consolas" :foundry "unknown" :slant normal :weight normal :height 120 :width normal))))
+ '(default ((t (:family "IosevkaProCoder" :slant normal :weight normal :height 130 :width normal))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
  '(dired-header ((t (:height 130))))
@@ -283,5 +298,5 @@ layers configuration. You are free to put any user code."
  '(info-title-1 ((t (:height 170))))
  '(info-title-2 ((t (:height 160))))
  '(info-title-3 ((t (:height 150))))
- '(info-title-4 ((t (:height 140))))
- '(mode-line-buffer-id ((t (:height 130)))))
+ '(info-title-4 ((t (:height 130))))
+ '(mode-line-buffer-id ((t (:inherit mode-line :weight bold)))))

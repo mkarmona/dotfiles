@@ -231,7 +231,7 @@ user code."
  user code."
  (setq tramp-ssh-controlmaster-options
   "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
- (setq powerline-default-separator 'nil)
+ (setq powerline-default-separator nil)
  )
 
 (defun dotspacemacs/user-config ()
@@ -239,6 +239,11 @@ user code."
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
 
+  ;; eclim java configuration
+  ;;(setq eclim-eclipse-dirs '("~/bin/eclipse"))
+  ;;(setq eclim-executable '("~/bin/eclipse/eclim"))
+
+  ;;(load-theme 'monokai t)
   ;; helm header font size
   (setq helm-display-header-line t)
   ;;(setq-default helm-source-header-default-height 1.3)
@@ -247,8 +252,8 @@ layers configuration. You are free to put any user code."
   ;; you need to install
   ;; npm install -g tern
   ;; npm install -g js-beautify
-  ;; (setq-default js2-basic-offset 2)
-  ;; (setq-default js-indent-level 2)
+  (setq-default js2-basic-offset 2)
+  (setq-default js-indent-level 2)
 
   ;; linespace
   (setq-default line-spacing 0)
@@ -258,7 +263,9 @@ layers configuration. You are free to put any user code."
   (setq auto-save-default nil)
   ;; nil in linux but you can invalidate de cache
   (setq projectile-enable-caching t)
-  ;;(setq eval-expression-debug-on-error t)
+  ;; fix python autocomplete
+  ;;(setq python-shell-interpreter 'python)
+  (setq eval-expression-debug-on-error t)
 
   (spacemacs/toggle-line-numbers-off)
   (spacemacs/toggle-golden-ratio-off)
@@ -282,6 +289,9 @@ layers configuration. You are free to put any user code."
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(golden-ratio-mode t)
  '(magit-diff-use-overlays nil)
+ '(package-selected-packages
+   (quote
+    (racket-mode anzu highlight request xterm-color orgit git-gutter+ git-gutter bind-map auto-complete tern popup badwolf-theme projectile-speedbar gruvbox-theme avy company color-theme-sanityinc-tomorrow flatui-theme subatomic-theme go-mode projectile hydra diminish afternoon-theme borland-blue-theme spacegray-theme ujelly-theme darktooth-theme tangotango-theme dracula-theme noctilux-theme ample-theme soft-stone-theme white-sand-theme faff-theme helm-core yasnippet toml-mode smartparens powerline markdown-mode magit js2-mode helm haml-mode gitignore-mode git-commit flycheck auctex anaconda-mode evil package-build bind-key s dash spray evil-indent-textobject auto-dictionary evil-leader yaml-mode ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe use-package tagedit spacemacs-theme spaceline smooth-scrolling smeargle slim-mode shell-pop scss-mode sass-mode ruby-end restart-emacs rainbow-delimiters quelpa pyvenv pytest pyenv-mode popwin pony-mode pip-requirements persp-mode pcre2el paradox page-break-lines open-junk-file neotree mvn multi-term move-text monokai-theme mmm-mode material-theme markdown-toc magit-gitflow macrostep lorem-ipsum llvm-mode linum-relative leuven-theme less-css-mode json-mode js2-refactor js-doc jade-mode info+ indent-guide ido-vertical-mode hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio go-eldoc gitconfig-mode gitattributes-mode git-timemachine git-messenger git-gutter-fringe git-gutter-fringe+ gh-md flycheck-pos-tip flx-ido fish-mode fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help emmet-mode emacs-eclim elisp-slime-nav ein dts-mode disaster diff-hl define-word cython-mode company-web company-tern company-statistics company-quickhelp company-go company-c-headers company-auctex company-anaconda coffee-mode cmake-mode clean-aindent-mode clang-format buffer-move auto-yasnippet auto-highlight-symbol auto-compile anti-zenburn-theme alchemist aggressive-indent ag adaptive-wrap ace-window ace-link ace-jump-helm-line ac-octave ac-ispell)))
  '(show-paren-mode t)
  '(solarized-high-contrast-mode-line t))
 

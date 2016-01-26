@@ -53,6 +53,7 @@ values."
 
      (version-control :variables
                       version-control-diff-tool 'diff-hl
+                      ;;version-control-diff-tool 'git-gutter
                       version-control-global-margin t)
      )
    ;; List of additional packages that will be installed without being
@@ -67,7 +68,7 @@ values."
                                       ag
                                       toml-mode
                                       groovy-mode
-                                      solarized-theme
+                                      material-theme
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
 
@@ -108,7 +109,7 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(solarized-dark
+   dotspacemacs-themes '(material
                          monokai
                          anti-zenburn)
 
@@ -243,6 +244,10 @@ layers configuration. You are free to put any user code."
   ;;(setq eclim-eclipse-dirs '("~/bin/eclipse"))
   ;;(setq eclim-executable '("~/bin/eclipse/eclim"))
 
+  ;; diff-hl
+  (setq diff-hl-side right)
+  (diff-hl-margin-mode)
+
   ;;(load-theme 'monokai t)
   ;; helm header font size
   (setq helm-display-header-line t)
@@ -286,7 +291,7 @@ layers configuration. You are free to put any user code."
  '(cua-mode t nil (cua-base))
  '(custom-safe-themes
    (quote
-    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
+    ("49de25b465bc3c2498bcd4c1575fa0090bd56fc79cdb49b919b49eaea17ee1dd" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(golden-ratio-mode t)
  '(magit-diff-use-overlays nil)
  '(package-selected-packages

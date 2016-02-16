@@ -69,10 +69,11 @@ values."
                                       toml-mode
                                       groovy-mode
                                       material-theme
-                                      )
+                                      antidarklowcontrast-theme
+                                      hlinum)
    ;; A list of packages and/or extensions that will not be install and loaded.
 
-   dotspacemacs-excluded-packages '(powerline)
+   ;; dotspacemacs-excluded-packages '(powerline)
 
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
@@ -109,7 +110,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(material
+   dotspacemacs-themes '(monokai
+                         material
                          monokai
                          anti-zenburn)
 
@@ -117,7 +119,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("IosevkaProCoder"
+   dotspacemacs-default-font '("PragmataPro Mono"
                                :height 130
                                :weight normal
                                :width normal
@@ -222,8 +224,6 @@ values."
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init'.  You are free to put any
 user code."
-
-  ;; powerline separator to nil so non fancy
 )
 
 (defun dotspacemacs/user-init ()
@@ -232,7 +232,7 @@ user code."
  user code."
  (setq tramp-ssh-controlmaster-options
   "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
- (setq powerline-default-separator nil)
+
  )
 
 (defun dotspacemacs/user-config ()
@@ -240,37 +240,22 @@ user code."
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
 
-  ;; eclim java configuration
-  ;;(setq eclim-eclipse-dirs '("~/bin/eclipse"))
-  ;;(setq eclim-executable '("~/bin/eclipse/eclim"))
-
-  ;; diff-hl
-  (setq diff-hl-side right)
-  (diff-hl-margin-mode)
-
-  ;;(load-theme 'monokai t)
-  ;; helm header font size
-  (setq helm-display-header-line t)
-  ;;(setq-default helm-source-header-default-height 1.3)
-
   ;; javascript beautify
   ;; you need to install
   ;; npm install -g tern
   ;; npm install -g js-beautify
-  (setq-default js2-basic-offset 2)
-  (setq-default js-indent-level 2)
 
-  ;; linespace
-  (setq-default line-spacing 0)
-  ;;disable backup
-  (setq backup-inhibited t)
-  ;;disable auto save
-  (setq auto-save-default nil)
-  ;; nil in linux but you can invalidate de cache
-  (setq projectile-enable-caching t)
-  ;; fix python autocomplete
-  ;;(setq python-shell-interpreter 'python)
-  (setq eval-expression-debug-on-error t)
+  (setq-default js2-basic-offset 2
+        js-indent-level 2
+        default-line-spacing 0
+        helm-display-header-line t
+        backup-inhibited t
+        auto-save-default nil
+        projectile-enable-caching t
+        powerline-default-separator nil
+        )
+
+  ;; (setq eval-expression-debug-on-error t)
 
   (spacemacs/toggle-line-numbers-off)
   (spacemacs/toggle-golden-ratio-off)
@@ -278,7 +263,7 @@ layers configuration. You are free to put any user code."
   (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
+  (hlinum-activate)
 )
 
 ;; custom things using emacs Custom
@@ -288,24 +273,28 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ahs-default-range (quote ahs-range-whole-buffer))
+ '(auto-save-default nil)
  '(cua-mode t nil (cua-base))
- '(custom-safe-themes
-   (quote
-    ("49de25b465bc3c2498bcd4c1575fa0090bd56fc79cdb49b919b49eaea17ee1dd" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
- '(golden-ratio-mode t)
+ '(default-input-method "spanish-postfix")
+ '(diff-hl-margin-mode t)
+ '(diff-hl-side (quote right))
+ '(fci-rule-color "#37474f" t)
+ '(global-spacemacs-default-map-override-mode t)
+ '(hl-sexp-background-color "#1c1f26")
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
     (racket-mode anzu highlight request xterm-color orgit git-gutter+ git-gutter bind-map auto-complete tern popup badwolf-theme projectile-speedbar gruvbox-theme avy company color-theme-sanityinc-tomorrow flatui-theme subatomic-theme go-mode projectile hydra diminish afternoon-theme borland-blue-theme spacegray-theme ujelly-theme darktooth-theme tangotango-theme dracula-theme noctilux-theme ample-theme soft-stone-theme white-sand-theme faff-theme helm-core yasnippet toml-mode smartparens powerline markdown-mode magit js2-mode helm haml-mode gitignore-mode git-commit flycheck auctex anaconda-mode evil package-build bind-key s dash spray evil-indent-textobject auto-dictionary evil-leader yaml-mode ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe use-package tagedit spacemacs-theme spaceline smooth-scrolling smeargle slim-mode shell-pop scss-mode sass-mode ruby-end restart-emacs rainbow-delimiters quelpa pyvenv pytest pyenv-mode popwin pony-mode pip-requirements persp-mode pcre2el paradox page-break-lines open-junk-file neotree mvn multi-term move-text monokai-theme mmm-mode material-theme markdown-toc magit-gitflow macrostep lorem-ipsum llvm-mode linum-relative leuven-theme less-css-mode json-mode js2-refactor js-doc jade-mode info+ indent-guide ido-vertical-mode hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio go-eldoc gitconfig-mode gitattributes-mode git-timemachine git-messenger git-gutter-fringe git-gutter-fringe+ gh-md flycheck-pos-tip flx-ido fish-mode fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help emmet-mode emacs-eclim elisp-slime-nav ein dts-mode disaster diff-hl define-word cython-mode company-web company-tern company-statistics company-quickhelp company-go company-c-headers company-auctex company-anaconda coffee-mode cmake-mode clean-aindent-mode clang-format buffer-move auto-yasnippet auto-highlight-symbol auto-compile anti-zenburn-theme alchemist aggressive-indent ag adaptive-wrap ace-window ace-link ace-jump-helm-line ac-octave ac-ispell)))
- '(show-paren-mode t)
- '(solarized-high-contrast-mode-line t))
+ '(powerline-default-separator nil)
+ '(show-paren-mode t))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "IosevkaProCoder" :slant normal :weight normal :height 130 :width normal))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width normal :foundry "unknown" :family "PragmataPro Mono"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
  '(dired-header ((t (:height 130))))
@@ -314,4 +303,6 @@ layers configuration. You are free to put any user code."
  '(info-title-2 ((t (:height 160))))
  '(info-title-3 ((t (:height 150))))
  '(info-title-4 ((t (:height 130))))
+ '(linum ((t (:slant normal))))
+ '(linum-highlight-face ((t (:inherit default))))
  '(mode-line-buffer-id ((t (:inherit mode-line :weight bold)))))

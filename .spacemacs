@@ -31,10 +31,8 @@ values."
      markdown
      python
      go
-     scheme
      shell-scripts
      html
-     java
      yaml
      gtags
      javascript
@@ -42,7 +40,6 @@ values."
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-enable-clang-support t)
-     ;;       c-c++-enable-clang-support t)
      ;; org
      (shell :variables
             shell-default-height 30
@@ -50,12 +47,15 @@ values."
             shell-default-term-shell "/bin/bash"
             shell-default-position 'bottom)
      ;; spell-checking
-     ;; clojure
+     ;;clojure
      (syntax-checking :variables
                       syntax-checking-enable-tooltips nil)
+
      (version-control :variables
                       version-control-diff-tool 'diff-hl
+                      ;;version-control-diff-tool 'git-gutter
                       version-control-global-margin t)
+
      octave
      (ibuffer :variables
               ibuffer-group-buffers-by 'modes)
@@ -66,16 +66,15 @@ values."
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '(llvm-mode
                                       dts-mode
-                                      material-theme
                                       monokai-theme
                                       mvn
                                       realgud
-                                      ag
                                       ac-octave
+                                      ag
                                       with-editor
-                                      solarized-theme
-                                      borland-blue-theme
-                                      color-theme-sanityinc-tomorrow
+                                      toml-mode
+                                      groovy-mode
+                                      material-theme
                                       hlinum)
    ;; A list of packages and/or extensions that will not be install and loaded.
 
@@ -116,16 +115,17 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(material
-                         solarized-dark
+   dotspacemacs-themes '(monokai
+                         material
                          monokai
-                         gruvbox)
+                         anti-zenburn)
+
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("PragmataPro Mono"
-                               :height 140
+                               :height 130
                                :weight normal
                                :width normal
                                :powerline-scale 1.0)
@@ -220,7 +220,9 @@ values."
    ;; The default package repository used if no explicit repository has been
    ;; specified with an installed package.
    ;; Not used for now. (default nil)
-   dotspacemacs-default-package-repository nil)
+   dotspacemacs-default-package-repository nil
+
+  )
 )
 
 (defun dotspacemacs/config ()
@@ -230,14 +232,13 @@ user code."
 )
 
 (defun dotspacemacs/user-init ()
-  "Initialization function for user code.
-It is called immediately after `dotspacemacs/init'.  You are free to put any
-user code."
+ "Initialization function for user code.
+ It is called immediately after `dotspacemacs/init'.  You are free to put any
+ user code."
+ (setq tramp-ssh-controlmaster-options
+  "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
-  (setq tramp-ssh-controlmaster-options
-        "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
-
-)
+ )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -250,15 +251,15 @@ layers configuration. You are free to put any user code."
   ;; npm install -g js-beautify
 
   (setq-default js2-basic-offset 2
-                js-indent-level 2
-                default-line-spacing 0
-                line-spacing 0
-                helm-display-header-line t
-                backup-inhibited t
-                auto-save-default nil
-                projectile-enable-caching t
-                powerline-default-separator nil
-                )
+        js-indent-level 2
+        default-line-spacing 0
+        line-spacing 0
+        helm-display-header-line t
+        backup-inhibited t
+        auto-save-default nil
+        projectile-enable-caching t
+        powerline-default-separator nil
+        )
 
   ;; (setq eval-expression-debug-on-error t)
 
@@ -268,7 +269,6 @@ layers configuration. You are free to put any user code."
   (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
   (hlinum-activate)
 )
 
@@ -279,36 +279,36 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ahs-default-range (quote ahs-range-whole-buffer))
  '(cua-mode t nil (cua-base))
- '(diff-hl-side (quote right))
- '(magit-diff-use-overlays nil)
+ '(default-input-method "spanish-postfix")
  '(diff-hl-margin-mode t)
+ '(diff-hl-side (quote right))
  '(global-spacemacs-default-map-override-mode t)
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (yaml-mode xterm-color ws-butler window-numbering web-mode web-beautify volatile-highlights vi-tilde-fringe tagedit spacemacs-theme spaceline smooth-scrolling smeargle slim-mode shell-pop scss-mode sass-mode restart-emacs realgud rainbow-delimiters pyvenv pytest pyenv-mode popwin pony-mode pip-requirements persp-mode pcre2el paradox page-break-lines orgit open-junk-file neotree mvn multi-term move-text mmm-mode material-theme markdown-toc markdown-mode magit-gitflow magit macrostep lorem-ipsum llvm-mode linum-relative leuven-theme less-css-mode json-mode js2-refactor js2-mode js-doc jade-mode info+ indent-guide ido-vertical-mode ibuffer-projectile hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gtags helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haml-mode gruvbox-theme google-translate golden-ratio go-eldoc gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-gutter-fringe+ git-gutter-fringe git-gutter+ git-gutter git-commit gh-md ggtags flycheck-pos-tip flycheck flx-ido fish-mode fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode emacs-eclim elisp-slime-nav dts-mode dracula-theme disaster diff-hl define-word cython-mode company-web company-tern company-statistics company-quickhelp company-go company-c-headers company-auctex company-anaconda company coffee-mode cmake-mode clean-aindent-mode clang-format buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-compile auctex anti-zenburn-theme anaconda-mode aggressive-indent ag adaptive-wrap ace-window ace-link ace-jump-helm-line ac-octave ac-ispell quelpa package-build use-package which-key bind-key bind-map evil f s dash monokai-theme)))
- '(show-paren-mode t)
- '(vc-annotate-background nil))
+    (racket-mode anzu highlight request xterm-color orgit git-gutter+ git-gutter bind-map auto-complete tern popup badwolf-theme projectile-speedbar gruvbox-theme avy company color-theme-sanityinc-tomorrow flatui-theme subatomic-theme go-mode projectile hydra diminish afternoon-theme borland-blue-theme spacegray-theme ujelly-theme darktooth-theme tangotango-theme dracula-theme noctilux-theme ample-theme soft-stone-theme white-sand-theme faff-theme helm-core yasnippet toml-mode smartparens powerline markdown-mode magit js2-mode helm haml-mode gitignore-mode git-commit flycheck auctex anaconda-mode evil package-build bind-key s dash spray evil-indent-textobject auto-dictionary evil-leader yaml-mode ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe use-package tagedit spacemacs-theme spaceline smooth-scrolling smeargle slim-mode shell-pop scss-mode sass-mode ruby-end restart-emacs rainbow-delimiters quelpa pyvenv pytest pyenv-mode popwin pony-mode pip-requirements persp-mode pcre2el paradox page-break-lines open-junk-file neotree mvn multi-term move-text monokai-theme mmm-mode material-theme markdown-toc magit-gitflow macrostep lorem-ipsum llvm-mode linum-relative leuven-theme less-css-mode json-mode js2-refactor js-doc jade-mode info+ indent-guide ido-vertical-mode hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio go-eldoc gitconfig-mode gitattributes-mode git-timemachine git-messenger git-gutter-fringe git-gutter-fringe+ gh-md flycheck-pos-tip flx-ido fish-mode fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help emmet-mode emacs-eclim elisp-slime-nav ein dts-mode disaster diff-hl define-word cython-mode company-web company-tern company-statistics company-quickhelp company-go company-c-headers company-auctex company-anaconda coffee-mode cmake-mode clean-aindent-mode clang-format buffer-move auto-yasnippet auto-highlight-symbol auto-compile anti-zenburn-theme alchemist aggressive-indent ag adaptive-wrap ace-window ace-link ace-jump-helm-line ac-octave ac-ispell)))
+ '(powerline-default-separator nil)
+ '(show-paren-mode t))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :family "PragmataPro Mono"))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width normal :foundry "unknown" :family "PragmataPro Mono"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
- '(dired-header ((t (:inherit :weight bold))))
- '(helm-source-header ((t (:inherit :weight bold))))
+ '(dired-header ((t (:height 130))))
+ '(helm-source-header ((t (:height 130 :weight bold))))
  '(info-title-1 ((t (:height 170))))
  '(info-title-2 ((t (:height 160))))
  '(info-title-3 ((t (:height 150))))
- '(info-title-4 ((t (:height 140))))
+ '(info-title-4 ((t (:height 130))))
  '(linum ((t (:slant normal))))
  '(linum-highlight-face ((t (:inherit default))))
- '(mode-line-buffer-id ((t (:inherit :weight bold)))))
-
+ '(mode-line-buffer-id ((t (:inherit mode-line :weight bold)))))
 
 ;; show full path in minibuffer
 (defun mcb/show-file-name ()

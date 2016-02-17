@@ -29,6 +29,9 @@ values."
      git
      django
      markdown
+     ;; python packages
+     ;; yapf flake8 jedi==0.8.1 json-rpc==1.8.1 service_factory==0.1.2
+     ;; pylint ipython
      python
      go
      shell-scripts

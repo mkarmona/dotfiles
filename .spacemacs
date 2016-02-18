@@ -29,9 +29,12 @@ values."
      git
      django
      markdown
-     ;; python packages
-     ;; yapf flake8 jedi==0.8.1 json-rpc==1.8.1 service_factory==0.1.2
-     ;; pylint ipython
+
+     ;; you have to install
+     ;; pip install yapf jedi anaconda-mode
+     ;; pip install jedi==0.8.1 json-rpc==1.8.1 service_factory==0.1.2
+     ;; pip install autoflake
+     ;; pip install flake8 pylint
      python
      go
      shell-scripts
@@ -128,7 +131,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("PragmataPro Mono"
-                               :height 130
+                               :height 140
                                :weight normal
                                :width normal
                                :powerline-scale 1.0)
@@ -255,7 +258,6 @@ layers configuration. You are free to put any user code."
 
   (setq-default js2-basic-offset 2
         js-indent-level 2
-        default-line-spacing 0
         line-spacing 0
         helm-display-header-line t
         backup-inhibited t
@@ -264,7 +266,7 @@ layers configuration. You are free to put any user code."
         powerline-default-separator nil
         )
 
-  ;; (setq eval-expression-debug-on-error t)
+  (setq eval-expression-debug-on-error t)
 
   (spacemacs/toggle-line-numbers-off)
   (spacemacs/toggle-golden-ratio-off)
@@ -273,6 +275,7 @@ layers configuration. You are free to put any user code."
   (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
   (hlinum-activate)
+  (setq python-shell-interpreter 'python)
 )
 
 ;; custom things using emacs Custom
@@ -300,17 +303,18 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width normal :foundry "unknown" :family "PragmataPro Mono"))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "unknown" :family "PragmataPro Mono"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
- '(dired-header ((t (:height 130))))
- '(helm-source-header ((t (:height 130 :weight bold))))
+ '(dired-header ((t (:height 140))))
+ '(helm-source-header ((t (:height 140 :weight bold))))
  '(info-title-1 ((t (:height 170))))
  '(info-title-2 ((t (:height 160))))
  '(info-title-3 ((t (:height 150))))
- '(info-title-4 ((t (:height 130))))
+ '(info-title-4 ((t (:height 140))))
  '(linum ((t (:slant normal))))
- '(linum-highlight-face ((t (:inherit default))))
+ ;; '(linum-highlight-face ((t (:inherit default))))
+ '(linum-highlight-face ((t (:inherit current-line :weight bold))))
  '(mode-line-buffer-id ((t (:inherit mode-line :weight bold)))))
 
 ;; show full path in minibuffer

@@ -130,8 +130,8 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("PragmataPro Mono"
-                               :height 140
+   dotspacemacs-default-font '("Input"
+                               :height 130
                                :weight normal
                                :width normal
                                :powerline-scale 1.0)
@@ -257,14 +257,14 @@ layers configuration. You are free to put any user code."
   ;; npm install -g js-beautify
 
   (setq-default js2-basic-offset 2
-        js-indent-level 2
-        line-spacing 0
-        helm-display-header-line t
-        backup-inhibited t
-        auto-save-default nil
-        projectile-enable-caching t
-        powerline-default-separator nil
-        )
+                js-indent-level 2
+                line-spacing 0
+                helm-display-header-line t
+                backup-inhibited t
+                auto-save-default nil
+                projectile-enable-caching t
+                powerline-default-separator nil
+                )
 
   (setq eval-expression-debug-on-error t)
 
@@ -303,7 +303,7 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "unknown" :family "PragmataPro Mono"))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width normal :foundry "unknown" :family "Input"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
  '(dired-header ((t (:height 140))))

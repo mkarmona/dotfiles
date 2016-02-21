@@ -42,6 +42,7 @@ values."
      yaml
      gtags
      javascript
+     react
      lua
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
@@ -255,6 +256,7 @@ layers configuration. You are free to put any user code."
   ;; you need to install
   ;; npm install -g tern
   ;; npm install -g js-beautify
+  ;; npm install -g eslint babel-eslint eslint-plugin-react
 
   (setq-default js2-basic-offset 2
                 js-indent-level 2
@@ -313,7 +315,6 @@ layers configuration. You are free to put any user code."
  '(info-title-3 ((t (:height 150))))
  '(info-title-4 ((t (:height 140))))
  '(linum ((t (:slant normal))))
- ;; '(linum-highlight-face ((t (:inherit default))))
  '(linum-highlight-face ((t (:inherit current-line :weight bold))))
  '(mode-line-buffer-id ((t (:inherit mode-line :weight bold)))))
 

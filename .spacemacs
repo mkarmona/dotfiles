@@ -308,7 +308,7 @@ layers configuration. You are free to put any user code."
  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width normal :foundry "unknown" :family "Input"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
- '(dired-header ((t (:height 140))))
+ '(dired-header ((t (:height 140 :weight bold))))
  '(helm-source-header ((t (:height 140 :weight bold))))
  '(info-title-1 ((t (:height 170))))
  '(info-title-2 ((t (:height 160))))
@@ -316,7 +316,8 @@ layers configuration. You are free to put any user code."
  '(info-title-4 ((t (:height 140))))
  '(linum ((t (:slant normal))))
  '(linum-highlight-face ((t (:inherit current-line :weight bold))))
- '(mode-line-buffer-id ((t (:inherit mode-line :weight bold)))))
+ '(mode-line-buffer-id ((t (:inherit mode-line :weight bold))))
+ '(variable-pitch ((t (:family "Input Sans Narrow")))))
 
 ;; show full path in minibuffer
 (defun mcb/show-file-name ()

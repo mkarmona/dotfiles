@@ -5,8 +5,7 @@
 #refactor:
 #test (adding missing tests, refactoring tests; no production code change):
 #chore (updating grunt tasks etc; no production code change):
-#wip(wip on feature branch)
-
+#wip(wip on feature branch):
 #body description
 #References #1, #2.
 #Fix #1

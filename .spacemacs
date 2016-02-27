@@ -44,6 +44,7 @@ values."
      javascript
      react
      lua
+     java
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-enable-clang-support t)
@@ -252,6 +253,10 @@ user code."
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
 
+  ;; java eclim
+  (setq eclim-eclipse-dirs "~/bin/eclipse"
+        eclim-executable "~/bin/eclipse/eclim")
+
   ;; javascript beautify
   ;; you need to install
   ;; npm install -g tern
@@ -317,7 +322,7 @@ layers configuration. You are free to put any user code."
  '(linum ((t (:slant normal))))
  '(linum-highlight-face ((t (:inherit current-line :weight bold))))
  '(mode-line-buffer-id ((t (:inherit mode-line :weight bold))))
- '(variable-pitch ((t (:family "Input Sans Narrow")))))
+ '(variable-pitch ((t (:inherit default :height 120 :family "Input Sans Narrow")))))
 
 ;; show full path in minibuffer
 (defun mcb/show-file-name ()

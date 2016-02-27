@@ -4,12 +4,16 @@
 
 # shorten a path in $1 to max of $2 characters, prepending a "..."
 function __shortpath {
-if [[ ${#1} -gt $2 ]]; then
-    len=$2+3
-    echo "..."${1: -$len}
-else
-    echo $1
-fi
+    if [[ ${#1} -gt $2 ]]; then
+        len=$2+3
+        echo "..."${1: -$len}
+    else
+        echo $1
+    fi
+}
+
+function __short_hostname {
+    echo $(hostname -s)
 }
 
 if [ -e /lib/terminfo/x/xterm-256color ]; then
@@ -68,12 +72,11 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1=$' \[\033[00;38;5;172m\]\j\[\033[00;38;5;202m\] $(__shortpath "\w" 40)\[\033[00m\] \[\033[00;38;5;108m\]❱\[\033[00m\] '
+    PS1=$'\[\033[00;38;5;170m\]$(__short_hostname):\[\033[00m\] \[\033[00;38;5;172m\]\j\[\033[00;38;5;202m\] $(__shortpath "\w" 15)\[\033[00m\] \[\033[00;38;5;108m\]$\[\033[00m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
-
 
 dircolors=$HOME/.dircolors-$(tput colors)
 # enable color support of ls and also add handy aliases
@@ -118,13 +121,19 @@ nim_path="${HOME}/src/github.com/Araq/Nim"
 nimble_path="${HOME}/.nimble"
 #alias vim='TERM=xterm-256color vim'
 alias 7up='svn up'
-export EDITOR='gvim -f'
-export PAGER="less"
 
-export GOROOT=~/opt/go
-export GOPATH=~/src/go
+export EDITOR='emacsclient -c -a emacs'
+export PAGER="less"
+alias emacsc="emacsclient -c"
+alias emacst="emacsclient -t"
+
+# default path
+export PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+
+export GOROOT=/usr/local/go
+export GOPATH=~/sources/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:~/bin:$nim_path/bin:$nimble_path/bin
-#export NVIM_TUI_ENABLE_TRUE_COLOR=1
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
 ## /usr/local/bin/virtualenvwrapper.sh
 
 if [ -f ~/.pythonrc ]; then
@@ -136,7 +145,8 @@ GRUVBOX_SHELL="$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
 
 [[ -s "/home/el1mc/.gvm/scripts/gvm" ]] && source "/home/el1mc/.gvm/scripts/gvm"
 
-export PATH="$HOME/.linuxbrew/bin:$PATH"
-export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+racket_path="$HOME/opt/racket"
+
+export PATH="$racket_path/bin:$PATH"
+export MANPATH="$racket_path/man:$MANPATH"
 xset r rate 250 40

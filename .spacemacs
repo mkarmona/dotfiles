@@ -30,6 +30,9 @@ values."
      django
      markdown
 
+     ;; restclient scratch buffer
+     restclient
+
      ;; you have to install
      ;; pip install yapf jedi anaconda-mode
      ;; pip install jedi==0.8.1 json-rpc==1.8.1 service_factory==0.1.2
@@ -64,10 +67,7 @@ values."
                       ;;version-control-diff-tool 'git-gutter
                       version-control-global-margin t)
 
-     octave
-     (ibuffer :variables
-              ibuffer-group-buffers-by 'modes)
-     )
+     octave)
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the

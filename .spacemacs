@@ -83,10 +83,11 @@ values."
                                       toml-mode
                                       groovy-mode
                                       material-theme
+                                      gist
                                       hlinum)
    ;; A list of packages and/or extensions that will not be install and loaded.
 
-   ;; dotspacemacs-excluded-packages '(powerline)
+   dotspacemacs-excluded-packages '(powerline)
 
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
@@ -293,6 +294,7 @@ layers configuration. You are free to put any user code."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ahs-default-range (quote ahs-range-whole-buffer))
+ '(compilation-message-face (quote default))
  '(cua-mode t nil (cua-base))
  '(default-input-method "spanish-postfix")
  '(diff-hl-margin-mode t)
@@ -310,19 +312,18 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width normal :foundry "unknown" :family "Input"))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 128 :width semi-condensed :foundry "unknown" :family "Input"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
- '(dired-header ((t (:height 140 :weight bold))))
- '(helm-source-header ((t (:height 140 :weight bold))))
+ '(dired-header ((t (:family "Input Sans" :height 140 :weight bold))))
+ '(helm-source-header ((t (:family "Input Sans" :height 140 :weight bold))))
  '(info-title-1 ((t (:height 170))))
  '(info-title-2 ((t (:height 160))))
  '(info-title-3 ((t (:height 150))))
  '(info-title-4 ((t (:height 140))))
  '(linum ((t (:slant normal))))
  '(linum-highlight-face ((t (:inherit current-line :weight bold))))
- '(mode-line-buffer-id ((t (:inherit mode-line :weight bold))))
- '(variable-pitch ((t (:inherit default :height 120 :family "Input Sans Narrow")))))
+ '(mode-line-buffer-id ((t (:inherit mode-line :weight bold)))))
 
 ;; show full path in minibuffer
 (defun mcb/show-file-name ()

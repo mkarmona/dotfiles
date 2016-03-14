@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Type documentation
+# key: \dreturn
+# group: doxy
+# --
+\return ${1:Return description}

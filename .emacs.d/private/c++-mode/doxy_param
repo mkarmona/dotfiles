@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Type documentation
+# key: \dparam
+# group: doxy
+# --
+\param ${1:Param} ${2:Param description}

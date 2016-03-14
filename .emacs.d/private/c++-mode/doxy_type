@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Type documentation
+# key: \dtype
+# group: doxy
+# --
+/** \brief ${1:One-line description} */

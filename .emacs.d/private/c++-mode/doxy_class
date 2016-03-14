@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: Class documentation
+# key: \dclass
+# group: doxy
+# --
+/**
+   \brief ${1:One-line description}
+   
+   \details ${2:Multi-line description}
+
+   \bug
+   \note
+   \warning
+*/

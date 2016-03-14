@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: Class documentation
+# key: \dmethod
+# group: doxy
+# --
+/**
+   \brief ${1:One-line description}
+
+   ${2:Insert your params here using \dparam or \dreturn}
+*/

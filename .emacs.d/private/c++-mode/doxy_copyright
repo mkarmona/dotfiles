@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: File description
+# key: \dcopyright
+# group: doxy
+# --
+/*
+  Copyright (c) 2009-2016,
+  Computational Image and Simulation Technologies in Biomedicine (CISTIB),
+  The University Of Sheffield (TUoS), Sheffield, UK. All rights reserved. 2012-2016
+  Universitat Pompeu Fabra (UPF), Barcelona, Spain. All rights reserved. 2009-2012
+  See license.txt file for details.
+*/

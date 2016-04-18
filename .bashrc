@@ -16,6 +16,33 @@ function __short_hostname {
     echo $(hostname -s)
 }
 
+find_git_dirty() {
+    local status=$(git status --porcelain 2> /dev/null)
+    local git_dirty=""
+
+    if [[ "$status" != "" ]]; then
+        git_dirty="✘"
+    else
+        git_dirty="✔"
+    fi
+    echo $git_dirty
+}
+
+find_git_branch() {
+    # Based on: http://stackoverflow.com/a/13003854/170413
+    # https://gist.github.com/sindresorhus/3898739
+    local branch=""
+    local git_branch=""
+    if branch=$(git symbolic-ref --short HEAD 2> /dev/null); then
+        if [[ "$branch" == "HEAD" ]]; then
+            git_branch="(detached*)"
+        else
+            git_branch="(${branch}$(find_git_dirty))"
+        fi
+    fi
+    echo $git_branch
+}
+
 if [ -e /lib/terminfo/x/xterm-256color ]; then
     export TERM="xterm-256color"
 else
@@ -72,7 +99,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1=$'\[\033[00;38;5;170m\]$(__short_hostname):\[\033[00m\] \[\033[00;38;5;172m\]\j\[\033[00;38;5;202m\] $(__shortpath "\w" 15)\[\033[00m\] \[\033[00;38;5;108m\]$\[\033[00m\] '
+    PS1=$'\[\033[01;32;5;170m\]$(__short_hostname)\[\033[00m\] \[\033[01;35;5;172m\]\j\[\033[01;34;5;202m\] $(__shortpath "\w" 15)\[\033[00m\] $(find_git_branch) \[\033[01;31;5;108m\]$\[\033[00m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -140,13 +167,14 @@ if [ -f ~/.pythonrc ]; then
     export PYTHONSTARTUP=~/.pythonrc
 fi
 
-GRUVBOX_SHELL="$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
-[[ -s $GRUVBOX_SHELL ]] && source $GRUVBOX_SHELL
-
+#GRUVBOX_SHELL="$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
+#[[ -s $GRUVBOX_SHELL ]] && source $GRUVBOX_SHELL
+#
 [[ -s "/home/el1mc/.gvm/scripts/gvm" ]] && source "/home/el1mc/.gvm/scripts/gvm"
 
 racket_path="$HOME/opt/racket"
 
-export PATH="$racket_path/bin:$PATH"
-export MANPATH="$racket_path/man:$MANPATH"
+export SCALA_HOME=~/opt/scala/scala-2.11.8
+export PATH=$racket_path/bin:$PATH:$SCALA_HOME/bin
+export MANPATH=$racket_path/man:$MANPATH
 xset r rate 250 40

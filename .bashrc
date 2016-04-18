@@ -18,12 +18,12 @@ function __short_hostname {
 
 find_git_dirty() {
     local status=$(git status --porcelain 2> /dev/null)
-    local git_dirty=""
+    local git_dirty=''
 
     if [[ "$status" != "" ]]; then
-        git_dirty="✘"
+        git_dirty='✘'
     else
-        git_dirty="✔"
+        git_dirty='✔'
     fi
     echo $git_dirty
 }
@@ -31,16 +31,19 @@ find_git_dirty() {
 find_git_branch() {
     # Based on: http://stackoverflow.com/a/13003854/170413
     # https://gist.github.com/sindresorhus/3898739
-    local branch=""
-    local git_branch=""
+    local branch=''
+    local git_branch=''
     if branch=$(git symbolic-ref --short HEAD 2> /dev/null); then
-        if [[ "$branch" == "HEAD" ]]; then
-            git_branch="(detached*)"
+        if [[ '$branch' == 'HEAD' ]]; then
+            git_branch='(detached*)'
         else
-            git_branch="(${branch}$(find_git_dirty))"
+            str=$(git rev-list --left-right --count origin/${branch}...${branch})
+            from_o=$(echo $str | cut -f1 -d" ")
+            to_o=$(echo $str | cut -f2 -d" ")
+            git_branch="(${branch}⭭${from_o}⭫${to_o}|$(find_git_dirty))"
         fi
     fi
-    echo $git_branch
+    echo "$git_branch "
 }
 
 if [ -e /lib/terminfo/x/xterm-256color ]; then
@@ -99,7 +102,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1=$'\[\033[01;32;5;170m\]$(__short_hostname)\[\033[00m\] \[\033[01;35;5;172m\]\j\[\033[01;34;5;202m\] $(__shortpath "\w" 15)\[\033[00m\] $(find_git_branch) \[\033[01;31;5;108m\]$\[\033[00m\] '
+    PS1=$'\[\033[01;32;5;170m\]$(__short_hostname)\[\033[00m\] \[\033[01;35;5;172m\]\j\[\033[01;34;5;202m\] $(__shortpath "\w" 15)\[\033[00m\] $(find_git_branch)\[\033[01;31;5;108m\]$\[\033[00m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi

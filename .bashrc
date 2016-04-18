@@ -6,7 +6,7 @@
 function __shortpath {
     if [[ ${#1} -gt $2 ]]; then
         len=$2+3
-        echo "..."${1: -$len}
+        echo "…"${1: -$len}
     else
         echo $1
     fi

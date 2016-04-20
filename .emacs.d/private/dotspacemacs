@@ -7,22 +7,10 @@
 You should not put any user code in this function besides modifying the variable
 values."
   (setq-default
-   ;; Base distribution to use. This is a layer contained in the directory
-   ;; `+distribution'. For now available distributions are `spacemacs-base'
-   ;; or `spacemacs'. (default 'spacemacs)
    dotspacemacs-distribution 'spacemacs
-   ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '()
-   ;; List of configuration layers to load. If it is the symbol `all' instead
-   ;; of a list then all discovered layers will be installed.
-   dotspacemacs-configuration-layers
-   '(
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-     ;; <M-m f e R> (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
+   dotspacemacs-configuration-layers '(
      (auto-completion :variables
                       auto-completion-enable-snippets-in-popup t)
      ;; better-defaults
@@ -30,11 +18,7 @@ values."
      git
      django
      markdown
-
      semantic
-     ;; restclient scratch buffer
-     restclient
-
      ;; you have to install
      ;; pip install yapf jedi anaconda-mode
      ;; pip install jedi==0.8.1 json-rpc==1.8.1 service_factory==0.1.2
@@ -54,11 +38,9 @@ values."
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-enable-clang-support t)
-
      ;; org + ox-pandoc
      org
      pandoc
-
      (shell :variables
             shell-default-height 30
             ;; shell-default-shell 'multi-term
@@ -68,38 +50,42 @@ values."
      ;;clojure
      (syntax-checking :variables
                       syntax-checking-enable-tooltips nil)
-
      (version-control :variables
                       version-control-diff-tool 'diff-hl
                       ;;version-control-diff-tool 'git-gutter
                       version-control-global-margin t)
 
-     octave)
+     octave
+   )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '(llvm-mode
-                                      dts-mode
-                                      monokai-theme
-                                      mvn
-                                      realgud
-                                      ac-octave
-                                      ag
-                                      with-editor
-                                      toml-mode
-                                      groovy-mode
-                                      material-theme
-                                      gist
-                                      hlinum)
-   ;; A list of packages and/or extensions that will not be install and loaded.
+   dotspacemacs-additional-packages
+   '(llvm-mode
+     dts-mode
+     monokai-theme
+     mvn
+     realgud
+     ac-octave
+     ag
+     with-editor
+     toml-mode
+     groovy-mode
+     (material-theme :location (recipe :fetcher github :repo "mkarmona/emacs-material-theme"))
+     gist
+     hlinum
+     markdown-preview-eww
+     smart-mode-line)
 
-   ;; dotspacemacs-excluded-packages '(powerline)
+   ;; A list of packages and/or extensions that will not be install and loaded.
+   dotspacemacs-excluded-packages '(powerline)
 
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'. (default t)
-   dotspacemacs-delete-orphan-packages t))
+   dotspacemacs-delete-orphan-packages t
+  ))
 
 (defun dotspacemacs/init ()
   "Initialization function.
@@ -131,7 +117,7 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(material
+   dotspacemacs-themes '(material-pale
                          monokai
                          anti-zenburn)
 
@@ -140,7 +126,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Input"
-                               :height 130
+                               :height 140
                                :weight normal
                                :width normal
                                :powerline-scale 1.0)
@@ -252,7 +238,6 @@ user code."
  user code."
  (setq tramp-ssh-controlmaster-options
   "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
-
  )
 
 (defun dotspacemacs/user-config ()
@@ -260,9 +245,20 @@ user code."
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
 
+  ;; default options for all output formats
+  (setq org-pandoc-options '((standalone . t)))
+  ;; cancel above settings only for 'docx' format
+  (setq org-pandoc-options-for-docx '((standalone . nil)))
+  ;; special settings for beamer-pdf and latex-pdf exporters
+  (setq org-pandoc-options-for-beamer-pdf '((latex-engine . "xelatex")))
+  (setq org-pandoc-options-for-latex-pdf '((latex-engine . "xelatex")))
+
+  (define-key global-map (kbd "C-+") 'text-scale-increase)
+  (define-key global-map (kbd "C--") 'text-scale-decrease)
+
   ;; java eclim
-  (setq eclim-eclipse-dirs "~/bin/eclipse"
-        eclim-executable "~/bin/eclipse/eclim")
+  ;; (setq eclim-eclipse-dirs "~/bin/eclipse"
+  ;;       eclim-executable "~/bin/eclipse/eclim")
 
   ;; javascript beautify
   ;; you need to install
@@ -299,7 +295,7 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ahs-default-range (quote ahs-range-whole-buffer))
+ '(ahs-default-range (quote ahs-range-whole-buffer) t)
  '(compilation-message-face (quote default))
  '(cua-mode t nil (cua-base))
  '(default-input-method "spanish-postfix")
@@ -307,6 +303,9 @@ layers configuration. You are free to put any user code."
  '(diff-hl-side (quote right))
  '(global-spacemacs-default-map-override-mode t)
  '(magit-diff-use-overlays nil)
+ '(package-selected-packages
+   (quote
+    (mypackage material-pale-theme danneskjold-theme auto-complete avy flycheck company helm helm-core yasnippet magit magit-popup git-commit hydra list-utils evil markdown-preview-eww smart-mode-line yaml-mode xterm-color ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe use-package toml-mode toc-org tagedit stickyfunc-enhance srefactor spacemacs-theme spaceline smooth-scrolling smeargle slim-mode shell-pop scss-mode sass-mode restclient restart-emacs realgud rainbow-delimiters quelpa pyvenv pytest pyenv-mode popwin pony-mode pip-requirements persp-mode pcre2el paradox pandoc-mode page-break-lines ox-pandoc orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file noflet neotree mvn multi-term move-text monokai-theme mmm-mode material-theme markdown-toc magit-gitflow macrostep lua-mode lorem-ipsum llvm-mode linum-relative leuven-theme less-css-mode json-mode js2-refactor js-doc jade-mode info+ indent-guide ido-vertical-mode hy-mode hungry-delete htmlize hlinum hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gtags helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag groovy-mode google-translate golden-ratio go-eldoc gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-gutter-fringe git-gutter-fringe+ gist gh-md ggtags flycheck-pos-tip flx-ido fish-mode fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help ensime emmet-mode emacs-eclim elisp-slime-nav dts-mode disaster diff-hl define-word cython-mode company-web company-tern company-statistics company-quickhelp company-go company-c-headers company-anaconda coffee-mode cmake-mode clean-aindent-mode clang-format buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-compile anti-zenburn-theme aggressive-indent ag adaptive-wrap ace-window ace-link ace-jump-helm-line ac-octave ac-ispell)))
  '(powerline-default-separator nil)
  '(show-paren-mode t))
 
@@ -315,15 +314,15 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#1d272b" :foreground "#fafdff" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width semi-condensed :foundry "unknown" :family "Input"))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width semi-condensed :foundry "unknown" :family "Input"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
- '(dired-header ((t (:family "Ubuntu" :height 150 :weight bold))))
- '(helm-source-header ((t (:family "Ubuntu" :height 150 :weight bold))))
- '(info-title-1 ((t (:height 170))))
- '(info-title-2 ((t (:height 160))))
- '(info-title-3 ((t (:height 150))))
- '(info-title-4 ((t (:height 140))))
+ '(dired-header ((t (:family "Ubuntu" :height 160 :weight bold))))
+ '(helm-source-header ((t (:family "Ubuntu" :height 160 :weight bold))))
+ '(info-title-1 ((t (:height 180))))
+ '(info-title-2 ((t (:height 170))))
+ '(info-title-3 ((t (:height 160))))
+ '(info-title-4 ((t (:height 150))))
  '(linum ((t (:slant normal))))
  '(linum-highlight-face ((t (:inherit current-line :weight bold))))
  '(mode-line-buffer-id ((t (:inherit mode-line :weight bold)))))

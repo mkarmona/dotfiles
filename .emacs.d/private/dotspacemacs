@@ -18,23 +18,48 @@ values."
      git
      django
      markdown
-     semantic
+     ;; semantic
      ;; you have to install
      ;; pip install yapf jedi anaconda-mode
      ;; pip install jedi==0.8.1 json-rpc==1.8.1 service_factory==0.1.2
      ;; pip install autoflake
      ;; pip install flake8 pylint
      python
+
+     ;; go get -u -v github.com/nsf/gocode
+     ;; go get -u -v github.com/rogpeppe/godef
+     ;; go get -u -v golang.org/x/tools/cmd/oracle
+     ;; go get -u -v golang.org/x/tools/cmd/gorename
      go
      shell-scripts
      html
      yaml
      gtags
-     javascript
-     react
+
+     ;; javascript beautify
+     ;; you need to install
+     ;; npm install -g tern
+     ;; npm install -g js-beautify
+     ;; npm install -g eslint babel-eslint eslint-plugin-react
+
+     ;; (setq-default js2-basic-offset 2
+     ;;               js-indent-level 2
+     ;;               line-spacing 0
+     ;;               helm-display-header-line t
+     ;;               backup-inhibited t
+     ;;               auto-save-default nil
+     ;;               projectile-enable-caching t
+     ;;               powerline-default-separator nil
+     ;;               )
+
+     (javascript :variables javascript-disable-tern-port-files nil)
+
+     ;; react
      lua
      java
      scala
+     typescript
+     eyebrowse
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-enable-clang-support t)
@@ -47,7 +72,7 @@ values."
             shell-default-term-shell "/bin/bash"
             shell-default-position 'bottom)
      ;; spell-checking
-     ;;clojure
+     ;; clojure
      (syntax-checking :variables
                       syntax-checking-enable-tooltips nil)
      (version-control :variables
@@ -55,6 +80,7 @@ values."
                       ;;version-control-diff-tool 'git-gutter
                       version-control-global-margin t)
 
+     ;; racket
      octave
    )
    ;; List of additional packages that will be installed without being
@@ -72,14 +98,15 @@ values."
      with-editor
      toml-mode
      groovy-mode
-     (material-theme :location (recipe :fetcher github :repo "mkarmona/emacs-material-theme"))
+     (emacs-gruvterial-theme :location (recipe :fetcher github :repo "mkarmona/emacs-gruvterial-theme"))
      gist
      hlinum
      markdown-preview-eww
-     smart-mode-line)
+     smart-mode-line
+     emacs-material-theme)
 
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '(powerline)
+   dotspacemacs-excluded-packages '()
 
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
@@ -117,7 +144,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(material-pale
+   dotspacemacs-themes '(gruvterial
+                         material
                          monokai
                          anti-zenburn)
 
@@ -125,8 +153,8 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Input"
-                               :height 140
+   dotspacemacs-default-font '("DejaVu Sans Mono"
+                               :height 180
                                :weight normal
                                :width normal
                                :powerline-scale 1.0)
@@ -192,7 +220,7 @@ values."
    dotspacemacs-maximized-at-startup nil
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
-   ;; Transparency can be toggled through `toGgle-Transparency'. (default 90)
+   ;; Transparency can be toggled through `toggle-Transparency'. (default 90)
    dotspacemacs-active-transparency 100
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
@@ -223,7 +251,20 @@ values."
    ;; Not used for now. (default nil)
    dotspacemacs-default-package-repository nil
 
+   ;; js2 initial default values
+   js2-basic-offset 2
+   js-indent-level 2
+   line-spacing 0
+   helm-display-header-line t
+   backup-inhibited t
+   auto-save-default nil
+   projectile-enable-caching t
+   powerline-default-separator nil
+
+   ;; web-mode no tabs at all
+   indent-tabs-mode nil
   )
+
 )
 
 (defun dotspacemacs/config ()
@@ -233,17 +274,39 @@ user code."
 )
 
 (defun dotspacemacs/user-init ()
- "Initialization function for user code.
+  "Initialization function for user code.
  It is called immediately after `dotspacemacs/init'.  You are free to put any
  user code."
- (setq tramp-ssh-controlmaster-options
-  "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
- )
+  (setq tramp-ssh-controlmaster-options
+        "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+  (add-hook 'js2-mode-hook
+            (defun my-js2-mode-setup ()
+              (flycheck-mode t)
+              (when (executable-find "eslint")
+                (flycheck-select-checker 'javascript-eslint))))
+  )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
+
+  ;; symbols prettify
+  (setq prettify-symbols-unprettify-at-point t)
+
+  ;; web mode defaults
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
+
+  ;; javascript beautify
+  ;; you need to install
+  ;; npm install -g tern
+  ;; npm install -g js-beautify
+  ;; npm install -g eslint babel-eslint eslint-plugin-react
+  ;; javascript js2 and tern and node
+  (setq js2-include-node-externs t)
 
   ;; default options for all output formats
   (setq org-pandoc-options '((standalone . t)))
@@ -255,26 +318,6 @@ layers configuration. You are free to put any user code."
 
   (define-key global-map (kbd "C-+") 'text-scale-increase)
   (define-key global-map (kbd "C--") 'text-scale-decrease)
-
-  ;; java eclim
-  ;; (setq eclim-eclipse-dirs "~/bin/eclipse"
-  ;;       eclim-executable "~/bin/eclipse/eclim")
-
-  ;; javascript beautify
-  ;; you need to install
-  ;; npm install -g tern
-  ;; npm install -g js-beautify
-  ;; npm install -g eslint babel-eslint eslint-plugin-react
-
-  (setq-default js2-basic-offset 2
-                js-indent-level 2
-                line-spacing 0
-                helm-display-header-line t
-                backup-inhibited t
-                auto-save-default nil
-                projectile-enable-caching t
-                powerline-default-separator nil
-                )
 
   (setq eval-expression-debug-on-error t)
 
@@ -295,34 +338,85 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ahs-default-range (quote ahs-range-whole-buffer) t)
+ '(ahs-default-range (quote ahs-range-whole-buffer))
+ '(ansi-color-faces-vector
+   [default bold shadow italic underline bold bold-italic bold])
+ '(ansi-color-names-vector
+   ["#272822" "#F92672" "#A6E22E" "#E6DB74" "#66D9EF" "#FD5FF0" "#A1EFE4" "#F8F8F2"])
  '(compilation-message-face (quote default))
  '(cua-mode t nil (cua-base))
+ '(custom-safe-themes
+   (quote
+    ("b40686a99e72b401027436480a80c10ba701819751b0bb3f2836e004c95c80f6" "c3caede4dec6b332b89e470eb586a1e2f26f20b9863feffa4bdb1e31cc8f1a7b" "c1d528b0104774bdca4dec53086f9fc869d801eab13a06c073f1537b300beaab" default)))
  '(default-input-method "spanish-postfix")
  '(diff-hl-margin-mode t)
  '(diff-hl-side (quote right))
+ '(fci-rule-color "#49483E" t)
+ '(flycheck-clang-language-standard "c++11")
+ '(flycheck-gcc-language-standard "c++11")
  '(global-spacemacs-default-map-override-mode t)
- '(magit-diff-use-overlays nil)
- '(package-selected-packages
+ '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
+ '(highlight-tail-colors
    (quote
-    (mypackage material-pale-theme danneskjold-theme auto-complete avy flycheck company helm helm-core yasnippet magit magit-popup git-commit hydra list-utils evil markdown-preview-eww smart-mode-line yaml-mode xterm-color ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe use-package toml-mode toc-org tagedit stickyfunc-enhance srefactor spacemacs-theme spaceline smooth-scrolling smeargle slim-mode shell-pop scss-mode sass-mode restclient restart-emacs realgud rainbow-delimiters quelpa pyvenv pytest pyenv-mode popwin pony-mode pip-requirements persp-mode pcre2el paradox pandoc-mode page-break-lines ox-pandoc orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file noflet neotree mvn multi-term move-text monokai-theme mmm-mode material-theme markdown-toc magit-gitflow macrostep lua-mode lorem-ipsum llvm-mode linum-relative leuven-theme less-css-mode json-mode js2-refactor js-doc jade-mode info+ indent-guide ido-vertical-mode hy-mode hungry-delete htmlize hlinum hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gtags helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag groovy-mode google-translate golden-ratio go-eldoc gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-gutter-fringe git-gutter-fringe+ gist gh-md ggtags flycheck-pos-tip flx-ido fish-mode fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help ensime emmet-mode emacs-eclim elisp-slime-nav dts-mode disaster diff-hl define-word cython-mode company-web company-tern company-statistics company-quickhelp company-go company-c-headers company-anaconda coffee-mode cmake-mode clean-aindent-mode clang-format buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-compile anti-zenburn-theme aggressive-indent ag adaptive-wrap ace-window ace-link ace-jump-helm-line ac-octave ac-ispell)))
+    (("#49483E" . 0)
+     ("#679A01" . 20)
+     ("#4BBEAE" . 30)
+     ("#1DB4D0" . 50)
+     ("#9A8F21" . 60)
+     ("#A75B00" . 70)
+     ("#F309DF" . 85)
+     ("#49483E" . 100))))
+ '(hl-sexp-background-color "#1d2021")
+ '(magit-diff-use-overlays nil)
+ '(notmuch-search-line-faces
+   (quote
+    (("unread" :foreground "#aeee00")
+     ("flagged" :foreground "#0a9dff")
+     ("deleted" :foreground "#ff2c4b" :bold t))))
+ '(pos-tip-background-color "#A6E22E")
+ '(pos-tip-foreground-color "#272822")
  '(powerline-default-separator nil)
- '(show-paren-mode t))
+ '(projectile-go-function "go build ./...")
+ '(show-paren-mode t)
+ '(vc-annotate-background nil)
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#F92672")
+     (40 . "#CF4F1F")
+     (60 . "#C26C0F")
+     (80 . "#E6DB74")
+     (100 . "#AB8C00")
+     (120 . "#A18F00")
+     (140 . "#989200")
+     (160 . "#8E9500")
+     (180 . "#A6E22E")
+     (200 . "#729A1E")
+     (220 . "#609C3C")
+     (240 . "#4E9D5B")
+     (260 . "#3C9F79")
+     (280 . "#A1EFE4")
+     (300 . "#299BA6")
+     (320 . "#2896B5")
+     (340 . "#2790C3")
+     (360 . "#66D9EF"))))
+ '(vc-annotate-very-old-color nil)
+ '(weechat-color-list
+   (unspecified "#272822" "#49483E" "#F70057" "#F92672" "#86C30D" "#A6E22E" "#BEB244" "#E6DB74" "#40CAE4" "#66D9EF" "#FB35EA" "#FD5FF0" "#74DBCD" "#A1EFE4" "#F8F8F2" "#F8F8F0")))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width semi-condensed :foundry "unknown" :family "Input"))))
+ '(default ((t (:inherit nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 180 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
  '(dired-header ((t (:family "Ubuntu" :height 160 :weight bold))))
  '(helm-source-header ((t (:family "Ubuntu" :height 160 :weight bold))))
- '(info-title-1 ((t (:height 180))))
- '(info-title-2 ((t (:height 170))))
- '(info-title-3 ((t (:height 160))))
- '(info-title-4 ((t (:height 150))))
+ '(info-title-1 ((t (:height 190))))
+ '(info-title-2 ((t (:height 180))))
+ '(info-title-3 ((t (:height 170))))
+ '(info-title-4 ((t (:height 170))))
  '(linum ((t (:slant normal))))
  '(linum-highlight-face ((t (:inherit current-line :weight bold))))
  '(mode-line-buffer-id ((t (:inherit mode-line :weight bold)))))
@@ -333,3 +427,4 @@ layers configuration. You are free to put any user code."
   (interactive)
   (message (buffer-file-name))
   (kill-new (file-truename buffer-file-name)))
+

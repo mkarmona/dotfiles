@@ -25,6 +25,7 @@ values."
      ;; pip install autoflake
      ;; pip install flake8 pylint
      python
+     java
 
      ;; go get -u -v github.com/nsf/gocode
      ;; go get -u -v github.com/rogpeppe/godef
@@ -56,8 +57,7 @@ values."
 
      ;; react
      lua
-     java
-     scala
+
      typescript
      eyebrowse
      (c-c++ :variables
@@ -103,7 +103,9 @@ values."
      hlinum
      markdown-preview-eww
      smart-mode-line
-     emacs-material-theme)
+     emacs-material-theme
+     company-emacs-eclim
+     )
 
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -154,7 +156,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("DejaVu Sans Mono"
-                               :height 180
+                               :height 160
                                :weight normal
                                :width normal
                                :powerline-scale 1.0)
@@ -291,6 +293,10 @@ user code."
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
 
+  ;; java eclim
+  (setq eclim-eclipse-dirs "/home/mkarmona/opt/eclipse-java"
+        eclim-executable "/home/mkarmona/opt/eclipse-java/eclim")
+
   ;; symbols prettify
   (setq prettify-symbols-unprettify-at-point t)
 
@@ -347,7 +353,7 @@ layers configuration. You are free to put any user code."
  '(cua-mode t nil (cua-base))
  '(custom-safe-themes
    (quote
-    ("b40686a99e72b401027436480a80c10ba701819751b0bb3f2836e004c95c80f6" "c3caede4dec6b332b89e470eb586a1e2f26f20b9863feffa4bdb1e31cc8f1a7b" "c1d528b0104774bdca4dec53086f9fc869d801eab13a06c073f1537b300beaab" default)))
+    ("5b68c49e259be1364acb58342d294585cd5b248c89e2b68191552d54e8038f9f" "b40686a99e72b401027436480a80c10ba701819751b0bb3f2836e004c95c80f6" "c3caede4dec6b332b89e470eb586a1e2f26f20b9863feffa4bdb1e31cc8f1a7b" "c1d528b0104774bdca4dec53086f9fc869d801eab13a06c073f1537b300beaab" default)))
  '(default-input-method "spanish-postfix")
  '(diff-hl-margin-mode t)
  '(diff-hl-side (quote right))
@@ -408,7 +414,7 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 180 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
+ '(default ((t (:inherit nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 160 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
  '(dired-header ((t (:family "Ubuntu" :height 160 :weight bold))))

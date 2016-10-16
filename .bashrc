@@ -85,18 +85,17 @@ fi
 
 bold=$(tput bold)
 reset=$(tput sgr0)
-green=$(tput setaf 2)
-red=$(tput setaf 1)
-green=$(tput setaf 2)
-yellow=$(tput setaf 3)
-blue=$(tput setaf 4)
-magenta=$(tput setaf 5)
-cyan=$(tput setaf 6)
+green=$(tput setaf 10)
+red=$(tput setaf 9)
+yellow=$(tput setaf 11)
+blue=$(tput setaf 12)
+cyan=$(tput setaf 14)
+purple=$(tput setaf 13)
 
 if [ "$color_prompt" = yes ]; then
-    PS1=$'\[$yellow\]\j:$USER:$(__shortpath "\w" 15):\[$reset\] '
+    PS1=$'\[$green\]\j:$USER:$(__shortpath "\w" 15) \[$yellow\]§\[$reset\] '
 else
-    PS1=$'\j:$USER:$(__shortpath "\w" 15): '
+    PS1=$'\j:$USER:$(__shortpath "\w" 15) § '
 fi
 unset color_prompt force_color_prompt
 
